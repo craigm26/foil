@@ -28,14 +28,34 @@ ROOT = Path(__file__).parent
 PRICES = ROOT / "data" / "prices-anthropic.json"
 
 
+#: Calibration for the pre-flight estimator, measured 2026-08-13 against
+#: claude-sonnet-5. Two corrections to the original prose-only char/4 rule:
+#:
+#:  1. Estimate over the WHOLE serialized body. Summing only the prose text
+#:     fields projected ~187 tok/call where the API reported ~520, because it
+#:     silently omitted the JSON output schema.
+#:  2. Use ~2.4 chars/token, not 4. The 4:1 rule is for English prose; a
+#:     request body is punctuation-dense JSON, which tokenizes far worse.
+#:
+#: Fitted to measured usage (7286 input tokens over 14 calls). Re-measure when
+#: the request shape changes -- this is a calibration, not a law.
+CHARS_PER_TOKEN = 2.4
+
+#: Measured typical output for the two-field structured action (252 output
+#: tokens over 14 calls, 2026-08-13). max_tokens is a truncation guard, not a
+#: spend estimate.
+TYPICAL_OUTPUT_TOKENS = 18
+
+
 def est_tokens(body: dict) -> int:
-    """Character/4 estimate. Explicitly an ESTIMATE: it is used only for the
-    pre-flight projection, never for the ledger, which reports measured usage
-    returned by the API."""
-    n = sum(len(b["text"]) for b in body["system"])
-    for m in body["messages"]:
-        n += sum(len(c["text"]) for c in m["content"])
-    return n // 4
+    """Pre-flight input-token estimate over the full serialized request.
+
+    Explicitly an ESTIMATE and never the figure of record: the ledger reports
+    measured usage returned by the API, and the §8 G4 cost gate is set from
+    that. Summing only the prose fields (the first implementation) understated
+    input by ~2.8x because it silently omitted the output schema.
+    """
+    return int(len(json.dumps(body)) / CHARS_PER_TOKEN)
 
 
 def cmd_plan(args) -> int:
@@ -60,8 +80,9 @@ def cmd_plan(args) -> int:
     print(f"arms             {arms}  (N1 orders {args.orders} + N2 1 + REF {len(ep.source_ids)})")
     print(f"samples/arm      {args.n}")
     print(f"total calls      {calls}")
-    print(f"est input/call   ~{per_call_in} tok (estimate, char/4)")
-    print(f"est output/call  ~{body['max_tokens']} tok max")
+    print(f"est input/call   ~{per_call_in} tok (calibrated estimate, +/-a few %)")
+    print(f"est output/call  ~{TYPICAL_OUTPUT_TOKENS} tok typical "
+          f"({body['max_tokens']} max, rarely approached)")
     print()
     print(f"invariant prefix ~{prefix_tokens} tok")
     if prefix_tokens < DEFAULT_MIN_CACHEABLE:
@@ -74,9 +95,19 @@ def cmd_plan(args) -> int:
         print(f"cost             UNKNOWN -- no price row for {args.model!r}")
         print("                 fails closed by design; add a row to data/prices-anthropic.json")
     else:
-        lo = calls * per_call_in * row["inPerMtok"] / 1e6
-        hi = lo + calls * body["max_tokens"] * row["outPerMtok"] / 1e6
-        print(f"cost (est)       ${lo:.4f} .. ${hi:.4f}   [rates asOf {row['asOf']}]")
+        # The structured action is a two-field JSON object, so output sits far
+        # below max_tokens. Costing at max_tokens produced a ceiling ~3x the
+        # real figure, which is not a useful bound for a cost gate.
+        expected = (
+            calls * per_call_in * row["inPerMtok"]
+            + calls * TYPICAL_OUTPUT_TOKENS * row["outPerMtok"]
+        ) / 1e6
+        ceiling = (
+            calls * per_call_in * row["inPerMtok"]
+            + calls * body["max_tokens"] * row["outPerMtok"]
+        ) / 1e6
+        print(f"cost (est)       ${expected:.2f} expected   (${ceiling:.2f} absolute ceiling)")
+        print(f"                 [rates asOf {row['asOf']}; estimates, never billing truth]")
     print()
     print(f"request hash     {request_hash(body)}")
     if args.show_prompt:
