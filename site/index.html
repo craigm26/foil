@@ -179,6 +179,134 @@
   </div>
 </section>
 
+<!-- ─────────────────────── TOOLS ─────────────────────── -->
+<section class="band band-lab" id="tools">
+  <div class="wrap">
+    <h2 class="sec">Two tools came out of this</h2>
+    <p class="sub">
+      Both are importable Python libraries with zero dependencies — not CLIs and
+      not services. The thing they check lives inside your code, so they have to
+      run there too. Small enough to vendor if adding a dependency to a research
+      harness is not worth the argument.
+    </p>
+
+    <div class="toolgrid">
+      <div class="toolcard">
+        <div class="toolname">orderprobe</div>
+        <div class="toolwhere">runs in production, inside the agent loop</div>
+        <p>
+          A brake trigger that needs no ground truth. Permute the inputs to a
+          decision; if the answer moves, stop and escalate. Catches 77% of errors
+          while stopping 29% of decisions.
+        </p>
+<pre class="code code-sm"><code><span class="c"># wrap any decision that reads ordered context</span>
+@probe(k=6, samples=5)
+def decide(items): return your_model_call(items)
+
+r = decide(tool_results)
+if r.unstable: escalate(r)</code></pre>
+      </div>
+
+      <div class="toolcard">
+        <div class="toolname">evalgate</div>
+        <div class="toolwhere">runs before you spend, in CI or a notebook</div>
+        <p>
+          Three checks that prove an eval environment can measure what you claim.
+          We built seven environments for this project and <b>four were
+          invalid</b> — each producing results that looked perfectly analyzable.
+        </p>
+<pre class="code code-sm"><code>structural.verify(make_case, holds, n=200)   <span class="c"># free</span>
+power.paired(effect=.20, units=32, reps=5)   <span class="c"># free</span>
+construct.verify(oracle, cases, min_rate=.9) <span class="c"># ~$1.50</span></code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── LIVE: BRAKE ─────────────────────── -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="sec">Try the brake</h2>
+    <p class="sub">
+      A multiagent system decides faster than anyone can review. So the brake has
+      to be automatic, and the hard part is the trigger — you cannot use
+      correctness, because at runtime you do not know it. Below are <b>48 real
+      measured decisions</b> from the pre-registered run. Set a trigger and see
+      what it stops.
+    </p>
+
+    <div class="lab">
+      <div class="lab-left">
+        <div class="ctl">
+          <div class="ctl-lab">Trigger on</div>
+          <label class="rad"><input type="radio" name="trigmode" value="instability" checked> answer moves when inputs are reordered</label>
+          <label class="rad"><input type="radio" name="trigmode" value="confidence"> model reports low confidence</label>
+          <label class="rad"><input type="radio" name="trigmode" value="either"> either signal</label>
+        </div>
+        <div class="ctl" id="tvRow">
+          <div class="ctl-lab">Stop when reorder shift exceeds <b id="tvCutVal">0.50</b></div>
+          <input type="range" id="tvCut" min="0" max="0.95" step="0.05" value="0.5">
+        </div>
+        <div class="ctl" id="confRow">
+          <div class="ctl-lab">Stop when confidence is below <b id="confCutVal">0.60</b></div>
+          <input type="range" id="confCut" min="0.3" max="0.9" step="0.01" value="0.6">
+        </div>
+        <div class="epgrid" id="brakeGrid"></div>
+        <div class="eplegend">
+          <span><i class="ep ep-ok"></i> answered correctly</span>
+          <span><i class="ep ep-err"></i> answered wrongly</span>
+          <span><i class="ep ep-ok ep-stop"></i> stopped by the brake</span>
+        </div>
+      </div>
+      <div class="lab-right">
+        <div class="statgrid" id="brakeStats"></div>
+        <p class="caveat">
+          You <em>can</em> reach zero errors passed through — by stopping about
+          96% of decisions, which is just reviewing everything. At any useful
+          stop rate the floor bites: stopping a quarter leaves 3 errors through,
+          stopping half still leaves 2. Three of these decisions
+          (<span class="mono">1004</span>, <span class="mono">1011</span>,
+          <span class="mono">1028</span>) are stable, confident, and wrong —
+          invisible to both signals. A brake is triage, not a guarantee.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── LIVE: POWER ─────────────────────── -->
+<section class="band band-lab">
+  <div class="wrap">
+    <h2 class="sec">Try the power gate</h2>
+    <p class="sub">
+      This runs the same simulation <code>evalgate.power</code> runs. Before
+      spending on a multiagent experiment, check the design can find the effect
+      you are looking for. Ours could not, and we did not check.
+    </p>
+
+    <div class="lab">
+      <div class="lab-left">
+        <div class="ctl"><div class="ctl-lab">Scenarios: <b id="pUnitsVal">32</b></div>
+          <input type="range" id="pUnits" min="8" max="64" step="4" value="32"></div>
+        <div class="ctl"><div class="ctl-lab">Replicates per condition: <b id="pRepsVal">5</b></div>
+          <input type="range" id="pReps" min="1" max="11" step="2" value="5"></div>
+        <div class="ctl"><div class="ctl-lab">Expected accuracy: <b id="pBaseVal">0.70</b></div>
+          <input type="range" id="pBase" min="0.3" max="0.95" step="0.05" value="0.7"></div>
+        <div class="ctl"><div class="ctl-lab">Effect you want to detect: <b id="pEffectVal">0.20</b></div>
+          <input type="range" id="pEffect" min="0.05" max="0.5" step="0.05" value="0.2"></div>
+        <div class="lab-controls">
+          <button type="button" id="presetTurn1" class="btn btn-alt">Load the design we ran</button>
+          <button type="button" id="presetTurn2" class="btn">Load the fixed design</button>
+        </div>
+      </div>
+      <div class="lab-right">
+        <div class="statgrid" id="powerStats"></div>
+        <p class="caveat" id="powerNote"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─────────────────────── THE LEDGER ─────────────────────── -->
 <section class="band">
   <div class="wrap narrow">
@@ -367,5 +495,6 @@ python3 cli.py --n 50 run2 --episodes 12</code></pre>
 </footer>
 
 <script src="app.js"></script>
+<script src="tools.js"></script>
 </body>
 </html>
