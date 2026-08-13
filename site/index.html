@@ -15,9 +15,9 @@
     <div class="masthead-meta">
       <span>Counterfactual sensitivity profiling</span>
       <span class="sep">/</span>
-      <span>Phase&nbsp;0</span>
+      <span>Phase&nbsp;0 &amp; PID</span>
       <span class="sep">/</span>
-      <span>claude-sonnet-5</span>
+      <span>sonnet-5 &middot; opus-5</span>
     </div>
   </div>
 </header>
@@ -191,14 +191,16 @@
           <li>Within a fixed ordering, sampling variance is near zero. The bimodality is entirely between orderings.</li>
           <li>Evaluating coalitions in a rearranged order — the project's main cost optimisation — is not viable.</li>
           <li>Two sources emitting identical text are not interchangeable to the model.</li>
+          <li>Instability predicts error on two models under a pre-registered test, at a likelihood ratio of 8.1 — while stability does not guarantee correctness.</li>
         </ul>
       </div>
       <div class="col-no">
         <h3>Not established</h3>
         <ul>
-          <li>That ablation-based attribution is fragile in general. One episode, one seed, one model, one overlap setting.</li>
+          <li>That ablation-based attribution is fragile beyond these two models and this task family.</li>
           <li>That the residual metric fails. It was never computed — Phase 0 tests the harness, not the instrument.</li>
           <li>That the paraphrase arm is clean. Its transform produces degraded English, confounding meaning with fluency. The ordering result carries no such confound.</li>
+          <li>Any causal account of why reordering moves an answer. Instability is a symptom that predicts error, not a mechanism that explains it.</li>
         </ul>
       </div>
     </div>
@@ -263,31 +265,62 @@
       rather than buried.
     </p>
 
-    <h3 class="subhead">An unplanned observation, twice</h3>
+    <h3 class="subhead">A second finding, pre-registered and tested</h3>
     <p class="sub">
-      Across 24 episodes in two different environments, no stable episode was
-      ever answered wrong.
+      The reordering data suggested something beyond attribution: the episodes
+      that flipped were the ones answered wrong. That was noticed after the fact,
+      so it was written up as a lead and then tested properly — a fresh
+      pre-registration, a second model, and forty-eight disjoint episodes,
+      committed before any of the data existed.
     </p>
     <div class="crosstab">
       <div class="ct-h"></div><div class="ct-h">wrong</div><div class="ct-h">right</div>
-      <div class="ct-r">inverts under reorder</div><div class="ct-v ct-hit">7</div><div class="ct-v">2</div>
-      <div class="ct-r">stable</div><div class="ct-v ct-hit">0</div><div class="ct-v">15</div>
+      <div class="ct-r">inverts under reorder</div><div class="ct-v ct-hit">10</div><div class="ct-v">4</div>
+      <div class="ct-r">stable</div><div class="ct-v ct-hit">3</div><div class="ct-v">31</div>
+    </div>
+    <div class="killbox">
+      <div class="killrow"><span>P(wrong | inverts)</span><b>0.714</b></div>
+      <div class="killrow"><span>P(wrong | stable)</span><b>0.088</b></div>
+      <div class="killrow"><span>likelihood ratio</span><b>8.1&times;</b></div>
+      <div class="killrow killrow-v"><span>pre-registered verdict</span><b>SUPPORTED &middot; p = 0.00003</b></div>
     </div>
     <p class="sub">
-      Instability behaves as a <em>necessary but not sufficient</em> marker of
-      error: no false negatives, some false positives. If it holds, it is a
-      signal needing no ground truth, no normative baseline and no attribution
-      — permute the inputs, and distrust an answer that moves.
+      Permuting the inputs and watching whether the answer moves is a real error
+      signal. It needs no ground truth, no normative baseline, no attribution and
+      no knowledge of which source is reliable. As a screen it flags 29% of
+      episodes and catches 77% of the errors, and the result holds at every
+      instability cutoff from 0.1 to 0.9.
+    </p>
+
+    <h3 class="subhead">The stronger version of that claim is false</h3>
+    <p class="sub">
+      In the exploratory data no stable episode had <em>ever</em> been answered
+      wrong — nought of fifteen. The pre-registered run was deliberately sized to
+      break that if it was breakable. It broke: <b>three of thirty-four</b>
+      stable episodes were wrong, a false-negative rate of 8.8%.
+    </p>
+    <div class="crosstab">
+      <div class="ct-h">stable but wrong</div><div class="ct-h">answered</div><div class="ct-h">max reorder shift</div>
+      <div class="ct-r">v3-s1004</div><div class="ct-v">east / north</div><div class="ct-v ct-hit">0.000</div>
+      <div class="ct-r">v3-s1028</div><div class="ct-v">west / north</div><div class="ct-v ct-hit">0.000</div>
+      <div class="ct-r">v3-s1011</div><div class="ct-v">west / south</div><div class="ct-v">0.200</div>
+    </div>
+    <p class="sub">
+      Two of the three were <em>perfectly</em> stable — the same answer under all
+      six orderings — and confidently wrong. They are not marginal cases sitting
+      near a threshold. Whatever produces them is invisible to a permutation
+      probe.
     </p>
     <p class="caveat">
-      <b>A lead, not a result.</b> Both observations are post-hoc, on data
-      collected to answer a different question. The one pre-registered test run
-      so far was <b>uninformative</b> — the task chosen was too easy and the
-      model answered 40 of 40 items correctly under every permutation, leaving
-      no errors to predict. Fifteen stable episodes is a small base for a
-      no-false-negative claim; a single stable-but-wrong case would break it.
-      Establishing this needs a pre-registered test on material that reliably
-      produces errors.
+      <b>Stability is a triage signal, not a proof of correctness.</b> Reading it
+      as a guarantee is wrong about one episode in eleven. The direction of the
+      effect replicated on a second model; the absolute claim did not, and this
+      page previously stated the absolute claim. Still unestablished: any causal
+      account — episode ambiguity plausibly drives both the flipping and the
+      error, and this design cannot separate them — whether it holds in any other
+      task family, and any calibrated threshold. An earlier attempt on a second
+      task family could not test the question at all: the model answered 40 of 40
+      items correctly, leaving no errors to detect.
     </p>
   </div>
 </section>
