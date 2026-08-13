@@ -1,0 +1,112 @@
+[
+ {
+  "id": "claude-fable-5",
+  "match": "claude-fable-5",
+  "display": "Claude Fable 5",
+  "provider": "Anthropic",
+  "inPerMtok": 10,
+  "outPerMtok": 50,
+  "cacheReadPerMtok": 1,
+  "cacheWritePerMtok": 12.5,
+  "asOf": "2026-07-16"
+ },
+ {
+  "id": "claude-mythos-5",
+  "match": "claude-mythos-5",
+  "display": "Claude Mythos 5",
+  "provider": "Anthropic",
+  "inPerMtok": 10,
+  "outPerMtok": 50,
+  "cacheReadPerMtok": 1,
+  "cacheWritePerMtok": 12.5,
+  "asOf": "2026-07-16"
+ },
+ {
+  "id": "claude-opus-4-8",
+  "match": "claude-opus-4-8",
+  "display": "Claude Opus 4.8",
+  "provider": "Anthropic",
+  "inPerMtok": 5,
+  "outPerMtok": 25,
+  "cacheReadPerMtok": 0.5,
+  "cacheWritePerMtok": 6.25,
+  "asOf": "2026-07-16"
+ },
+ {
+  "id": "claude-opus-4-7",
+  "match": "claude-opus-4-7",
+  "display": "Claude Opus 4.7",
+  "provider": "Anthropic",
+  "inPerMtok": 5,
+  "outPerMtok": 25,
+  "cacheReadPerMtok": 0.5,
+  "cacheWritePerMtok": 6.25,
+  "asOf": "2026-07-16"
+ },
+ {
+  "id": "claude-opus-4-6",
+  "match": "claude-opus-4-6",
+  "display": "Claude Opus 4.6",
+  "provider": "Anthropic",
+  "inPerMtok": 5,
+  "outPerMtok": 25,
+  "cacheReadPerMtok": 0.5,
+  "cacheWritePerMtok": 6.25,
+  "asOf": "2026-07-16"
+ },
+ {
+  "id": "claude-opus-4-5",
+  "match": "claude-opus-4-5",
+  "display": "Claude Opus 4.5",
+  "provider": "Anthropic",
+  "inPerMtok": 5,
+  "outPerMtok": 25,
+  "cacheReadPerMtok": 0.5,
+  "cacheWritePerMtok": 6.25,
+  "asOf": "2026-07-16"
+ },
+ {
+  "id": "claude-sonnet-5",
+  "match": "claude-sonnet-5",
+  "display": "Claude Sonnet 5",
+  "provider": "Anthropic",
+  "inPerMtok": 3,
+  "outPerMtok": 15,
+  "cacheReadPerMtok": 0.3,
+  "cacheWritePerMtok": 3.75,
+  "asOf": "2026-07-16"
+ },
+ {
+  "id": "claude-sonnet-4-6",
+  "match": "claude-sonnet-4-6",
+  "display": "Claude Sonnet 4.6",
+  "provider": "Anthropic",
+  "inPerMtok": 3,
+  "outPerMtok": 15,
+  "cacheReadPerMtok": 0.3,
+  "cacheWritePerMtok": 3.75,
+  "asOf": "2026-07-16"
+ },
+ {
+  "id": "claude-sonnet-4-5",
+  "match": "claude-sonnet-4-5",
+  "display": "Claude Sonnet 4.5",
+  "provider": "Anthropic",
+  "inPerMtok": 3,
+  "outPerMtok": 15,
+  "cacheReadPerMtok": 0.3,
+  "cacheWritePerMtok": 3.75,
+  "asOf": "2026-07-16"
+ },
+ {
+  "id": "claude-haiku-4-5",
+  "match": "claude-haiku-4-5",
+  "display": "Claude Haiku 4.5",
+  "provider": "Anthropic",
+  "inPerMtok": 1,
+  "outPerMtok": 5,
+  "cacheReadPerMtok": 0.1,
+  "cacheWritePerMtok": 1.25,
+  "asOf": "2026-07-16"
+ }
+]
