@@ -18,6 +18,7 @@ import os
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -139,7 +140,9 @@ class Executor:
         api_key: str | None = None,
         base_url: str | None = None,
         max_output_tokens: int | None = None,
+        concurrency: int = 8,
     ):
+        self.concurrency = concurrency
         self.store_path = store_path
         self.store_path.parent.mkdir(parents=True, exist_ok=True)
         self.model = model
@@ -191,40 +194,56 @@ class Executor:
                 "subscription cannot serve them. Provision a key scoped to this project."
             )
 
+        if self.max_output_tokens is not None and self.ledger.usage.output_tokens >= self.max_output_tokens:
+            raise BudgetExceeded(
+                f"output-token budget {self.max_output_tokens} reached after {self.ledger.calls} calls"
+            )
+
         out = list(self._cache.get(h, []))
-        with self.store_path.open("a") as fh:
-            for _ in range(n - have):
-                if self.max_output_tokens is not None and self.ledger.usage.output_tokens >= self.max_output_tokens:
-                    raise BudgetExceeded(
-                        f"output-token budget {self.max_output_tokens} reached after {self.ledger.calls} calls"
+        # HTTP calls run concurrently; the store stays single-writer. Sampling
+        # integrity depends on FOIL owning retries, so the backoff lives here
+        # rather than in any proxy the requests are routed through.
+        with ThreadPoolExecutor(max_workers=self.concurrency) as pool:
+            futures = [pool.submit(self._post_with_retry, body) for _ in range(n - have)]
+            with self.store_path.open("a") as fh:
+                for fut in as_completed(futures):
+                    resp = fut.result()
+                    u = resp.get("usage", {}) or {}
+                    usage = Usage(
+                        input_tokens=u.get("input_tokens", 0) or 0,
+                        output_tokens=u.get("output_tokens", 0) or 0,
+                        cache_read_input_tokens=u.get("cache_read_input_tokens", 0) or 0,
+                        cache_creation_input_tokens=u.get("cache_creation_input_tokens", 0) or 0,
                     )
-                for attempt in range(4):
-                    try:
-                        resp = self._post(body)
-                        break
-                    except urllib.error.HTTPError as e:
-                        if e.code in (429, 500, 502, 503, 529) and attempt < 3:
-                            time.sleep(2 ** attempt)
-                            continue
-                        raise
-                u = resp.get("usage", {}) or {}
-                usage = Usage(
-                    input_tokens=u.get("input_tokens", 0) or 0,
-                    output_tokens=u.get("output_tokens", 0) or 0,
-                    cache_read_input_tokens=u.get("cache_read_input_tokens", 0) or 0,
-                    cache_creation_input_tokens=u.get("cache_creation_input_tokens", 0) or 0,
-                )
-                self.ledger.record(usage)
-                text = "".join(b.get("text", "") for b in resp.get("content", []) if b.get("type") == "text")
-                rec = {
-                    "request_hash": h,
-                    "text": text,
-                    "usage": asdict(usage),
-                    "model": resp.get("model", self.model),
-                    "stop_reason": resp.get("stop_reason"),
-                }
-                fh.write(json.dumps(rec) + "\n")
-                fh.flush()
-                out.append(rec)
+                    self.ledger.record(usage)
+                    text = "".join(
+                        b.get("text", "") for b in resp.get("content", []) if b.get("type") == "text"
+                    )
+                    rec = {
+                        "request_hash": h,
+                        "text": text,
+                        "usage": asdict(usage),
+                        "model": resp.get("model", self.model),
+                        "stop_reason": resp.get("stop_reason"),
+                    }
+                    fh.write(json.dumps(rec) + "\n")
+                    fh.flush()
+                    out.append(rec)
         self._cache[h] = out
         return out
+
+    def _post_with_retry(self, body: dict) -> dict:
+        for attempt in range(5):
+            try:
+                return self._post(body)
+            except urllib.error.HTTPError as e:
+                if e.code in (429, 500, 502, 503, 529) and attempt < 4:
+                    time.sleep(2 ** attempt)
+                    continue
+                raise
+            except urllib.error.URLError:
+                if attempt < 4:
+                    time.sleep(2 ** attempt)
+                    continue
+                raise
+        raise RuntimeError("unreachable")

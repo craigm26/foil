@@ -19,12 +19,19 @@ from enum import Enum
 
 from .ir import Episode, Span, SpanKind
 
-#: Prefill for the assistant turn. Forces the structured, low-cardinality
-#: action of §6.3 without spending tokens on a tool definition, and makes
-#: parsing deterministic. Free-text actions would need a classifier whose
-#: error rate becomes an unseparable noise floor.
-ASSISTANT_PREFILL = '{"route": "'
-STOP_SEQUENCES = ["}"]
+#: Structured outputs give the low-cardinality action of §6.3 with a schema
+#: the API enforces, so parsing is guaranteed rather than hopeful. Free-text
+#: actions would need a classifier whose error rate becomes an unseparable
+#: noise floor.
+#:
+#: Assistant prefill -- the cheaper mechanism -- is NOT available: it returns
+#: 400 on every 4.6-and-later Opus/Sonnet-tier model, including the Phase 1
+#: targets. Measured 2026-08-13, not assumed.
+#:
+#: Sampling is left at the model default. `temperature` is REJECTED at
+#: non-default values on Sonnet 5 / Opus 5, so FOIL cannot sweep it; the
+#: default is 1.0, which is the sampling the measurement needs, but it is a
+#: fixed property of the model rather than a knob (§4.2 amendment).
 
 
 class Operator(str, Enum):
@@ -80,7 +87,25 @@ class ForkKey:
         }
 
 
-def render(ep: Episode, key: ForkKey, max_tokens: int = 32) -> dict:
+def action_schema(actions: tuple[str, ...]) -> dict:
+    """JSON schema for the action. `enum` pins the support to the action set.
+
+    No numeric bounds on `confidence`: the structured-output validator does not
+    support `minimum`/`maximum`, so the range is stated in the query prose and
+    treated as advisory. Confidence is not used by the Phase 1 metric.
+    """
+    return {
+        "type": "object",
+        "properties": {
+            "route": {"type": "string", "enum": list(actions)},
+            "confidence": {"type": "number"},
+        },
+        "required": ["route", "confidence"],
+        "additionalProperties": False,
+    }
+
+
+def render(ep: Episode, key: ForkKey, max_tokens: int = 256) -> dict:
     """Build the exact request body for one fork."""
     if set(key.render_order) != set(ep.source_ids):
         raise ValueError("render_order must be a permutation of the episode's sources")
@@ -111,12 +136,16 @@ def render(ep: Episode, key: ForkKey, max_tokens: int = 32) -> dict:
     return {
         "model": key.model,
         "max_tokens": max_tokens,
-        "temperature": 1.0,  # a distribution over actions IS the measurement
-        "stop_sequences": STOP_SEQUENCES,
+        # Thinking is ON by default on Sonnet 5 / Opus 5, and max_tokens caps
+        # thinking AND response text together. Phase 0 disables it: the nulls
+        # measure harness noise, not epistemics, and a thinking listener is a
+        # different (and far more expensive) object of study. Phase 1 must
+        # decide this explicitly -- see the §7 amendment.
+        "thinking": {"type": "disabled"},
+        "output_config": {"format": {"type": "json_schema", "schema": action_schema(ep.actions)}},
         "system": system_blocks,
         "messages": [
             {"role": "user", "content": [{"type": "text", "text": user_text}]},
-            {"role": "assistant", "content": [{"type": "text", "text": ASSISTANT_PREFILL}]},
         ],
     }
 
@@ -128,18 +157,18 @@ def request_hash(body: dict) -> str:
 
 
 def parse_action(text: str, actions: tuple[str, ...]) -> tuple[str | None, float | None]:
-    """Recover (action, confidence) from the completion of the prefill.
+    """Recover (action, confidence) from a structured-output response.
 
-    Returns (None, None) when the completion does not name a valid action.
-    Unparseable samples are counted and reported, never silently dropped -- a
-    drifting parse rate is a noise source and has to stay visible.
+    The schema guarantees valid JSON, so a parse failure means something else
+    went wrong -- a truncated response (`stop_reason: max_tokens`) or a
+    refusal. Unparseable samples are counted and reported, never silently
+    dropped: a drifting parse rate is a noise source and has to stay visible.
     """
-    raw = ASSISTANT_PREFILL + text
-    if not raw.rstrip().endswith("}"):
-        raw = raw.rstrip() + "}"
     try:
-        obj = json.loads(raw)
+        obj = json.loads(text)
     except json.JSONDecodeError:
+        return None, None
+    if not isinstance(obj, dict):
         return None, None
     route = obj.get("route")
     conf = obj.get("confidence")
