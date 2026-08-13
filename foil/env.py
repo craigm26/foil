@@ -54,25 +54,36 @@ DEFAULT_SCOUTS = (
 
 
 def _coverage(rng: random.Random, scouts: tuple[ScoutSpec, ...], overlap: str) -> dict[str, tuple[str, ...]]:
-    """Assign each scout a patrolled subset of routes.
+    """Assign each scout a patrolled subset of routes, covering every route.
 
     `overlap` is the redundancy knob flagged in §2.3(c). Under "high", scouts
     cover nearly the same routes, so a well-calibrated Bayesian assigns each of
     them near-zero marginal contribution and the residual is compressed toward
     zero regardless of how credulous the listener is. Under "low", coverage is
     close to a partition and each source carries unique information.
+
+    FULL-COVERAGE GUARANTEE (post-hoc amendment A3). Scout i patrols a cyclic
+    window of the shuffled route order, so every route is covered by exactly
+    `window` scouts and the union of patrols is always the entire action set.
+
+    The v1 implementation sampled each scout's patrol independently, which left
+    some routes unmentioned by any report. An unmentioned route reads as
+    "unruled-out, therefore clear", giving the listener a second coherent
+    hypothesis and putting the decision on a knife edge between two basins.
+    That bistability, not sampling noise, is what fired the v1 kill rule.
     """
     if overlap == "high":
-        n = 3
+        window = 3
     elif overlap == "low":
-        n = 2
+        window = 2
     else:
         raise ValueError(f"unknown overlap: {overlap!r}")
 
+    order = list(ROUTES)
+    rng.shuffle(order)
     cov: dict[str, tuple[str, ...]] = {}
-    for s in scouts:
-        picked = rng.sample(ROUTES, n)
-        cov[s.name] = tuple(picked)
+    for i, s in enumerate(scouts):
+        cov[s.name] = tuple(order[(i + j) % len(order)] for j in range(window))
     return cov
 
 

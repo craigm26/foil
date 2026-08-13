@@ -5,6 +5,31 @@
 **Episode:** `scout-s1-low` (seed 1, low overlap), single decision point
 **Volume:** 2,200 samples across 11 arms, 200 per arm. Zero API failures, zero
 unparseable samples, zero short arms. Measured cost $3.29.
+**Status:** Negative result, published as the pre-registration requires
+(§5.1, §8.1). Superseded protocol; see §6 for what followed.
+
+---
+
+## Abstract
+
+FOIL set out to measure, at a single decision point, the signed gap between how
+much a decision actually depended on an information source and how much it
+normatively should have. Before building any attribution machinery, the
+pre-registration required three null experiments to establish the harness noise
+floor, with a hard kill rule if that floor approached the size of the signal.
+
+The kill rule fired by a factor of 36. Reordering four byte-identical sentences
+flipped a scored decision from 99% correct to 99.5% wrong, with near-zero
+sampling variance *within* each ordering. The value function is therefore
+well-behaved conditional on a fixed rendering, but presentation order is an
+arbitrary experimenter degree of freedom that swings it across its entire
+range. This falsifies the pre-registration's principal cost optimization
+(order-aligned coalition evaluation), which would have destroyed the
+measurement while appearing to work.
+
+Two defects in the pre-registration itself are recorded in §4: the noise floor
+was estimated from a single episode, and the chosen percentile statistic
+degenerates to the maximum at the specified sample count.
 
 ---
 
@@ -178,3 +203,46 @@ already known, and it must fix the protocol *before* the next episode is drawn.
 
 The decision of whether to accept the kill or amend is the operator's, not the
 harness's.
+
+---
+
+## 6. Disposition
+
+This negative result stands as published. The operator elected to **accept it
+and amend**, with the amendment recorded as post-hoc in PREREGISTRATION.md §12
+and the protocol fixed *before* any new episode was drawn. The amended protocol
+addresses all three problems identified above:
+
+1. Multi-episode noise floor, so a general property can be separated from a
+   degenerate instance (§4a).
+2. A `T_null` statistic that is an actual percentile at the sample count used
+   (§4b).
+3. An environment in which every action is covered by at least one source,
+   removing the unruled-out attractor that produced the bistability (§3).
+
+Nothing in this document is revised in light of what the amended protocol
+finds. It is the record of what the original protocol produced.
+
+---
+
+## 7. Reproduction
+
+```bash
+git checkout 82b893b          # the commit this document reports on
+python3 cli.py --n 200 run    # ~2,200 calls, ~$3.30, ~40 min at concurrency 8
+```
+
+Determinism is at the request layer only (PREREGISTRATION.md §4.2): the
+environment, the rendered payloads, and the fork keys reproduce exactly, but
+the model's responses are sampled and will not. The reported effect is large
+enough (0.990 vs 0.005) that it does not depend on resampling luck.
+
+## 8. Data availability
+
+- `data/phase0-nulls-result.json` — full result object: per-pair TVs with
+  bootstrap CIs, arm sizes, base distribution, and the cost ledger.
+- `runs/*.jsonl` — the raw append-only sample store, keyed by `request_hash`.
+  Not committed (gitignored); regenerate with the command above.
+
+Every episode in this project is synthetic, so traces contain no private data
+and can be shared without redaction.

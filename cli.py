@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from foil.env import DEFAULT_SCOUTS, make_episode
 from foil.execute import DEFAULT_MIN_CACHEABLE, Executor, load_prices, resolve_price
-from foil.nulls import run_nulls
+from foil.nulls import run_nulls, run_nulls_multi
 from foil.render import ForkKey, Operator, render, request_hash
 
 ROOT = Path(__file__).parent
@@ -150,6 +150,54 @@ def cmd_run(args) -> int:
     return 0 if res["verdict"] != "KILL" else 3
 
 
+def cmd_run2(args) -> int:
+    """Phase 0 protocol v2 (PREREGISTRATION.md §12, post-hoc amendment)."""
+    prices = load_prices(PRICES)
+    # Versioned store: v1 and v2 episodes differ in coverage construction, so
+    # their samples must never pool into one file even though request_hash
+    # would keep them distinct.
+    ex = Executor(
+        store_path=ROOT / "runs" / f"v2-{args.model}.jsonl",
+        model=args.model,
+        prices=prices,
+        base_url=args.base_url,
+        max_output_tokens=args.max_output_tokens,
+    )
+    print(f"── Phase 0 v2: {args.episodes} episodes x 11 arms x {args.n} samples ──")
+    res = run_nulls_multi(
+        ex, n=args.n, episodes=args.episodes, orders=args.orders,
+        overlap=args.overlap, seed=args.seed,
+    )
+    out = ROOT / "runs" / f"nulls-v2-{args.model}.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(res, indent=2))
+
+    print()
+    print("── Phase 0 v2 pooled result ──────────────────────────")
+    print(f"episodes           {res['episodes']}   samples/arm {res['samples_per_arm']}")
+    print(f"pooled null TVs    {res['pooled_null_n']}  (p95 is rank "
+          f"{int(-(-0.95 * res['pooled_null_n'] // 1))}, an actual percentile)")
+    print(f"pooled ablation    {res['pooled_ref_n']}")
+    print()
+    print(f"T_null (p95)       = {res['T_null_p95']:.4f}   "
+          f"[median {res['null_tv_median']:.4f}, max {res['null_tv_max']:.4f}]")
+    print(f"T_ablate (median)  = {res['T_ablate_median']:.4f}")
+    print(f"kill threshold     = {res['kill_threshold']:.4f}  (0.5 x T_ablate)")
+    print(f"VERDICT            = {res['verdict']}")
+    print()
+    print(f"bistable episodes  {len(res['bistable_episodes'])}/{res['episodes']} "
+          f"({res['bistable_fraction']:.0%})  [max order TV > 0.5]")
+    for e in res["bistable_episodes"]:
+        print(f"   ⚠ {e}")
+    shorts = {e["episode_id"]: e["short_arms"] for e in res["per_episode"] if e["short_arms"]}
+    if shorts:
+        print(f"⚠ SHORT ARMS: {shorts}")
+    print()
+    print("ledger:", json.dumps(res["ledger"], indent=2))
+    print(f"\nwrote {out}")
+    return 0 if res["verdict"] != "KILL" else 3
+
+
 def main() -> int:
     p = argparse.ArgumentParser(prog="foil")
     p.add_argument("--model", default="claude-sonnet-5")
@@ -163,10 +211,16 @@ def main() -> int:
     sp.add_argument("--show-prompt", action="store_true")
     sp.set_defaults(fn=cmd_plan)
 
-    sr = sub.add_parser("run", help="execute the nulls")
+    sr = sub.add_parser("run", help="execute the nulls (protocol v1, single episode)")
     sr.add_argument("--base-url")
     sr.add_argument("--max-output-tokens", type=int, default=50_000)
     sr.set_defaults(fn=cmd_run)
+
+    s2 = sub.add_parser("run2", help="protocol v2: pooled multi-episode nulls")
+    s2.add_argument("--base-url")
+    s2.add_argument("--max-output-tokens", type=int, default=200_000)
+    s2.add_argument("--episodes", type=int, default=12)
+    s2.set_defaults(fn=cmd_run2)
 
     args = p.parse_args()
     return args.fn(args)
