@@ -21,6 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from foil.env import DEFAULT_SCOUTS, make_episode
 from foil.execute import DEFAULT_MIN_CACHEABLE, Executor, load_prices, resolve_price
+from foil.env3 import make_episode_v3
 from foil.nulls import run_nulls, run_nulls_multi
 from foil.render import ForkKey, Operator, render, request_hash
 
@@ -198,6 +199,34 @@ def cmd_run2(args) -> int:
     return 0 if res["verdict"] != "KILL" else 3
 
 
+def cmd_run3(args) -> int:
+    """Protocol v3: same gate, environment constrained analytically in advance."""
+    prices = load_prices(PRICES)
+    ex = Executor(
+        store_path=ROOT / "runs" / f"v3-{args.model}.jsonl",
+        model=args.model, prices=prices,
+        base_url=args.base_url, max_output_tokens=args.max_output_tokens,
+    )
+    print(f"── Phase 0 v3: {args.episodes} episodes, >=3/4 sources decisive by construction ──")
+    res = run_nulls_multi(
+        ex, n=args.n, episodes=args.episodes, orders=args.orders,
+        seed=args.seed, make=lambda seed, overlap="low": make_episode_v3(seed),
+    )
+    res["protocol"] = "v3 (analytic decisiveness requirement)"
+    out = ROOT / "runs" / f"nulls-v3-{args.model}.json"
+    out.write_text(json.dumps(res, indent=2))
+    print()
+    print("── Phase 0 v3 pooled result ──────────────────────────")
+    print(f"T_null (p95)       = {res['T_null_p95']:.4f}   [median {res['null_tv_median']:.4f}]")
+    print(f"T_ablate (median)  = {res['T_ablate_median']:.4f}")
+    print(f"kill threshold     = {res['kill_threshold']:.4f}")
+    print(f"VERDICT            = {res['verdict']}")
+    print(f"bistable episodes  {len(res['bistable_episodes'])}/{res['episodes']}")
+    print("ledger:", json.dumps(res["ledger"], indent=2))
+    print(f"\nwrote {out}")
+    return 0 if res["verdict"] == "PROCEED" else 3
+
+
 def main() -> int:
     p = argparse.ArgumentParser(prog="foil")
     p.add_argument("--model", default="claude-sonnet-5")
@@ -215,6 +244,12 @@ def main() -> int:
     sr.add_argument("--base-url")
     sr.add_argument("--max-output-tokens", type=int, default=50_000)
     sr.set_defaults(fn=cmd_run)
+
+    s3 = sub.add_parser("run3", help="protocol v3: decisiveness-constrained environment")
+    s3.add_argument("--base-url")
+    s3.add_argument("--max-output-tokens", type=int, default=200_000)
+    s3.add_argument("--episodes", type=int, default=12)
+    s3.set_defaults(fn=cmd_run3)
 
     s2 = sub.add_parser("run2", help="protocol v2: pooled multi-episode nulls")
     s2.add_argument("--base-url")

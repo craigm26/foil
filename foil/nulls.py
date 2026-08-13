@@ -226,6 +226,7 @@ def run_nulls_multi(
     orders: int = 6,
     overlap: str = "low",
     seed: int = 1,
+    make=None,
 ) -> dict:
     """Phase 0 protocol v2: pooled noise floor across independent episodes.
 
@@ -245,12 +246,21 @@ def run_nulls_multi(
     """
     from .env import make_episode
 
+    # `make` lets a caller supply a different environment generator (v3's
+    # decisiveness-constrained one) without disturbing the v1/v2 reproduction
+    # paths, whose published results describe the generator they ran against.
+    if make is None:
+        def make(seed, overlap="low"):
+            return make_episode(seed=seed, overlap=overlap)
+
     per_episode = []
     pooled_null: list[float] = []
     pooled_ref: list[float] = []
 
     for k in range(episodes):
-        ep = make_episode(seed=seed + k, overlap=overlap)
+        ep = make(seed=seed + k, overlap=overlap)
+        if ep is None:
+            raise RuntimeError(f"generator returned no admissible episode for seed {seed + k}")
         res = run_nulls(ex, ep, n=n, orders=orders, seed=seed + k)
         raw = res["raw"]
         pooled_null.extend(raw["null_tvs"])
