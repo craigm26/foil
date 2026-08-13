@@ -1,0 +1,44 @@
+{
+  "_note": "Measured action distributions from the Phase 0 v1 run (2026-08-13, claude-sonnet-5, 200 samples per arm). Episode scout-s1-low under the v1 coverage construction, BEFORE post-hoc amendment A3 guaranteed full action coverage. Reported in RESULTS-phase0.md. Raw per-sample store was not retained; these are the derived per-arm distributions.",
+  "model": "claude-sonnet-5",
+  "episode_id": "scout-s1-low",
+  "protocol": "v1",
+  "samples_per_arm": 200,
+  "truth": "south",
+  "actions": ["north", "south", "east", "west"],
+  "uncovered_actions": ["east"],
+  "sources": ["Alpha", "Bravo", "Charlie", "Delta"],
+  "liar": "Charlie",
+  "reports": {
+    "Alpha": "Scout Alpha: south is clear; north is blocked.",
+    "Bravo": "Scout Bravo: south is clear; north is blocked.",
+    "Charlie": "Scout Charlie: west, south are blocked.",
+    "Delta": "Scout Delta: west, north are blocked."
+  },
+  "measured_orderings": [
+    {"order": ["Alpha", "Bravo", "Charlie", "Delta"], "dist": {"south": 0.99,  "east": 0.01}},
+    {"order": ["Delta", "Bravo", "Charlie", "Alpha"], "dist": {"south": 0.875, "east": 0.125}},
+    {"order": ["Bravo", "Alpha", "Charlie", "Delta"], "dist": {"south": 0.97,  "east": 0.03}},
+    {"order": ["Charlie", "Delta", "Bravo", "Alpha"], "dist": {"south": 1.0}},
+    {"order": ["Bravo", "Delta", "Alpha", "Charlie"], "dist": {"south": 1.0}},
+    {"order": ["Delta", "Bravo", "Alpha", "Charlie"], "dist": {"south": 0.005, "east": 0.995}}
+  ],
+  "total_permutations": 24,
+  "ablations_canonical_order": [
+    {"removed": "Alpha",   "honest": true,  "dist": {"south": 0.935, "east": 0.065}, "tv_vs_base": 0.055},
+    {"removed": "Bravo",   "honest": true,  "dist": {"south": 0.16,  "east": 0.84},  "tv_vs_base": 0.83},
+    {"removed": "Charlie", "honest": false, "dist": {"south": 1.0},                  "tv_vs_base": 0.01},
+    {"removed": "Delta",   "honest": true,  "dist": {"south": 0.85,  "east": 0.15},  "tv_vs_base": 0.14}
+  ],
+  "paraphrase": {
+    "dist": {"south": 0.21, "east": 0.79},
+    "tv_vs_base": 0.78,
+    "caveat": "The paraphrase transform is mechanical and produces degraded English, so this arm confounds meaning-preservation with fluency. The N1 ordering result carries no such confound and is the load-bearing finding."
+  },
+  "kill_rule": {
+    "T_null_p95": 0.995,
+    "T_ablate_median": 0.055,
+    "threshold": 0.0275,
+    "verdict": "KILL"
+  }
+}

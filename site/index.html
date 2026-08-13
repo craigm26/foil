@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FOIL — the order effect</title>
+<meta name="description" content="Reordering four identical sentences flipped a scored decision from 99% correct to 99.5% wrong. A measurement harness for multiagent epistemics, and the negative result it returned.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <div class="wordmark">FOIL</div>
+    <div class="masthead-meta">
+      <span>Counterfactual sensitivity profiling</span>
+      <span class="sep">/</span>
+      <span>Phase&nbsp;0</span>
+      <span class="sep">/</span>
+      <span>claude-sonnet-5</span>
+    </div>
+  </div>
+</header>
+
+<!-- ─────────────────────────── HERO ─────────────────────────── -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Measured 2026-08-13 · 200 samples per condition</p>
+    <h1>The same four sentences.<br>One adjacent swap.<br><em>The answer inverts.</em></h1>
+
+    <div class="swapdemo" aria-label="Two orderings differing by one swap, with their measured outcomes">
+      <div class="swapcol">
+        <div class="swaphead"><span class="tag">Ordering A</span></div>
+        <ol class="reportlist" data-col="a"></ol>
+        <div class="readout readout-a">
+          <div class="readout-val">1.000</div>
+          <div class="readout-lab">P(correct route)</div>
+        </div>
+      </div>
+
+      <div class="swapaxis" aria-hidden="true">
+        <div class="swapaxis-rule"></div>
+        <div class="swapaxis-note">swap<br>rows 1&nbsp;&amp;&nbsp;2</div>
+        <div class="swapaxis-rule"></div>
+      </div>
+
+      <div class="swapcol">
+        <div class="swaphead"><span class="tag">Ordering B</span></div>
+        <ol class="reportlist" data-col="b"></ol>
+        <div class="readout readout-b">
+          <div class="readout-val">0.005</div>
+          <div class="readout-lab">P(correct route)</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="lede">
+      Both columns contain an identical set of scout reports — verified
+      character for character. Only the sequence differs, and the two reports
+      that changed places are both honest. The listener is near-deterministic
+      inside each ordering: this is not sampling noise.
+    </p>
+  </div>
+</section>
+
+<!-- ─────────────────────── THE INSTRUMENT ─────────────────────── -->
+<section class="band">
+  <div class="wrap narrow">
+    <h2 class="sec">What this is</h2>
+    <p>
+      FOIL measures how much a decision actually depended on each information
+      source, by forking the decision point, ablating one source, and
+      re-sampling. Before building any of that, it runs three null experiments
+      to find the harness noise floor, with a pre-registered rule that kills the
+      project if the floor approaches the size of the signal.
+    </p>
+    <p>
+      The rule fired at 36&times; the threshold. Reordering the inputs moved the
+      measured decision further than removing an entire source did. The page
+      below is the evidence, and it is the whole reason to be careful with
+      ablation studies on language-model agents.
+    </p>
+    <div class="killbox">
+      <div class="killrow"><span>T<sub>null</sub> — 95th pct across reorder + paraphrase</span><b>0.995</b></div>
+      <div class="killrow"><span>T<sub>ablate</sub> — median across single-source removal</span><b>0.055</b></div>
+      <div class="killrow"><span>Kill threshold — 0.5 × T<sub>ablate</sub></span><b>0.028</b></div>
+      <div class="killrow killrow-v"><span>Pre-registered verdict</span><b class="kill">KILL</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── INTERACTIVE ─────────────────────── -->
+<section class="band band-lab">
+  <div class="wrap">
+    <h2 class="sec">Reorder the reports</h2>
+    <p class="sub">
+      Drag a report, or use the arrows. The readout shows the measured action
+      distribution for that exact ordering. Six of the twenty-four orderings
+      were measured; the rest are blank, because this is data rather than a
+      model of the data.
+    </p>
+
+    <div class="lab">
+      <div class="lab-left">
+        <ol class="reportlist reportlist-live" id="live"></ol>
+        <div class="lab-controls">
+          <button type="button" id="reset" class="btn">Reset to canonical</button>
+          <button type="button" id="findflip" class="btn btn-alt">Jump to the inverted ordering</button>
+        </div>
+      </div>
+
+      <div class="lab-right">
+        <div class="panel" id="panel">
+          <div class="panel-head">
+            <span class="panel-title" id="panelTitle">Measured</span>
+            <span class="panel-n" id="panelN">n = 200</span>
+          </div>
+          <div class="bars" id="bars"></div>
+          <div class="panel-foot" id="panelFoot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── THE LATTICE ─────────────────────── -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="sec">All twenty-four orderings</h2>
+    <p class="sub">
+      Every permutation of the four scouts. Filled cells were measured; their
+      fill is the basin the listener fell into. Outlined cells were never run.
+      Select any filled cell to load it above.
+    </p>
+    <div class="lattice" id="lattice" role="list"></div>
+    <div class="legend">
+      <span class="lg"><i class="sw sw-a"></i> lands on the correct route</span>
+      <span class="lg"><i class="sw sw-b"></i> lands on the unruled-out route</span>
+      <span class="lg"><i class="sw sw-u"></i> not measured</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── WHY IT MATTERS ─────────────────────── -->
+<section class="band band-dark">
+  <div class="wrap narrow">
+    <h2 class="sec">Why an ablation study should care</h2>
+    <p>
+      Removing a source from a prompt changes two things at once: the
+      information available, and the arrangement of everything after it. If
+      arrangement alone can move the outcome further than removal does, an
+      attribution score computed across differently-arranged coalitions is
+      partly measuring the arrangement.
+    </p>
+    <p>
+      The effect here is not a gentle drift. Five of six orderings agree; one
+      inverts. A central summary — a mean, a median — hides that entirely,
+      which is why this project now counts inverted orderings as a first-class
+      statistic rather than averaging over them.
+    </p>
+    <div class="findings">
+      <div class="finding">
+        <div class="fnum">Removing the liar</div>
+        <div class="fbar"><i style="width:1.2%"></i></div>
+        <div class="fval">0.010</div>
+      </div>
+      <div class="finding">
+        <div class="fnum">Removing an honest corroborator</div>
+        <div class="fbar"><i style="width:100%"></i></div>
+        <div class="fval">0.830</div>
+      </div>
+      <p class="fnote">
+        Total-variation shift when each source is removed. The listener had
+        already discounted the liar, so removing it changed almost nothing —
+        while removing one of two <em>byte-identical</em> honest reports changed
+        almost everything. Redundant sources are not interchangeable.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── THE LEDGER ─────────────────────── -->
+<section class="band">
+  <div class="wrap narrow">
+    <h2 class="sec">What this does and does not show</h2>
+    <div class="ledger">
+      <div class="col-yes">
+        <h3>Established</h3>
+        <ul>
+          <li>Presentation order alone flipped a scored decision from 99% right to 99.5% wrong, on this episode and this model.</li>
+          <li>Within a fixed ordering, sampling variance is near zero. The bimodality is entirely between orderings.</li>
+          <li>Evaluating coalitions in a rearranged order — the project's main cost optimisation — is not viable.</li>
+          <li>Two sources emitting identical text are not interchangeable to the model.</li>
+        </ul>
+      </div>
+      <div class="col-no">
+        <h3>Not established</h3>
+        <ul>
+          <li>That ablation-based attribution is fragile in general. One episode, one seed, one model, one overlap setting.</li>
+          <li>That the residual metric fails. It was never computed — Phase 0 tests the harness, not the instrument.</li>
+          <li>That the paraphrase arm is clean. Its transform produces degraded English, confounding meaning with fluency. The ordering result carries no such confound.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="statusline">
+      <b>Status.</b> The negative result is published and is not revised. The
+      protocol was then amended — labelled post-hoc, because every decision in
+      it was made after seeing the rule fire — to pool the noise floor across
+      twelve episodes, repair a percentile statistic that had degenerated to the
+      maximum, and remove the unruled-out route that made this episode bistable.
+      That run is in progress. If it fires the rule again, the project stops.
+    </p>
+  </div>
+</section>
+
+<!-- ─────────────────────── RUN IT ─────────────────────── -->
+<section class="band band-run">
+  <div class="wrap narrow">
+    <h2 class="sec">Run it yourself</h2>
+    <p class="sub">
+      Python 3.11 and numpy. No other dependencies, deliberately — the harness
+      has to run unchanged inside a lab, and every dependency is a reason
+      someone doesn't.
+    </p>
+<pre class="code"><code><span class="c"># project the cost and inspect the exact request; zero API calls</span>
+python3 cli.py plan --show-prompt
+
+<span class="c"># protocol v1: the run this page reports on (~2,200 calls)</span>
+python3 cli.py --n 200 run
+
+<span class="c"># protocol v2: pooled across twelve episodes</span>
+python3 cli.py --n 50 run2 --episodes 12</code></pre>
+    <p class="sub">
+      Exit code 3 means the kill rule fired. Determinism is at the request
+      layer only: the environment, payloads and fork keys reproduce exactly, but
+      responses are sampled and will not. The reported effect is large enough
+      that it does not depend on resampling luck.
+    </p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <div class="wordmark small">FOIL</div>
+      <p class="foot-note">
+        A harness, a metric specification, and a writeup. Not a product.
+      </p>
+    </div>
+    <div class="foot-meta">
+      <p>Reconstruction of the scripted-scout setup from Anthropic's Frontier Red Team report <em>Patterns and problems in emerging multiagent systems</em> (2026-08-13).</p>
+      <p>All episodes are synthetic. MIT licensed.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
