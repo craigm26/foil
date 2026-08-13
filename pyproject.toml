@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orderprobe"
+version = "0.1.0"
+description = "Detect when a model decision depends on the order of its inputs, and gate the evals that measure it."
+readme = "PACKAGE.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Craig Merry" }]
+keywords = ["llm", "agents", "evaluation", "multiagent", "reliability"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Science/Research",
+]
+# Deliberately empty. Both packages are stdlib-only so they can be vendored
+# into a research harness without an argument about dependencies.
+dependencies = []
+
+[project.urls]
+Homepage = "https://foil-9vg.pages.dev"
+
+[tool.setuptools]
+packages = ["orderprobe", "evalgate"]

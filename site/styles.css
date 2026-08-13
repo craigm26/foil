@@ -431,3 +431,16 @@ h3.subhead{
 
 @media (max-width:860px){ .toolgrid{ grid-template-columns:1fr; } }
 .mono{ font-family:var(--mono); font-size:.92em; color:var(--basin-b); }
+
+/* ── get it ───────────────────────────────────────────────── */
+.getit{ margin-top:26px; border:1px solid var(--ink); background:var(--paper); }
+.getit-cmd{
+  padding:16px 18px; background:var(--ink);
+  font-family:var(--mono); font-size:15px; color:#CBD5DD;
+}
+.getit-cmd code::before{ content:"$ "; color:#6F8090; }
+.getit-alt{ padding:13px 18px 4px; font-size:14px; color:var(--ink-2); }
+.getit-meta{
+  padding:0 18px 14px; font-family:var(--mono); font-size:11px;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3);
+}
