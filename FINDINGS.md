@@ -25,10 +25,12 @@ misbuilt scout scenario.
 | 1 | Phase 0 v1 — single episode | **KILL**, 36× over threshold | [RESULTS-phase0.md](RESULTS-phase0.md) |
 | 2 | Phase 0 v2 — 12 episodes, full coverage | **INDETERMINATE** | [RESULTS-phase0-v2.md](RESULTS-phase0-v2.md) |
 | 3 | Phase 0 v3 — analytic decisiveness requirement | **KILL**, 6.25× over threshold | [RESULTS-phase0-v3.md](RESULTS-phase0-v3.md) |
-| 4 | PID-1 — permutation-instability detection | **DEGENERATE** (untestable) | [RESULTS-PID.md](RESULTS-PID.md) |
+| 4 | PID-1 — detection, new task family | **DEGENERATE** (untestable) | [RESULTS-PID.md](RESULTS-PID.md) |
+| 5 | PID-2 — detection, pre-registered | **SUPPORTED** (p = 0.00003) | [RESULTS-PID2.md](RESULTS-PID2.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
-[PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID).
+[PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID-1),
+[PREREGISTRATION-PID2.md](PREREGISTRATION-PID2.md) (PID-2).
 Interactive site: **https://foil-9vg.pages.dev**
 
 ---
@@ -84,17 +86,29 @@ Protocol v3 fixes this with a requirement checked **analytically, before any
 model call** — deliberately not calibrated against a measured outcome, because
 v2's amendment was principled and still failed for exactly that reason.
 
-## 5. A lead worth testing separately
+## 5. Permutation instability predicts error — but does not guarantee its absence
 
-In v2, the three episodes that inverted under reordering were exactly the three
-answered incorrectly, at ~1.00 confidence (Fisher exact one-sided p = 0.0045,
-n = 12). If it holds, it is an error signal needing no ground truth, no
-normative baseline, no attribution, and no known reliabilities — sidestepping
-every limitation that made FOIL's original metric hard to defend.
+Noticed exploratorily in v2/v3, then tested under its own pre-registration on a
+second model and disjoint episodes. **Supported**, with a large effect:
 
-It was noticed after the data and the test was chosen after the pattern, so it
-is a lead, not a result. It is being tested under its own pre-registration, on
-a model and a task family it was **not** discovered on.
+| | wrong | right |
+|---|---|---|
+| unstable | 10 | 4 |
+| stable | 3 | 31 |
+
+P(wrong \| unstable) = 0.714 against P(wrong \| stable) = 0.088 — a likelihood
+ratio of 8.1, Fisher one-sided p = 0.00003, robust across every instability
+cutoff from 0.1 to 0.9. As a screen it flags 29% of episodes and catches 77% of
+errors, needing no ground truth, no normative baseline and no attribution.
+
+**And it refuted the stronger claim.** The exploratory data showed no stable
+episode ever answered wrong (0 of 15). The pre-registered run, sized
+deliberately to break that, found 3 of 34 — a false-negative rate of 8.8% (95%
+upper bound 21%). Two of the three were *perfectly* stable across all six
+orderings and confidently wrong.
+
+Stability is a useful signal, not a proof of correctness. The direction
+replicated; the absolute claim did not.
 
 ---
 
