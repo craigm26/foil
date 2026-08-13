@@ -1,0 +1,271 @@
+{
+  "protocol": "v3 (analytic decisiveness requirement)",
+  "model": "claude-sonnet-5",
+  "episodes": 12,
+  "samples_per_arm": 50,
+  "orders_per_episode": 6,
+  "overlap": "low",
+  "pooled_null_n": 192,
+  "pooled_ref_n": 48,
+  "T_null_p95": 1.0,
+  "T_ablate_median": 0.31999999999999995,
+  "kill_threshold": 0.15999999999999998,
+  "verdict": "KILL",
+  "bistable_episodes": [
+    "v3-s4",
+    "v3-s7",
+    "v3-s9",
+    "v3-s10",
+    "v3-s11",
+    "v3-s12"
+  ],
+  "bistable_fraction": 0.5,
+  "null_tv_median": 0.0,
+  "null_tv_max": 1.0,
+  "per_episode": [
+    {
+      "episode_id": "v3-s1",
+      "correct_action": "north",
+      "base_distribution": {
+        "north": 1.0,
+        "south": 0.0,
+        "east": 0.0,
+        "west": 0.0
+      },
+      "max_order_tv": 0.02000000000000001,
+      "ref_tvs": [
+        0.98,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "INDETERMINATE"
+    },
+    {
+      "episode_id": "v3-s2",
+      "correct_action": "west",
+      "base_distribution": {
+        "north": 0.0,
+        "south": 0.0,
+        "east": 0.0,
+        "west": 1.0
+      },
+      "max_order_tv": 0.0,
+      "ref_tvs": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "INDETERMINATE"
+    },
+    {
+      "episode_id": "v3-s3",
+      "correct_action": "north",
+      "base_distribution": {
+        "north": 1.0,
+        "south": 0.0,
+        "east": 0.0,
+        "west": 0.0
+      },
+      "max_order_tv": 0.0,
+      "ref_tvs": [
+        0.31999999999999995,
+        0.92,
+        0.0,
+        0.07999999999999997
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "PROCEED"
+    },
+    {
+      "episode_id": "v3-s4",
+      "correct_action": "south",
+      "base_distribution": {
+        "north": 0.0,
+        "south": 0.0,
+        "east": 1.0,
+        "west": 0.0
+      },
+      "max_order_tv": 1.0,
+      "ref_tvs": [
+        0.0,
+        1.0,
+        1.0,
+        0.12
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "KILL"
+    },
+    {
+      "episode_id": "v3-s5",
+      "correct_action": "east",
+      "base_distribution": {
+        "north": 0.0,
+        "south": 0.0,
+        "east": 1.0,
+        "west": 0.0
+      },
+      "max_order_tv": 0.0,
+      "ref_tvs": [
+        0.0,
+        1.0,
+        0.0,
+        0.5
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "INDETERMINATE"
+    },
+    {
+      "episode_id": "v3-s6",
+      "correct_action": "west",
+      "base_distribution": {
+        "north": 0.0,
+        "south": 0.0,
+        "east": 0.0,
+        "west": 1.0
+      },
+      "max_order_tv": 0.0,
+      "ref_tvs": [
+        1.0,
+        0.98,
+        0.0,
+        1.0
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "PROCEED"
+    },
+    {
+      "episode_id": "v3-s7",
+      "correct_action": "north",
+      "base_distribution": {
+        "north": 0.9,
+        "south": 0.04,
+        "east": 0.06,
+        "west": 0.0
+      },
+      "max_order_tv": 0.96,
+      "ref_tvs": [
+        0.96,
+        1.0,
+        0.09999999999999999,
+        0.94
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "KILL"
+    },
+    {
+      "episode_id": "v3-s8",
+      "correct_action": "west",
+      "base_distribution": {
+        "north": 0.0,
+        "south": 0.0,
+        "east": 0.0,
+        "west": 1.0
+      },
+      "max_order_tv": 0.0,
+      "ref_tvs": [
+        1.0,
+        0.0,
+        0.0,
+        0.04000000000000002
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "INDETERMINATE"
+    },
+    {
+      "episode_id": "v3-s9",
+      "correct_action": "south",
+      "base_distribution": {
+        "north": 0.0,
+        "south": 1.0,
+        "east": 0.0,
+        "west": 0.0
+      },
+      "max_order_tv": 1.0,
+      "ref_tvs": [
+        0.0,
+        1.0,
+        0.0,
+        0.96
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "INDETERMINATE"
+    },
+    {
+      "episode_id": "v3-s10",
+      "correct_action": "north",
+      "base_distribution": {
+        "north": 0.0,
+        "south": 0.0,
+        "east": 1.0,
+        "west": 0.0
+      },
+      "max_order_tv": 1.0,
+      "ref_tvs": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "INDETERMINATE"
+    },
+    {
+      "episode_id": "v3-s11",
+      "correct_action": "north",
+      "base_distribution": {
+        "north": 0.28,
+        "south": 0.0,
+        "east": 0.7,
+        "west": 0.02
+      },
+      "max_order_tv": 1.0,
+      "ref_tvs": [
+        0.30000000000000004,
+        0.30000000000000004,
+        0.72,
+        1.0
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "KILL"
+    },
+    {
+      "episode_id": "v3-s12",
+      "correct_action": "west",
+      "base_distribution": {
+        "north": 0.58,
+        "south": 0.42,
+        "east": 0.0,
+        "west": 0.0
+      },
+      "max_order_tv": 1.0,
+      "ref_tvs": [
+        0.42000000000000004,
+        0.5800000000000001,
+        1.0,
+        0.38
+      ],
+      "short_arms": {},
+      "single_episode_verdict": "KILL"
+    }
+  ],
+  "ledger": {
+    "calls": 6600,
+    "usage": {
+      "input_tokens": 3425900,
+      "output_tokens": 118822,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0
+    },
+    "cache_hit_rate": 0.0,
+    "calls_with_cache_read": 0,
+    "unparseable_samples": 0,
+    "api_failures": 0,
+    "failure_bodies": [],
+    "cost_usd": 12.06003,
+    "cost_note": null
+  }
+}

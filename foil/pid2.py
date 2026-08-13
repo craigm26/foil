@@ -31,6 +31,18 @@ LANES = ["Blue Lane", "Grey Lane", "Amber Lane", "Slate Lane", "Ochre Lane",
 HANDLERS = ["Achebe", "Bhatt", "Cortez", "Dvorak", "Eriksen",
             "Falodun", "Gupta", "Halvorsen"]
 
+#: Depot names that differ only by suffix. Drawing every depot in an item from
+#: one family means the true chain and its near-misses are separated by a few
+#: characters, so the item is failed by skimming rather than by misreading.
+#: Determinacy is untouched -- the names are distinct strings and each
+#: statement still names exactly one depot.
+CONFUSABLE_DEPOTS = [
+    ["Ravensworth", "Ravenscourt", "Ravensmoor", "Ravensdale"],
+    ["Wickmere", "Wickmoor", "Wickford", "Wickholm"],
+    ["Nethercote", "Nethergate", "Netherby", "Netherfield"],
+    ["Ashcombe", "Ashcroft", "Ashbourne", "Ashwell"],
+]
+
 
 @dataclass(frozen=True)
 class Item2:
@@ -44,7 +56,7 @@ class Item2:
 
 
 def make_item2(seed: int, hops: int = 3, near_misses: int = 2,
-               distractors: int = 3) -> Item2 | None:
+               distractors: int = 3, confusable: bool = False) -> Item2 | None:
     """Build one chain item.
 
     True chain: carrier -> depot -> lane -> handler (hops=3).
@@ -56,10 +68,26 @@ def make_item2(seed: int, hops: int = 3, near_misses: int = 2,
     if hops < 2 or hops > 3:
         return None
 
+    # Draw enough entities for the requested number of near-miss chains. The
+    # first version sampled a fixed 3 depots and 4 handlers, so near_misses=3
+    # indexed past the end -- the hardest rung of the difficulty ladder could
+    # not be built at all.
+    need = near_misses + 1
+    if need > len(DEPOTS) or need > len(HANDLERS):
+        return None
+
     carrier = rng.choice(CARRIERS)
-    depots = rng.sample(DEPOTS, 3)
+    if confusable:
+        family = rng.choice(CONFUSABLE_DEPOTS)
+        if need > len(family):
+            return None
+        depots = rng.sample(family, max(3, need)) if len(family) >= max(3, need) else None
+        if depots is None:
+            return None
+    else:
+        depots = rng.sample(DEPOTS, max(3, need))
     lanes = rng.sample(LANES, 4)
-    handlers = rng.sample(HANDLERS, 4)
+    handlers = rng.sample(HANDLERS, max(4, need))
 
     true_depot, true_lane, true_handler = depots[0], lanes[0], handlers[0]
 
@@ -86,11 +114,15 @@ def make_item2(seed: int, hops: int = 3, near_misses: int = 2,
         else:
             near.append(f"At {depots[i + 1]}, consignments are worked by handler {handlers[i + 1]}.")
 
+    # Distinct distractors. The first version cycled lane and handler indices
+    # with period 3, so any distractors>3 emitted verbatim duplicates -- noise
+    # that adds length without adding difficulty, and reads as a generator bug.
     other: list[str] = []
-    for i in range(distractors):
+    pool = [(ln, hd) for ln in lanes[1:] for hd in handlers[1:]]
+    rng.shuffle(pool)
+    for ln, hd in pool[:distractors]:
         other.append(
-            f"{lanes[(i % 3) + 1]} was reassigned last quarter and is now worked by "
-            f"handler {handlers[(i % 3) + 1]}."
+            f"{ln} was reassigned last quarter and is now worked by handler {hd}."
         )
 
     passages = links + near + other
@@ -110,7 +142,7 @@ def make_item2(seed: int, hops: int = 3, near_misses: int = 2,
         return None
 
     return Item2(
-        item_id=f"pid2-h{hops}n{near_misses}-{seed}",
+        item_id=f"pid2-h{hops}n{near_misses}{'c' if confusable else ''}-{seed}",
         passages=tuple(passages),
         question=f"Which handler works consignments from carrier {carrier}?",
         options=tuple(options),

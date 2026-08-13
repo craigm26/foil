@@ -6,9 +6,15 @@ pre-registration required that in advance.
 
 **Headline: FOIL's Phase 0 gate has not been passed under any protocol.** The
 residual metric the project was built to test has never been computed, because
-the harness never cleared the noise-floor check that was designed to gate it.
-Two of the three failures were faults in the environment, not the instrument —
-which is itself the most useful thing learned, and the least expected.
+the harness never cleared the noise-floor check designed to gate it.
+
+Two of the three failures were faults in the environment rather than the
+instrument. **The third was not.** With decisiveness guaranteed analytically
+before any model call — so that ablation demonstrably moves the answer
+(`T_ablate` = 0.320, against 0.000 in the prior protocol) — worst-case
+presentation-order noise still exceeded half the typical ablation effect by
+6.25×. That is a verdict about ablation-based attribution, not about a
+misbuilt scout scenario.
 
 ---
 
@@ -18,8 +24,8 @@ which is itself the most useful thing learned, and the least expected.
 |---|---|---|---|
 | 1 | Phase 0 v1 — single episode | **KILL**, 36× over threshold | [RESULTS-phase0.md](RESULTS-phase0.md) |
 | 2 | Phase 0 v2 — 12 episodes, full coverage | **INDETERMINATE** | [RESULTS-phase0-v2.md](RESULTS-phase0-v2.md) |
-| 3 | Phase 0 v3 — analytic decisiveness requirement | see document | [RESULTS-phase0-v3.md](RESULTS-phase0-v3.md) |
-| 4 | PID — permutation-instability detection | see document | [RESULTS-PID.md](RESULTS-PID.md) |
+| 3 | Phase 0 v3 — analytic decisiveness requirement | **KILL**, 6.25× over threshold | [RESULTS-phase0-v3.md](RESULTS-phase0-v3.md) |
+| 4 | PID-1 — permutation-instability detection | **DEGENERATE** (untestable) | [RESULTS-PID.md](RESULTS-PID.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
 [PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID).
@@ -43,10 +49,12 @@ principal cost optimisation (evaluating coalitions in a rearranged order to
 share a cached prefix) was killed by this result. It would have looked like it
 was working.
 
-## 2. Order sensitivity is bimodal, not graded
+## 2. Order sensitivity is bimodal, and rises as the environment improves
 
-Across 12 episodes, nine were perfectly stable across all six orderings and
-three inverted completely. Episodes are not *somewhat* order-sensitive; they
+Across three protocols the same signature held: episodes are immune or they
+invert, with almost nothing between. Bistable episodes went 25% → 50% as the
+environment was made *more* suitable for attribution, because when every source
+is decisive there is more for a reordering to disturb. Episodes are not *somewhat* order-sensitive; they
 are immune or they flip. Any central summary — a mean, a median — hides this
 by construction, which is why inverted orderings are now counted as a
 first-class statistic rather than averaged over.

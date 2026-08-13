@@ -34,9 +34,10 @@ ITEMS_PER_SETTING = 8
 SAMPLES = 3
 PILOT_SEEDS = range(1, 200)          # PID-2 will use seeds >= 1000
 SETTINGS = [
-    {"hops": 2, "near_misses": 1, "distractors": 3},
     {"hops": 3, "near_misses": 2, "distractors": 3},
     {"hops": 3, "near_misses": 3, "distractors": 5},
+    {"hops": 3, "near_misses": 3, "distractors": 5, "confusable": True},
+    {"hops": 3, "near_misses": 3, "distractors": 8, "confusable": True},
 ]
 #: Target band for base accuracy. Above it there are too few errors to predict;
 #: below it the task is measuring something other than tracking.
@@ -74,7 +75,8 @@ def main() -> int:
         acc = correct / len(items)
         inband = TARGET[0] <= acc <= TARGET[1]
         out.append({**cfg, "accuracy": acc, "in_band": inband})
-        print(f"  hops={cfg['hops']} near={cfg['near_misses']} dist={cfg['distractors']}: "
+        print(f"  hops={cfg['hops']} near={cfg['near_misses']} dist={cfg['distractors']}"
+              f"{' confusable' if cfg.get('confusable') else ''}: "
               f"accuracy {acc:.2f} ({correct}/{len(items)})"
               f"{'  <- in band' if inband else ''}", flush=True)
 
