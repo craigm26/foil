@@ -444,3 +444,47 @@ h3.subhead{
   padding:0 18px 14px; font-family:var(--mono); font-size:11px;
   letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3);
 }
+
+/* ── record table (the seven-environment ledger) ───────────── */
+.rec{
+  width:100%; border-collapse:collapse; margin-top:26px;
+  font-size:14px; line-height:1.5;
+}
+.rec th{
+  text-align:left; padding:0 0 9px; border-bottom:1px solid var(--rule);
+  font:600 11px/1 var(--mono); letter-spacing:.09em; text-transform:uppercase;
+  color:var(--ink-3);
+}
+.rec td{ padding:13px 0; border-bottom:1px solid var(--rule-hi); vertical-align:top; }
+.rec td:first-child{ font:600 13px/1.5 var(--mono); white-space:nowrap; padding-right:22px; }
+.rec td:nth-child(2){
+  font:600 11.5px/1.5 var(--mono); letter-spacing:.05em; white-space:nowrap;
+  padding-right:22px;
+}
+.rec tr.bad td:nth-child(2){ color:var(--basin-b); }
+.rec tr.ok  td:nth-child(2){ color:var(--ink-2); }
+.rec td:last-child{ color:var(--ink-2); }
+.rec-note{
+  margin-top:20px; padding:16px 18px; border-left:2px solid var(--basin-b);
+  background:var(--paper-lo); font-size:14.5px; line-height:1.62; color:var(--ink-2);
+}
+.sub-h{
+  margin:44px 0 4px; font:600 15px/1.3 var(--sans); color:var(--ink);
+  letter-spacing:-.01em;
+}
+.getit-links{ margin-top:16px; }
+@media (max-width:640px){
+  .rec, .rec thead, .rec tbody, .rec tr, .rec td, .rec th{ display:block; }
+  .rec thead{ display:none; }
+  .rec tr{ padding:14px 0; border-bottom:1px solid var(--rule-hi); }
+  .rec td{ border:0; padding:2px 0; }
+}
+
+.band-dark .caveat{
+  background:#1A222B; border-left-color:#E4A46B; color:#C9D2DA;
+}
+.band-dark .caveat b{ color:#F2F5F7; }
+.band-dark .killbox .kill{ color:#E4A46B; }
+.masthead-meta a{ color:var(--basin-b); text-decoration:none; border-bottom:1px solid var(--basin-b-lo); }
+.masthead-meta a:hover{ border-bottom-color:var(--basin-b); }
+.foot-meta a{ color:inherit; }

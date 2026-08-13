@@ -18,6 +18,8 @@
       <span>Phase&nbsp;0 &amp; PID</span>
       <span class="sep">/</span>
       <span>sonnet-5 &middot; opus-5</span>
+      <span class="sep">/</span>
+      <a href="https://github.com/craigm26/foil">source</a>
     </div>
   </div>
 </header>
@@ -182,23 +184,53 @@
 <!-- ─────────────────────── TOOLS ─────────────────────── -->
 <section class="band band-lab" id="tools">
   <div class="wrap">
-    <h2 class="sec">Two tools came out of this</h2>
+    <h2 class="sec">Seven environments. Four were invalid.</h2>
     <p class="sub">
-      Both are importable Python libraries with zero dependencies — not CLIs and
-      not services. The thing they check lives inside your code, so they have to
-      run there too. Small enough to vendor if adding a dependency to a research
-      harness is not worth the argument.
+      Every invalid one produced results that looked perfectly analyzable. That
+      is the actual finding of this project, and it is the reason the two tools
+      below exist. Here is the whole ledger, including the ones that cost money
+      and returned nothing.
     </p>
 
-    <div class="getit">
-      <div class="getit-cmd"><code>pip install orderprobe</code></div>
-      <div class="getit-alt">
-        or copy the two directories into your repo — stdlib only, nothing to
-        resolve, nothing to trust beyond what you can read in an afternoon
-      </div>
-      <div class="getit-meta">MIT · Python 3.10+ · no dependencies · 38 tests</div>
-    </div>
+    <table class="rec">
+      <thead>
+        <tr><th>study</th><th>outcome</th><th>what was wrong with it</th></tr>
+      </thead>
+      <tbody>
+        <tr class="bad"><td>Phase 0 v1</td><td>KILL</td>
+          <td>Under-determined. An option the evidence never ruled out competed
+              with the intended answer.</td></tr>
+        <tr class="bad"><td>Phase 0 v2</td><td>INDETERMINATE</td>
+          <td>Over-determined the other way. 81% of ablations moved the answer by
+              exactly zero.</td></tr>
+        <tr class="ok"><td>Phase 0 v3</td><td>KILL</td>
+          <td>Valid, and the hypothesis still failed its gate. Reordering
+              identical sentences moved a decision 0.990 → 0.005.</td></tr>
+        <tr class="bad"><td>PID-1</td><td>DEGENERATE</td>
+          <td>No error variance. The model scored 40 of 40, so there was nothing
+              left to detect.</td></tr>
+        <tr class="ok"><td>PID-2</td><td>SUPPORTED</td>
+          <td>Valid. Permutation instability predicts error, LR 8.1,
+              p = 0.00003.</td></tr>
+        <tr class="bad"><td>TURN-1</td><td>DEGENERATE</td>
+          <td><b>The dangerous one.</b> Ground truth the model did not share, and
+              the structural gate passed over 200 seeds.</td></tr>
+        <tr class="ok"><td>TURN-2</td><td>NOT SUPPORTED</td>
+          <td>Valid, ≥90% power, and the effect ran <i>opposite</i> to the
+              hypothesis. Published as a limit on our own earlier result.</td></tr>
+      </tbody>
+    </table>
 
+    <p class="rec-note">
+      TURN-1 is the one worth dwelling on. Its analytic gate ran over 200 seeds,
+      re-derived from the rendered text, and passed. The environment was still
+      invalid: every run scored "incorrect" was a <i>unanimous</i> four-agent vote
+      for the option our reference scorer ranked last. The scorer was wrong, not
+      the agents. We were one step from publishing that as a consensus-suppression
+      finding. A gate can be rigorous, reproducible, and confirm the wrong thing.
+    </p>
+
+    <h3 class="sub-h">So we built the two checks that would have caught all four</h3>
     <div class="toolgrid">
       <div class="toolcard">
         <div class="toolname">orderprobe</div>
@@ -227,6 +259,24 @@ if r.unstable: escalate(r)</code></pre>
 <pre class="code code-sm"><code>structural.verify(make_case, holds, n=200)   <span class="c"># free</span>
 power.paired(effect=.20, units=32, reps=5)   <span class="c"># free</span>
 construct.verify(oracle, cases, min_rate=.9) <span class="c"># ~$1.50</span></code></pre>
+      </div>
+    </div>
+
+    <div class="getit">
+      <div class="getit-cmd"><code>pip install git+https://github.com/craigm26/foil</code></div>
+      <div class="getit-alt">
+        or copy the <code>orderprobe/</code> and <code>evalgate/</code>
+        directories straight into your repo — stdlib only, nothing to resolve,
+        nothing to trust beyond what you can read in an afternoon
+      </div>
+      <div class="getit-meta">MIT · Python 3.10+ · no dependencies · 38 tests</div>
+      <div class="getit-links">
+        <a class="btn" href="https://github.com/craigm26/foil">Source, data and all seven pre-registrations →</a>
+      </div>
+      <div class="getit-alt">
+        The repository carries the raw run files, every pre-registration with the
+        commit that predates its data, and the four write-ups where the answer was
+        that the experiment could not be run.
       </div>
     </div>
   </div>
@@ -462,6 +512,51 @@ construct.verify(oracle, cases, min_rate=.9) <span class="c"># ~$1.50</span></co
   </div>
 </section>
 
+<!-- ─────────────────────── TURN-2 ─────────────────────── -->
+<section class="band band-dark">
+  <div class="wrap narrow">
+    <h2 class="sec">And the result that limits all of the above</h2>
+    <p>
+      Everything on this page so far concerns a <em>single listener</em> reading
+      ordered context. The obvious next question is whether the same thing
+      happens to a group: if you move the agent holding the decisive private fact
+      to the front of the speaking order, does the group decide better?
+    </p>
+    <p>
+      We pre-registered that, sized it to ≥90% power, and confirmed with a
+      full-information control panel that the intended answer was reachable —
+      36 of 36. Then we ran it. <b>The hypothesis failed.</b>
+    </p>
+    <div class="killbox">
+      <div class="killrow"><span>group correct — holder speaks first</span><b>0.906</b></div>
+      <div class="killrow"><span>group correct — holder speaks last</span><b>1.000</b></div>
+      <div class="killrow"><span>mean Δ (needed ≥ +0.15)</span><b>−0.094</b></div>
+      <div class="killrow"><span>scenarios favouring first / favouring last</span><b>0 / 11</b></div>
+      <div class="killrow killrow-v"><span>pre-registered verdict</span><b class="kill">NOT SUPPORTED</b></div>
+    </div>
+    <p>
+      Speaking last was <em>better</em>, not worse — and we are not claiming that.
+      The pre-registered test was one-sided in the opposite direction, and
+      flipping a one-sided test after seeing the sign is precisely the manoeuvre
+      pre-registration exists to prevent. It is reported as a descriptive
+      observation that needs its own study.
+    </p>
+    <p>
+      There is also a flaw in our own gate worth naming: it declared the design
+      degenerate only if accuracy hit ceiling in <em>both</em> arms. The
+      last-speaker arm scored 1.000, which makes Δ ≤ 0 by construction. The check
+      should have been ceiling in the comparison arm.
+    </p>
+    <p class="caveat">
+      <b>Four agents deliberating over two rounds showed no positional harm that
+      a single listener showed dramatically.</b> Group deliberation looks more
+      robust to arrangement than single-shot reading. That is a real constraint on
+      how far the order-sensitivity result travels, it was expensive to learn, and
+      it argues against the tidier story this page could otherwise have told.
+    </p>
+  </div>
+</section>
+
 <!-- ─────────────────────── RUN IT ─────────────────────── -->
 <section class="band band-run">
   <div class="wrap narrow">
@@ -471,7 +566,10 @@ construct.verify(oracle, cases, min_rate=.9) <span class="c"># ~$1.50</span></co
       has to run unchanged inside a lab, and every dependency is a reason
       someone doesn't.
     </p>
-<pre class="code"><code><span class="c"># project the cost and inspect the exact request; zero API calls</span>
+<pre class="code"><code><span class="c"># everything on this page, from a clean checkout</span>
+git clone https://github.com/craigm26/foil && cd foil
+
+<span class="c"># project the cost and inspect the exact request; zero API calls</span>
 python3 cli.py plan --show-prompt
 
 <span class="c"># protocol v1: the run this page reports on (~2,200 calls)</span>
@@ -500,6 +598,7 @@ python3 cli.py --n 50 run2 --episodes 12</code></pre>
       <p>Reconstruction of the scripted-scout setup from Anthropic's Frontier Red Team report <em>Patterns and problems in emerging multiagent systems</em> (2026-08-13).</p>
       <p>All episodes are synthetic. MIT licensed — the harness, both tools,
       every pre-registration and every result, including the ones that failed.</p>
+      <p><a href="https://github.com/craigm26/foil">github.com/craigm26/foil</a></p>
     </div>
   </div>
 </footer>
