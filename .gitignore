@@ -2,3 +2,13 @@ runs/
 __pycache__/
 *.pyc
 runs-*.log
+# Local key wrappers, superseded by run.sh — they hardcoded a private vault path
+calib.sh
+foil.sh
+pid.sh
+pid2.sh
+run-nulls.sh
+turn.sh
+turn2.sh
+.wrangler/
+node_modules/
