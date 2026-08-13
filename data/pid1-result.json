@@ -1,0 +1,564 @@
+{
+  "preregistration": "PREREGISTRATION-PID.md",
+  "model": "claude-opus-5",
+  "items": 40,
+  "permutations": 4,
+  "samples": 5,
+  "table": {
+    "unstable_wrong": 0,
+    "unstable_right": 0,
+    "stable_wrong": 0,
+    "stable_right": 40
+  },
+  "dropouts": 0,
+  "p_one_sided": NaN,
+  "err_rate_unstable": NaN,
+  "err_rate_stable": 0.0,
+  "risk_difference": NaN,
+  "accuracy": 1.0,
+  "instability_rate": 0.0,
+  "criteria": {
+    "alpha": 0.01,
+    "min_risk_difference": 0.3,
+    "min_margin": 8
+  },
+  "outcome": "DEGENERATE",
+  "records": [
+    {
+      "item_id": "pid-1",
+      "truth": "Fitch",
+      "modals": [
+        "Fitch",
+        "Fitch",
+        "Fitch",
+        "Fitch"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-2",
+      "truth": "Brindle",
+      "modals": [
+        "Brindle",
+        "Brindle",
+        "Brindle",
+        "Brindle"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-3",
+      "truth": "Nakamura",
+      "modals": [
+        "Nakamura",
+        "Nakamura",
+        "Nakamura",
+        "Nakamura"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-4",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-5",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-6",
+      "truth": "Adaku",
+      "modals": [
+        "Adaku",
+        "Adaku",
+        "Adaku",
+        "Adaku"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-7",
+      "truth": "Nakamura",
+      "modals": [
+        "Nakamura",
+        "Nakamura",
+        "Nakamura",
+        "Nakamura"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-8",
+      "truth": "Brindle",
+      "modals": [
+        "Brindle",
+        "Brindle",
+        "Brindle",
+        "Brindle"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-9",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-10",
+      "truth": "Adaku",
+      "modals": [
+        "Adaku",
+        "Adaku",
+        "Adaku",
+        "Adaku"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-11",
+      "truth": "Nakamura",
+      "modals": [
+        "Nakamura",
+        "Nakamura",
+        "Nakamura",
+        "Nakamura"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-12",
+      "truth": "Fitch",
+      "modals": [
+        "Fitch",
+        "Fitch",
+        "Fitch",
+        "Fitch"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-13",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-14",
+      "truth": "Brindle",
+      "modals": [
+        "Brindle",
+        "Brindle",
+        "Brindle",
+        "Brindle"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-15",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-16",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-17",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-18",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-19",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-20",
+      "truth": "Brindle",
+      "modals": [
+        "Brindle",
+        "Brindle",
+        "Brindle",
+        "Brindle"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-21",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-22",
+      "truth": "Brindle",
+      "modals": [
+        "Brindle",
+        "Brindle",
+        "Brindle",
+        "Brindle"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-23",
+      "truth": "Fitch",
+      "modals": [
+        "Fitch",
+        "Fitch",
+        "Fitch",
+        "Fitch"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-24",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-25",
+      "truth": "Fitch",
+      "modals": [
+        "Fitch",
+        "Fitch",
+        "Fitch",
+        "Fitch"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-26",
+      "truth": "Nakamura",
+      "modals": [
+        "Nakamura",
+        "Nakamura",
+        "Nakamura",
+        "Nakamura"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-27",
+      "truth": "Adaku",
+      "modals": [
+        "Adaku",
+        "Adaku",
+        "Adaku",
+        "Adaku"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-28",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-29",
+      "truth": "Nakamura",
+      "modals": [
+        "Nakamura",
+        "Nakamura",
+        "Nakamura",
+        "Nakamura"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-30",
+      "truth": "Brindle",
+      "modals": [
+        "Brindle",
+        "Brindle",
+        "Brindle",
+        "Brindle"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-31",
+      "truth": "Brindle",
+      "modals": [
+        "Brindle",
+        "Brindle",
+        "Brindle",
+        "Brindle"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-32",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-33",
+      "truth": "Brindle",
+      "modals": [
+        "Brindle",
+        "Brindle",
+        "Brindle",
+        "Brindle"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-34",
+      "truth": "Adaku",
+      "modals": [
+        "Adaku",
+        "Adaku",
+        "Adaku",
+        "Adaku"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-35",
+      "truth": "Oyelaran",
+      "modals": [
+        "Oyelaran",
+        "Oyelaran",
+        "Oyelaran",
+        "Oyelaran"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-36",
+      "truth": "Adaku",
+      "modals": [
+        "Adaku",
+        "Adaku",
+        "Adaku",
+        "Adaku"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-37",
+      "truth": "Oyelaran",
+      "modals": [
+        "Oyelaran",
+        "Oyelaran",
+        "Oyelaran",
+        "Oyelaran"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-38",
+      "truth": "Oyelaran",
+      "modals": [
+        "Oyelaran",
+        "Oyelaran",
+        "Oyelaran",
+        "Oyelaran"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-39",
+      "truth": "Renshaw",
+      "modals": [
+        "Renshaw",
+        "Renshaw",
+        "Renshaw",
+        "Renshaw"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    },
+    {
+      "item_id": "pid-40",
+      "truth": "Oyelaran",
+      "modals": [
+        "Oyelaran",
+        "Oyelaran",
+        "Oyelaran",
+        "Oyelaran"
+      ],
+      "dropout": false,
+      "unstable": false,
+      "correct": true
+    }
+  ],
+  "ledger": {
+    "calls": 800,
+    "usage": {
+      "input_tokens": 417080,
+      "output_tokens": 17874,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0
+    },
+    "cache_hit_rate": 0.0,
+    "calls_with_cache_read": 0,
+    "unparseable_samples": 0,
+    "api_failures": 0,
+    "failure_bodies": [],
+    "cost_usd": null,
+    "cost_note": "no price row for 'claude-opus-5'; add one or pass --price-file"
+  }
+}
