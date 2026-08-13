@@ -203,12 +203,61 @@
       </div>
     </div>
     <p class="statusline">
-      <b>Status.</b> The negative result is published and is not revised. The
-      protocol was then amended — labelled post-hoc, because every decision in
-      it was made after seeing the rule fire — to pool the noise floor across
-      twelve episodes, repair a percentile statistic that had degenerated to the
-      maximum, and remove the unruled-out route that made this episode bistable.
-      That run is in progress. If it fires the rule again, the project stops.
+      <b>Status: Phase 0 not passed, under two protocols.</b> The amended
+      protocol — twelve episodes, a repaired percentile, and every route covered
+      by at least one scout — returned <b>INDETERMINATE</b>. It removed the
+      bistability driver and made the task over-determined instead: 81% of
+      single-source ablations moved the distribution by exactly zero, leaving no
+      signal for a noise floor to be measured against. Two environment failures
+      in opposite directions; the instrument itself has still never been
+      computed. The project does not advance to Phase 1.
+    </p>
+  </div>
+</section>
+
+<!-- ─────────────────────── V2 ─────────────────────── -->
+<section class="band band-lab">
+  <div class="wrap narrow">
+    <h2 class="sec">What the amended protocol found</h2>
+    <p class="sub">
+      Twelve fresh episodes, every route covered. Order sensitivity did not go
+      away — it concentrated. Episodes are not slightly order-sensitive; they
+      are either immune or they invert completely.
+    </p>
+
+    <div class="killbox">
+      <div class="killrow"><span>Episodes perfectly stable across all six orderings</span><b>9 / 12</b></div>
+      <div class="killrow"><span>Episodes that invert completely</span><b>3 / 12</b></div>
+      <div class="killrow"><span>Single-source ablations that moved nothing</span><b>81%</b></div>
+      <div class="killrow killrow-v"><span>Verdict</span><b class="kill">INDETERMINATE</b></div>
+    </div>
+
+    <h3 class="subhead">An unplanned observation</h3>
+    <p class="sub">
+      The three episodes that invert under reordering are exactly the three
+      where the listener&rsquo;s answer is wrong — at ~1.00 confidence in every
+      case. Nine stable episodes, nine correct.
+    </p>
+    <div class="crosstab">
+      <div class="ct-h"></div><div class="ct-h">wrong</div><div class="ct-h">right</div>
+      <div class="ct-r">inverts under reorder</div><div class="ct-v ct-hit">3</div><div class="ct-v">0</div>
+      <div class="ct-r">stable</div><div class="ct-v">0</div><div class="ct-v ct-hit">9</div>
+    </div>
+    <p class="sub">
+      If it holds, that is an error signal needing no ground truth, no normative
+      baseline and no attribution: permute the inputs, and distrust an answer
+      that moves. It would sidestep every limitation that made the original
+      metric hard to defend.
+    </p>
+    <p class="caveat">
+      <b>Treat this as a lead, not a result.</b> It was noticed after the data
+      came in, and the test was chosen after the pattern was visible, so the
+      p&nbsp;=&nbsp;0.0045 is descriptive rather than confirmatory. Twelve
+      episodes with three positives is fragile. Ambiguity plausibly causes both
+      the flipping and the error, which makes this a symptom rather than a
+      mechanism — usable as a detector, unexplained as a cause. Establishing it
+      needs a fresh pre-registration and a model and task family it was not
+      discovered on.
     </p>
   </div>
 </section>

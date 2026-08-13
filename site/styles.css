@@ -361,3 +361,31 @@ h2.sec::before{
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{ animation:none !important; transition:none !important; }
 }
+
+/* ── v2 section ───────────────────────────────────────────── */
+h3.subhead{
+  font-family:var(--mono); font-size:13px; letter-spacing:.11em;
+  text-transform:uppercase; font-weight:500; color:var(--ink);
+  margin:34px 0 12px; padding-bottom:8px; border-bottom:1px solid var(--rule);
+}
+.crosstab{
+  display:grid; grid-template-columns:minmax(0,1.6fr) 1fr 1fr;
+  border:1px solid var(--rule); background:var(--paper); margin:18px 0 22px;
+  font-family:var(--mono);
+}
+.crosstab > *{ padding:11px 14px; border-bottom:1px solid var(--rule-hi); }
+.crosstab > *:nth-last-child(-n+3){ border-bottom:0; }
+.ct-h{
+  font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink-3); text-align:right; background:var(--paper-lo);
+}
+.ct-r{ font-size:12px; color:var(--ink-2); }
+.ct-v{
+  text-align:right; font-size:16px; font-variant-numeric:tabular-nums;
+  color:var(--ink-3);
+}
+.ct-hit{ color:var(--basin-b); font-weight:500; }
+.caveat{
+  border-left:3px solid var(--basin-b); background:var(--paper);
+  padding:14px 16px; font-size:14.5px; color:var(--ink-2); max-width:none;
+}
