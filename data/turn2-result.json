@@ -1,0 +1,5397 @@
+{
+  "preregistration": "PREREGISTRATION-TURN2.md",
+  "model": "claude-sonnet-5",
+  "gate_rate": 1.0,
+  "scenarios": 32,
+  "reps": 5,
+  "runs": 320,
+  "dropouts": 0,
+  "H1": {
+    "p_permutation": 1.0,
+    "mean_delta": -0.09374999999999999,
+    "scenarios_first_better": 0,
+    "scenarios_last_better": 11
+  },
+  "H2": {
+    "p_permutation": 1.0,
+    "mean_delta": -0.018749999999999996
+  },
+  "accuracy_by_condition": {
+    "first": 0.90625,
+    "last": 1.0
+  },
+  "utterance_by_condition": {
+    "first": 0.975,
+    "last": 0.99375
+  },
+  "pressed_and_ignored": 15,
+  "criteria": {
+    "alpha": 0.01,
+    "min_mean_delta": 0.15
+  },
+  "outcome": "NOT SUPPORTED",
+  "per_scenario": [
+    {
+      "scenario": "turn2-s3000",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": -0.19999999999999996
+    },
+    {
+      "scenario": "turn2-s3001",
+      "delta_correct": -0.19999999999999996,
+      "p_correct_first": 0.8,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3002",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3003",
+      "delta_correct": -0.19999999999999996,
+      "p_correct_first": 0.8,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3004",
+      "delta_correct": -0.19999999999999996,
+      "p_correct_first": 0.8,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3005",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3006",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3007",
+      "delta_correct": -0.6,
+      "p_correct_first": 0.4,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3008",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3009",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3010",
+      "delta_correct": -0.19999999999999996,
+      "p_correct_first": 0.8,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3011",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3012",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3013",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": -0.19999999999999996
+    },
+    {
+      "scenario": "turn2-s3014",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3015",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3016",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3017",
+      "delta_correct": -0.19999999999999996,
+      "p_correct_first": 0.8,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3018",
+      "delta_correct": -0.6,
+      "p_correct_first": 0.4,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3019",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3020",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3021",
+      "delta_correct": -0.19999999999999996,
+      "p_correct_first": 0.8,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3022",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3023",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3024",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3025",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": -0.19999999999999996
+    },
+    {
+      "scenario": "turn2-s3026",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3027",
+      "delta_correct": -0.19999999999999996,
+      "p_correct_first": 0.8,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3028",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3029",
+      "delta_correct": -0.19999999999999996,
+      "p_correct_first": 0.8,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3030",
+      "delta_correct": -0.19999999999999996,
+      "p_correct_first": 0.8,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn2-s3031",
+      "delta_correct": 0.0,
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_uttered": 0.0
+    }
+  ],
+  "runs_detail": [
+    {
+      "run_id": "turn2-s3000_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": false,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3000_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3000_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3000_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3000_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3000_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3000_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3000_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3000_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3000_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3000",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3001_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3001_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Ntanda",
+      "truth": "Krishnamurthy",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3001_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3001_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3001_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3001_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3001_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3001_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3001_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3001_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3001",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3002_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3002_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3002_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3002_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3002_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3002_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3002_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3002_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3002_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3002_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3002",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3003_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3003_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3003_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3003_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Oyelowo",
+      "truth": "Krishnamurthy",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3003_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3003_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3003_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3003_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3003_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3003_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3003",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3004_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3004_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3004_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3004_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Oyelowo",
+      "truth": "Bellweather",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3004_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3004_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3004_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3004_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3004_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3004_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3004",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3005_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3005_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3005_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3005_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3005_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": false,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3005_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3005_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": false,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3005_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3005_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3005_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3005",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3006_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3006_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3006_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3006_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3006_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3006_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3006_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3006_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3006_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3006_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3006",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3007_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3007_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3007_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Krishnamurthy",
+      "truth": "Bellweather",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3007_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Krishnamurthy",
+      "truth": "Bellweather",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3007_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Krishnamurthy",
+      "truth": "Bellweather",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3007_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3007_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3007_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3007_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3007_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3007",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3008_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3008_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3008_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3008_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3008_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3008_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3008_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3008_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3008_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3008_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3008",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3009_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3009_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3009_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3009_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3009_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3009_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3009_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3009_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3009_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3009_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3009",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3010_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3010_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3010_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Krishnamurthy",
+      "truth": "Oyelowo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3010_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3010_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3010_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3010_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3010_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3010_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3010_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3010",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3011_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3011_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3011_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3011_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3011_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3011_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3011_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3011_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3011_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3011_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3011",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3012_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3012_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3012_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3012_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3012_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3012_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3012_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3012_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3012_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3012_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3012",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3013_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3013_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3013_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3013_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3013_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3013_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": false,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3013_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3013_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3013_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3013_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3013",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3014_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3014_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3014_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3014_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3014_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3014_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3014_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3014_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3014_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3014_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3014",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3015_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3015_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3015_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3015_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3015_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3015_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3015_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3015_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3015_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3016_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3015_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3015",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3016_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3016_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3016_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3016_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3016_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3016_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3016_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3016_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3016_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3016",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3017_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Faraday",
+      "truth": "Renwick",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3017_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3017_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3017_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3017_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3017_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3017_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3017_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3017_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3017_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3017",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3018_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3018_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3018_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Faraday",
+      "truth": "Okonkwo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3018_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3018_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Faraday",
+      "truth": "Okonkwo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3018_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Faraday",
+      "truth": "Okonkwo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3018_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3018_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3018_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3018_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3018",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3019_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3019_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3019_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3019_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3019_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3019_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3019_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3019_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3019_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3019_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3019",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3020_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3020_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3020_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3020_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3020_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3020_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3020_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3020_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3020_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3020_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3020",
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3021_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3021_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3021_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3021_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Okonkwo",
+      "truth": "Renwick",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3021_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3021_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3021_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3021_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3021_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3021_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3021",
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3022_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3022_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3022_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3022_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3022_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3022_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3022_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3022_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3022_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3022_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3022",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3023_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3023_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3023_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3023_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3023_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3023_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3023_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3023_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3023_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3023_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3023",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3024_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3024_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3024_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3024_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3024_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3024_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3024_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3024_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3024_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3024_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3024",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3025_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3025_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": false,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3025_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3025_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3025_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3025_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3025_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3025_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3025_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3025_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3025",
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3026_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3026_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3026_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3026_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3026_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3026_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3026_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3026_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3026_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3026_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3026",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3027_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3027_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3027_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Salvatierra",
+      "truth": "Krishnamurthy",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3027_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3027_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3027_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3027_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3027_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3027_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3027_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3027",
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3028_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3028_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3028_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3028_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3028_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3028_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3028_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3028_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3028_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3028_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3028",
+      "group_answer": "Okonkwo",
+      "truth": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Okonkwo",
+        "Analyst-2": "Okonkwo",
+        "Analyst-3": "Okonkwo",
+        "Analyst-4": "Okonkwo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3029_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Salvatierra",
+      "truth": "Faraday",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3029_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3029_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3029_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3029_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3029_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3029_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3029_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3029_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3029_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3029",
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3030_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3030_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3030_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Bellweather",
+      "truth": "Salvatierra",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3030_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3030_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3030_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3030_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3030_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3030_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3030_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3030",
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3031_first_0",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3031_first_1",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3031_first_2",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3031_first_3",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3031_first_4",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "first"
+    },
+    {
+      "run_id": "turn2-s3031_last_0",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3031_last_2",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3031_last_1",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3031_last_3",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    },
+    {
+      "run_id": "turn2-s3031_last_4",
+      "dropout": false,
+      "scenario": "turn2-s3031",
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "condition": "last"
+    }
+  ],
+  "ledger": {
+    "calls": 4272,
+    "usage": {
+      "input_tokens": 5420164,
+      "output_tokens": 487127,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0
+    },
+    "cache_hit_rate": 0.0,
+    "calls_with_cache_read": 0,
+    "unparseable_samples": 0,
+    "api_failures": 0,
+    "failure_bodies": [],
+    "cost_usd": 15.711598,
+    "cost_note": null
+  }
+}

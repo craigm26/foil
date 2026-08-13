@@ -28,7 +28,7 @@ misbuilt scout scenario.
 | 4 | PID-1 — detection, new task family | **DEGENERATE** (untestable) | [RESULTS-PID.md](RESULTS-PID.md) |
 | 5 | PID-2 — detection, pre-registered | **SUPPORTED** (p = 0.00003) | [RESULTS-PID2.md](RESULTS-PID2.md) |
 | 6 | TURN — speaking order in group deliberation | **DEGENERATE** (invalid task) | [RESULTS-TURN.md](RESULTS-TURN.md) |
-| 7 | TURN-2 — same question, repaired design | **NOT RUN** — verified, ready | [PREREGISTRATION-TURN2.md](PREREGISTRATION-TURN2.md) |
+| 7 | TURN-2 — same question, repaired design | **NOT SUPPORTED** | [RESULTS-TURN2.md](RESULTS-TURN2.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
 [PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID-1),
@@ -154,11 +154,11 @@ subscription cannot serve them. Total spend for the six executed studies:
 | PID-1 | 800 | $2.53 |
 | PID-2 | 2,880 | $4.40 |
 | TURN | 1,728 | $6.47 |
-| **total** | **20,051** | **~$31.30** |
+| TURN-2 | 4,272 | $15.71 |
+| **total** | **24,323** | **~$47.01** |
 
-TURN-2 is written, its generator verified over 200 seeds, and **unrun**. It
-would cost ~$1.50 for the calibration gate and ~$13 for the main run, and the
-gate is designed to abort the main run if the scenarios fail it.
+TURN-2 has since run: its calibration gate passed 36/36 and the main study
+returned NOT SUPPORTED.
 
 ## Reproduction
 
