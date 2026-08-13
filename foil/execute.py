@@ -102,6 +102,8 @@ class Ledger:
     calls: int = 0
     cache_hits: int = 0
     unparseable: int = 0
+    api_failures: int = 0
+    failure_bodies: list[str] = field(default_factory=list)
     model: str = ""
     prices: list[dict] = field(default_factory=list)
 
@@ -119,6 +121,8 @@ class Ledger:
             "cache_hit_rate": self.usage.cache_hit_rate,
             "calls_with_cache_read": self.cache_hits,
             "unparseable_samples": self.unparseable,
+            "api_failures": self.api_failures,
+            "failure_bodies": self.failure_bodies,
             "cost_usd": c,
             "cost_note": None if c is not None else f"no price row for {self.model!r}; add one or pass --price-file",
         }
@@ -126,6 +130,19 @@ class Ledger:
 
 class BudgetExceeded(RuntimeError):
     pass
+
+
+class ApiError(RuntimeError):
+    """An API rejection that carries its response body.
+
+    A bare status code is not a diagnosis; every 400 in this project so far
+    has been explained only by the body text.
+    """
+
+    def __init__(self, status: int, body: str):
+        self.status = status
+        self.body = body
+        super().__init__(f"HTTP {status}: {body}")
 
 
 class Executor:
@@ -176,8 +193,17 @@ class Executor:
             },
             method="POST",
         )
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            return json.loads(resp.read())
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                return json.loads(resp.read())
+        except urllib.error.HTTPError as e:
+            # The response body carries the only useful diagnosis. Discarding
+            # it turns every API rejection into an uninformative status code.
+            try:
+                detail = e.read().decode()[:600]
+            except Exception:
+                detail = "<body unreadable>"
+            raise ApiError(e.code, detail) from None
 
     def sample(self, body: dict, n: int, dry_run: bool = False) -> list[dict]:
         """Draw n samples for one fork. Returns the full record list."""
@@ -207,7 +233,16 @@ class Executor:
             futures = [pool.submit(self._post_with_retry, body) for _ in range(n - have)]
             with self.store_path.open("a") as fh:
                 for fut in as_completed(futures):
-                    resp = fut.result()
+                    try:
+                        resp = fut.result()
+                    except ApiError as e:
+                        # Never silently drop. A failed draw shrinks the arm,
+                        # and an arm that did not reach n samples must be
+                        # visible to the analysis rather than assumed full.
+                        self.ledger.api_failures += 1
+                        if len(self.ledger.failure_bodies) < 5:
+                            self.ledger.failure_bodies.append(f"HTTP {e.status}: {e.body[:300]}")
+                        continue
                     u = resp.get("usage", {}) or {}
                     usage = Usage(
                         input_tokens=u.get("input_tokens", 0) or 0,
@@ -236,8 +271,16 @@ class Executor:
         for attempt in range(5):
             try:
                 return self._post(body)
-            except urllib.error.HTTPError as e:
-                if e.code in (429, 500, 502, 503, 529) and attempt < 4:
+            except ApiError as e:
+                # 400 is included deliberately: it is observed intermittently
+                # here on requests that succeed when replayed individually, so
+                # treating it as permanent kills a run that would have
+                # completed. It is retried fewer times than a 429 so a genuine
+                # malformed request still surfaces quickly.
+                retryable = e.status in (429, 500, 502, 503, 529) or (
+                    e.status == 400 and attempt < 2
+                )
+                if retryable and attempt < 4:
                     time.sleep(2 ** attempt)
                     continue
                 raise

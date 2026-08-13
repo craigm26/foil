@@ -101,8 +101,10 @@ def cmd_run(args) -> int:
     out.write_text(json.dumps(res, indent=2))
 
     print("── Phase 0 nulls ─────────────────────────────────────")
-    print(f"episode {res['episode_id']}  model {res['model']}  n={res['samples_per_arm']}/arm")
+    print(f"episode {res['episode_id']}  model {res['model']}  n={res['samples_per_arm_requested']}/arm")
     print(f"base distribution: {res['base_distribution']}")
+    if res["short_arms"]:
+        print(f"⚠ SHORT ARMS (fewer samples than requested): {res['short_arms']}")
     print()
     print(f"N1 order    p95 TV over {len(res['N1']['tvs'])} pairs")
     print(f"N2 paraphrase  TV = {res['N2']['tv']:.3f}  CI {res['N2']['ci']}")

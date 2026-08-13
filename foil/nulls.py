@@ -161,11 +161,18 @@ def run_nulls(
     if t_null is not None and t_ablate is not None:
         verdict = "KILL" if (t_ablate == 0 or t_null >= 0.5 * t_ablate) else "PROCEED"
 
+    all_arms = n1_arms + n2_arms[1:] + ref_arms
+    short = {a.label: len(a.actions) for a in all_arms if len(a.actions) < n}
+
     return {
         "episode_id": ep.episode_id,
         "model": ex.model,
         "correct_action": ep.correct_action,
-        "samples_per_arm": n,
+        "samples_per_arm_requested": n,
+        "arm_sizes": {a.label: len(a.actions) for a in all_arms},
+        # An arm that did not reach n is a caveat on every statistic derived
+        # from it, so it is surfaced rather than left to be inferred.
+        "short_arms": short,
         "N1": {"pairs": n1_detail, "tvs": n1_tvs},
         "N2": {"tv": tv2, "ci": [lo2, hi2]},
         "REF": {"arms": ref_detail, "tvs": ref_tvs},
