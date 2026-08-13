@@ -12,3 +12,6 @@ turn.sh
 turn2.sh
 .wrangler/
 node_modules/
+build/
+*.egg-info/
+dist/
