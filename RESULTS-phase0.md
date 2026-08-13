@@ -4,7 +4,11 @@
 **Model:** `claude-sonnet-5`
 **Episode:** `scout-s1-low` (seed 1, low overlap), single decision point
 **Volume:** 2,200 samples across 11 arms, 200 per arm. Zero API failures, zero
-unparseable samples, zero short arms. Measured cost $3.29.
+unparseable samples, zero short arms. Measured cost **$2.19**.
+*(Corrected 2026-08-13: originally published as $3.29. The vendored price
+table carried Sonnet 4.6's rates for `claude-sonnet-5`, overstating input by
+$3 vs $2 per MTok and output by $15 vs $10. No measured token count changed;
+only the rate applied to it.)*
 **Status:** Negative result, published as the pre-registration requires
 (§5.1, §8.1). Superseded protocol; see §6 for what followed.
 

@@ -111,10 +111,10 @@ number a model produced.
 
 ```bash
 python3 cli.py plan                       # cost projection, zero API calls
-python3 cli.py --n 200 run                # v1  (~2,200 calls, ~$3.30)
-python3 cli.py --n 50 run2 --episodes 12  # v2  (~6,250 calls, ~$11.50)
-python3 cli.py --n 50 run3 --episodes 12  # v3  (~6,600 calls, ~$12)
-python3 pid_run.py                        # PID (800 calls on opus, ~$4)
+python3 cli.py --n 200 run                # v1  (~2,200 calls, ~$2.19)
+python3 cli.py --n 50 run2 --episodes 12  # v2  (~6,250 calls, ~$7.67)
+python3 cli.py --n 50 run3 --episodes 12  # v3  (~6,600 calls, ~$8)
+python3 pid_run.py                        # PID (800 calls on opus, ~$4.50)
 ```
 
 Python 3.11 and numpy; no other dependencies, so the harness runs unchanged

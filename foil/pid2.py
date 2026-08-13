@@ -149,7 +149,20 @@ SYSTEM2 = (
 )
 
 
-def render_item2(it: Item2, order: tuple[int, ...], model: str) -> dict:
+def render_item2(it: Item2, order: tuple[int, ...], model: str,
+                 cache_ttl: str = "1h") -> dict:
+    """Render one request.
+
+    The cache breakpoint sits on the SYSTEM block -- the last content that is
+    identical across every request -- not on the user message, which carries
+    the per-item evidence and question. Marking the varying block would write a
+    fresh entry every call and never read one, which is the documented way to
+    pay the cache-write premium for nothing.
+
+    `cache_ttl` defaults to 1h rather than 5m because batch jobs commonly take
+    between five minutes and an hour; a 5-minute entry written at submission is
+    typically expired before most of the batch runs.
+    """
     body = "\n".join(f"- {it.passages[i]}" for i in order)
     user = (
         f"Evidence:\n{body}\n\n{it.question}\n"
@@ -174,7 +187,8 @@ def render_item2(it: Item2, order: tuple[int, ...], model: str) -> dict:
                 },
             }
         },
-        "system": [{"type": "text", "text": SYSTEM2, "cache_control": {"type": "ephemeral"}}],
+        "system": [{"type": "text", "text": SYSTEM2,
+                    "cache_control": {"type": "ephemeral", "ttl": cache_ttl}}],
         "messages": [{"role": "user", "content": [{"type": "text", "text": user}]}],
     }
 

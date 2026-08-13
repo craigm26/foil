@@ -75,6 +75,37 @@ class BatchExecutor:
     def have(self, custom_id: str) -> int:
         return len(self._cache.get(custom_id, []))
 
+    def seed_cache(self, body: dict) -> None:
+        """Write the shared prefix to cache before submitting the bulk batch.
+
+        Batch requests run concurrently and in any order, so cache hits are
+        best-effort: if the whole batch is submitted at once, many requests race
+        the first write and all pay full price. Sending ONE request first and
+        waiting for it establishes the entry, after which the rest read it.
+
+        This is a real synchronous request, not a `max_tokens: 0` warm-up --
+        that form is rejected when `output_config.format` is set, and rejected
+        inside a batch entirely.
+        """
+        req = urllib.request.Request(
+            f"{BASE}/v1/messages",
+            data=json.dumps(body).encode(),
+            headers={"content-type": "application/json",
+                     "anthropic-version": API_VERSION, "x-api-key": self.api_key},
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=180) as resp:
+                u = json.loads(resp.read()).get("usage", {}) or {}
+            wrote = u.get("cache_creation_input_tokens", 0) or 0
+            read = u.get("cache_read_input_tokens", 0) or 0
+            print(f"  cache seed: wrote {wrote} tok, read {read} tok", flush=True)
+            if wrote == 0 and read == 0:
+                print("  ⚠ prefix did not cache -- below the model minimum, or "
+                      "a field before the breakpoint varies", flush=True)
+        except urllib.error.HTTPError as e:
+            raise ApiError(e.code, e.read().decode()[:600]) from None
+
     def submit(self, requests: list[tuple[str, dict]]) -> list[str]:
         """requests = [(custom_id, message_body), ...]. Returns batch ids.
 

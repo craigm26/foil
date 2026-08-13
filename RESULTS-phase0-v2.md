@@ -4,7 +4,9 @@
 **Model:** `claude-sonnet-5`
 **Protocol:** v2 (post-hoc amendment, PREREGISTRATION.md §12)
 **Volume:** 12 episodes × 11 arms × 50 samples = 6,250 calls. 1 unparseable
-sample, 0 API failures, 0 short arms. Measured cost $11.50.
+sample, 0 API failures, 0 short arms. Measured cost **$7.67**.
+*(Corrected 2026-08-13 from $11.50 — see RESULTS-phase0.md §Volume for the
+price-table error. Token counts are unchanged.)*
 
 ---
 
@@ -141,4 +143,4 @@ that Phase 0 was not passed under two protocols.
 - `runs/nulls-v2-claude-sonnet-5.json` — pooled and per-episode results.
 - `RESULTS-phase0.md` — the v1 negative result, unrevised.
 
-Reproduce with `python3 cli.py --n 50 run2 --episodes 12` (~6,250 calls, ~$11.50).
+Reproduce with `python3 cli.py --n 50 run2 --episodes 12` (~6,250 calls, ~$7.67).

@@ -22,6 +22,17 @@
   "asOf": "2026-07-16"
  },
  {
+  "id": "claude-opus-5",
+  "match": "claude-opus-5",
+  "display": "Claude Opus 5",
+  "provider": "Anthropic",
+  "inPerMtok": 5,
+  "outPerMtok": 25,
+  "cacheReadPerMtok": 0.5,
+  "cacheWritePerMtok": 6.25,
+  "asOf": "2026-08-13"
+ },
+ {
   "id": "claude-opus-4-8",
   "match": "claude-opus-4-8",
   "display": "Claude Opus 4.8",
@@ -70,11 +81,12 @@
   "match": "claude-sonnet-5",
   "display": "Claude Sonnet 5",
   "provider": "Anthropic",
-  "inPerMtok": 3,
-  "outPerMtok": 15,
-  "cacheReadPerMtok": 0.3,
-  "cacheWritePerMtok": 3.75,
-  "asOf": "2026-07-16"
+  "inPerMtok": 2,
+  "outPerMtok": 10,
+  "cacheReadPerMtok": 0.2,
+  "cacheWritePerMtok": 2.5,
+  "asOf": "2026-08-13",
+  "note": "intro pricing through 2026-08-31; reverts to 3/15"
  },
  {
   "id": "claude-sonnet-4-6",
