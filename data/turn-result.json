@@ -1,0 +1,3011 @@
+{
+  "preregistration": "PREREGISTRATION-TURN.md",
+  "model": "claude-sonnet-5",
+  "scenarios": 24,
+  "reps": 3,
+  "rounds": 2,
+  "runs": 144,
+  "dropouts": 0,
+  "scenario_admission": "24/24",
+  "H1": {
+    "p_sign_test": 0.63671875,
+    "scenarios_first_better": 4,
+    "scenarios_last_better": 4,
+    "untied": 8,
+    "mean_delta": 0.013888888888888888
+  },
+  "H2": {
+    "p_sign_test": 0.25,
+    "scenarios_first_more": 2,
+    "scenarios_last_more": 0,
+    "untied": 2,
+    "mean_delta": 0.02777777777777778
+  },
+  "accuracy_by_condition": {
+    "first": 0.8611111111111112,
+    "last": 0.8472222222222222
+  },
+  "utterance_by_condition": {
+    "first": 0.9861111111111112,
+    "last": 0.9583333333333334
+  },
+  "pressed_and_ignored": 21,
+  "criteria": {
+    "alpha": 0.01,
+    "min_mean_delta": 0.2,
+    "min_untied": 16
+  },
+  "outcome": "DEGENERATE",
+  "per_scenario": [
+    {
+      "scenario": "turn-s2000",
+      "p_correct_first": 0.6666666666666666,
+      "p_correct_last": 1.0,
+      "delta_correct": -0.33333333333333337,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2001",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 0.6666666666666666,
+      "delta_uttered": 0.33333333333333337
+    },
+    {
+      "scenario": "turn-s2002",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2003",
+      "p_correct_first": 0.6666666666666666,
+      "p_correct_last": 1.0,
+      "delta_correct": -0.33333333333333337,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2004",
+      "p_correct_first": 0.3333333333333333,
+      "p_correct_last": 0.6666666666666666,
+      "delta_correct": -0.3333333333333333,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2005",
+      "p_correct_first": 0.6666666666666666,
+      "p_correct_last": 0.0,
+      "delta_correct": 0.6666666666666666,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2006",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2007",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2008",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2009",
+      "p_correct_first": 0.6666666666666666,
+      "p_correct_last": 0.6666666666666666,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2010",
+      "p_correct_first": 1.0,
+      "p_correct_last": 0.6666666666666666,
+      "delta_correct": 0.33333333333333337,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2011",
+      "p_correct_first": 1.0,
+      "p_correct_last": 0.6666666666666666,
+      "delta_correct": 0.33333333333333337,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 0.6666666666666666,
+      "delta_uttered": 0.33333333333333337
+    },
+    {
+      "scenario": "turn-s2012",
+      "p_correct_first": 1.0,
+      "p_correct_last": 0.6666666666666666,
+      "delta_correct": 0.33333333333333337,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2013",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 0.6666666666666666,
+      "p_uttered_last": 0.6666666666666666,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2014",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2015",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2016",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2017",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2018",
+      "p_correct_first": 0.6666666666666666,
+      "p_correct_last": 1.0,
+      "delta_correct": -0.33333333333333337,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2019",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2020",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2021",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2022",
+      "p_correct_first": 0.0,
+      "p_correct_last": 0.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    },
+    {
+      "scenario": "turn-s2023",
+      "p_correct_first": 1.0,
+      "p_correct_last": 1.0,
+      "delta_correct": 0.0,
+      "p_uttered_first": 1.0,
+      "p_uttered_last": 1.0,
+      "delta_uttered": 0.0
+    }
+  ],
+  "runs_detail": [
+    {
+      "run_id": "turn-s2000_last_1",
+      "scenario": "turn-s2000",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2000_last_0",
+      "scenario": "turn-s2000",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2000_first_0",
+      "scenario": "turn-s2000",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2000_first_1",
+      "scenario": "turn-s2000",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2000_last_2",
+      "scenario": "turn-s2000",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2000_first_2",
+      "scenario": "turn-s2000",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2001_first_1",
+      "scenario": "turn-s2001",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2001_first_2",
+      "scenario": "turn-s2001",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2001_first_0",
+      "scenario": "turn-s2001",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2001_last_1",
+      "scenario": "turn-s2001",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2001_last_0",
+      "scenario": "turn-s2001",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2001_last_2",
+      "scenario": "turn-s2001",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Salvatierra",
+      "truth": "Salvatierra",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": false,
+      "uttered_by_holder": false
+    },
+    {
+      "run_id": "turn-s2002_first_1",
+      "scenario": "turn-s2002",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2002_last_2",
+      "scenario": "turn-s2002",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2002_first_0",
+      "scenario": "turn-s2002",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2002_last_1",
+      "scenario": "turn-s2002",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2002_last_0",
+      "scenario": "turn-s2002",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2002_first_2",
+      "scenario": "turn-s2002",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2003_first_0",
+      "scenario": "turn-s2003",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2003_first_2",
+      "scenario": "turn-s2003",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2003_first_1",
+      "scenario": "turn-s2003",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2003_last_0",
+      "scenario": "turn-s2003",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2003_last_1",
+      "scenario": "turn-s2003",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2003_last_2",
+      "scenario": "turn-s2003",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2004_first_1",
+      "scenario": "turn-s2004",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Faraday",
+      "decoy": "Renwick",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2004_first_0",
+      "scenario": "turn-s2004",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Faraday",
+      "decoy": "Renwick",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2004_last_1",
+      "scenario": "turn-s2004",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2004_last_0",
+      "scenario": "turn-s2004",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Faraday",
+      "decoy": "Renwick",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2004_first_2",
+      "scenario": "turn-s2004",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2004_last_2",
+      "scenario": "turn-s2004",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Renwick",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2005_first_0",
+      "scenario": "turn-s2005",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2005_last_0",
+      "scenario": "turn-s2005",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2005_last_2",
+      "scenario": "turn-s2005",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2005_last_1",
+      "scenario": "turn-s2005",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2005_first_2",
+      "scenario": "turn-s2005",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2005_first_1",
+      "scenario": "turn-s2005",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2006_first_0",
+      "scenario": "turn-s2006",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2006_last_0",
+      "scenario": "turn-s2006",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2006_first_1",
+      "scenario": "turn-s2006",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2006_first_2",
+      "scenario": "turn-s2006",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2006_last_2",
+      "scenario": "turn-s2006",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2006_last_1",
+      "scenario": "turn-s2006",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2007_first_0",
+      "scenario": "turn-s2007",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2007_first_1",
+      "scenario": "turn-s2007",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2007_first_2",
+      "scenario": "turn-s2007",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2007_last_1",
+      "scenario": "turn-s2007",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2007_last_0",
+      "scenario": "turn-s2007",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2007_last_2",
+      "scenario": "turn-s2007",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2008_first_1",
+      "scenario": "turn-s2008",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2008_first_0",
+      "scenario": "turn-s2008",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2008_last_0",
+      "scenario": "turn-s2008",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2008_first_2",
+      "scenario": "turn-s2008",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2008_last_1",
+      "scenario": "turn-s2008",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2008_last_2",
+      "scenario": "turn-s2008",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2009_first_0",
+      "scenario": "turn-s2009",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2009_first_1",
+      "scenario": "turn-s2009",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2009_last_1",
+      "scenario": "turn-s2009",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2009_first_2",
+      "scenario": "turn-s2009",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Krishnamurthy",
+      "decoy": "Ntanda",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2009_last_0",
+      "scenario": "turn-s2009",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Krishnamurthy",
+      "decoy": "Ntanda",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2009_last_2",
+      "scenario": "turn-s2009",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Ntanda",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2010_first_0",
+      "scenario": "turn-s2010",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2010_first_1",
+      "scenario": "turn-s2010",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2010_last_1",
+      "scenario": "turn-s2010",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2010_last_0",
+      "scenario": "turn-s2010",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Bellweather",
+      "decoy": "Salvatierra",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2010_first_2",
+      "scenario": "turn-s2010",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2010_last_2",
+      "scenario": "turn-s2010",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2011_first_1",
+      "scenario": "turn-s2011",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2011_first_2",
+      "scenario": "turn-s2011",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2011_first_0",
+      "scenario": "turn-s2011",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2011_last_0",
+      "scenario": "turn-s2011",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": false,
+      "uttered_by_holder": false
+    },
+    {
+      "run_id": "turn-s2011_last_1",
+      "scenario": "turn-s2011",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2011_last_2",
+      "scenario": "turn-s2011",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Salvatierra",
+      "truth": "Faraday",
+      "decoy": "Bellweather",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2012_first_2",
+      "scenario": "turn-s2012",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2012_first_0",
+      "scenario": "turn-s2012",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2012_first_1",
+      "scenario": "turn-s2012",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2012_last_1",
+      "scenario": "turn-s2012",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Salvatierra",
+      "truth": "Bellweather",
+      "decoy": "Okonkwo",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Salvatierra",
+        "Analyst-2": "Salvatierra",
+        "Analyst-3": "Salvatierra",
+        "Analyst-4": "Salvatierra"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2012_last_0",
+      "scenario": "turn-s2012",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2012_last_2",
+      "scenario": "turn-s2012",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Bellweather",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2013_first_0",
+      "scenario": "turn-s2013",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": false,
+      "uttered_by_holder": false
+    },
+    {
+      "run_id": "turn-s2013_first_1",
+      "scenario": "turn-s2013",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2013_first_2",
+      "scenario": "turn-s2013",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2013_last_0",
+      "scenario": "turn-s2013",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": false,
+      "uttered_by_holder": false
+    },
+    {
+      "run_id": "turn-s2013_last_1",
+      "scenario": "turn-s2013",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2013_last_2",
+      "scenario": "turn-s2013",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2014_first_0",
+      "scenario": "turn-s2014",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2014_last_0",
+      "scenario": "turn-s2014",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2014_first_1",
+      "scenario": "turn-s2014",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2014_first_2",
+      "scenario": "turn-s2014",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2014_last_1",
+      "scenario": "turn-s2014",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2014_last_2",
+      "scenario": "turn-s2014",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Krishnamurthy",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2015_first_0",
+      "scenario": "turn-s2015",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2015_first_1",
+      "scenario": "turn-s2015",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2015_first_2",
+      "scenario": "turn-s2015",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2015_last_1",
+      "scenario": "turn-s2015",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2015_last_2",
+      "scenario": "turn-s2015",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2015_last_0",
+      "scenario": "turn-s2015",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Okonkwo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2016_first_0",
+      "scenario": "turn-s2016",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2016_first_2",
+      "scenario": "turn-s2016",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2016_first_1",
+      "scenario": "turn-s2016",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2016_last_2",
+      "scenario": "turn-s2016",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2016_last_0",
+      "scenario": "turn-s2016",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2016_last_1",
+      "scenario": "turn-s2016",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Ntanda",
+      "truth": "Ntanda",
+      "decoy": "Oyelowo",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Ntanda",
+        "Analyst-2": "Ntanda",
+        "Analyst-3": "Ntanda",
+        "Analyst-4": "Ntanda"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2017_first_1",
+      "scenario": "turn-s2017",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2017_first_2",
+      "scenario": "turn-s2017",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2017_first_0",
+      "scenario": "turn-s2017",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2017_last_1",
+      "scenario": "turn-s2017",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2017_last_0",
+      "scenario": "turn-s2017",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2017_last_2",
+      "scenario": "turn-s2017",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Bellweather",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2018_first_0",
+      "scenario": "turn-s2018",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2018_last_0",
+      "scenario": "turn-s2018",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2018_first_1",
+      "scenario": "turn-s2018",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Bellweather",
+      "truth": "Renwick",
+      "decoy": "Salvatierra",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Bellweather",
+        "Analyst-2": "Bellweather",
+        "Analyst-3": "Bellweather",
+        "Analyst-4": "Bellweather"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2018_first_2",
+      "scenario": "turn-s2018",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2018_last_1",
+      "scenario": "turn-s2018",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2018_last_2",
+      "scenario": "turn-s2018",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Renwick",
+      "truth": "Renwick",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Renwick",
+        "Analyst-2": "Renwick",
+        "Analyst-3": "Renwick",
+        "Analyst-4": "Renwick"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2019_first_2",
+      "scenario": "turn-s2019",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2019_first_0",
+      "scenario": "turn-s2019",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2019_first_1",
+      "scenario": "turn-s2019",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2019_last_1",
+      "scenario": "turn-s2019",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2019_last_0",
+      "scenario": "turn-s2019",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2019_last_2",
+      "scenario": "turn-s2019",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Faraday",
+      "truth": "Faraday",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Faraday",
+        "Analyst-2": "Faraday",
+        "Analyst-3": "Faraday",
+        "Analyst-4": "Faraday"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2020_first_0",
+      "scenario": "turn-s2020",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2020_last_0",
+      "scenario": "turn-s2020",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2020_last_1",
+      "scenario": "turn-s2020",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2020_first_1",
+      "scenario": "turn-s2020",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2020_first_2",
+      "scenario": "turn-s2020",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2020_last_2",
+      "scenario": "turn-s2020",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Salvatierra",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2021_first_0",
+      "scenario": "turn-s2021",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2021_last_0",
+      "scenario": "turn-s2021",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2021_first_2",
+      "scenario": "turn-s2021",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2021_last_1",
+      "scenario": "turn-s2021",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2021_first_1",
+      "scenario": "turn-s2021",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2021_last_2",
+      "scenario": "turn-s2021",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Oyelowo",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2022_first_0",
+      "scenario": "turn-s2022",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Bellweather",
+      "decoy": "Ntanda",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2022_first_1",
+      "scenario": "turn-s2022",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Bellweather",
+      "decoy": "Ntanda",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2022_last_0",
+      "scenario": "turn-s2022",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Bellweather",
+      "decoy": "Ntanda",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2022_first_2",
+      "scenario": "turn-s2022",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Bellweather",
+      "decoy": "Ntanda",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2022_last_1",
+      "scenario": "turn-s2022",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Bellweather",
+      "decoy": "Ntanda",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2022_last_2",
+      "scenario": "turn-s2022",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Oyelowo",
+      "truth": "Bellweather",
+      "decoy": "Ntanda",
+      "correct": false,
+      "votes": {
+        "Analyst-1": "Oyelowo",
+        "Analyst-2": "Oyelowo",
+        "Analyst-3": "Oyelowo",
+        "Analyst-4": "Oyelowo"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2023_first_0",
+      "scenario": "turn-s2023",
+      "condition": "first",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2023_last_1",
+      "scenario": "turn-s2023",
+      "condition": "last",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2023_first_1",
+      "scenario": "turn-s2023",
+      "condition": "first",
+      "rep": 1,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2023_last_0",
+      "scenario": "turn-s2023",
+      "condition": "last",
+      "rep": 0,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2023_first_2",
+      "scenario": "turn-s2023",
+      "condition": "first",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    },
+    {
+      "run_id": "turn-s2023_last_2",
+      "scenario": "turn-s2023",
+      "condition": "last",
+      "rep": 2,
+      "dropout": false,
+      "group_answer": "Krishnamurthy",
+      "truth": "Krishnamurthy",
+      "decoy": "Faraday",
+      "correct": true,
+      "votes": {
+        "Analyst-1": "Krishnamurthy",
+        "Analyst-2": "Krishnamurthy",
+        "Analyst-3": "Krishnamurthy",
+        "Analyst-4": "Krishnamurthy"
+      },
+      "uttered": true,
+      "uttered_by_holder": true
+    }
+  ],
+  "ledger": {
+    "calls": 1728,
+    "usage": {
+      "input_tokens": 2249968,
+      "output_tokens": 197428,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0
+    },
+    "cache_hit_rate": 0.0,
+    "calls_with_cache_read": 0,
+    "unparseable_samples": 0,
+    "api_failures": 0,
+    "failure_bodies": [],
+    "cost_usd": 6.474216,
+    "cost_note": null
+  }
+}

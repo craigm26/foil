@@ -27,10 +27,12 @@ misbuilt scout scenario.
 | 3 | Phase 0 v3 — analytic decisiveness requirement | **KILL**, 6.25× over threshold | [RESULTS-phase0-v3.md](RESULTS-phase0-v3.md) |
 | 4 | PID-1 — detection, new task family | **DEGENERATE** (untestable) | [RESULTS-PID.md](RESULTS-PID.md) |
 | 5 | PID-2 — detection, pre-registered | **SUPPORTED** (p = 0.00003) | [RESULTS-PID2.md](RESULTS-PID2.md) |
+| 6 | TURN — speaking order in group deliberation | **DEGENERATE** (invalid task) | [RESULTS-TURN.md](RESULTS-TURN.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
 [PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID-1),
-[PREREGISTRATION-PID2.md](PREREGISTRATION-PID2.md) (PID-2).
+[PREREGISTRATION-PID2.md](PREREGISTRATION-PID2.md) (PID-2),
+[PREREGISTRATION-TURN.md](PREREGISTRATION-TURN.md) (TURN).
 Interactive site: **https://foil-9vg.pages.dev**
 
 ---
@@ -122,12 +124,21 @@ post-hoc, so a reader can tell which decisions preceded the data. Exploratory
 findings are never reported with confirmatory language, however tempting the
 p-value.
 
-**Worth avoiding.** Phase 0 was amended once after a failure, and the amended
-protocol failed too. Adjusting a design against observed outcomes is how you end
-up tuning until the gate passes. The v3 requirement is stated analytically and
-verified over 200 seeds at zero cost precisely to break that loop — the
-requirement is a property of the episode's information structure, not of any
-number a model produced.
+**Worth avoiding, one.** Phase 0 was amended once after a failure, and the
+amended protocol failed too. Adjusting a design against observed outcomes is how
+you end up tuning until the gate passes. The v3 requirement is stated
+analytically and verified over 200 seeds at zero cost precisely to break that
+loop.
+
+**Worth avoiding, two — and this one caught us.** An analytic gate confers no
+construct validity. TURN verified its scenarios over 200 seeds, re-derived from
+rendered text rather than internals, and the gate was still worthless: it
+confirmed consistency with a reference scorer nobody had checked against the
+judgement being made. Every incorrect run was a *unanimous* vote for the option
+that scorer ranked last — the panel was reasoning defensibly and the ground
+truth was wrong. A gate can be rigorous, reproducible, and confirm the wrong
+thing. Validate the ground truth against the model before running the design
+that depends on it.
 
 ## Reproduction
 
