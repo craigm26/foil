@@ -109,6 +109,18 @@ def make_scenario(seed: int) -> Scenario | None:
     )
 
 
+def system_for(sc: "Scenario") -> str:
+    """System prompt, with the candidate count taken from the scenario.
+
+    TURN-1 hardcoded "three candidates"; TURN-2 uses two, and a prompt that
+    contradicts its own candidate list is a defect that would have been very
+    hard to see in the results.
+    """
+    word = {2: "two", 3: "three", 4: "four"}.get(len(sc.candidates), str(len(sc.candidates)))
+    return SYSTEM.replace("exactly one of three candidates",
+                          f"exactly one of {word} candidates")
+
+
 SYSTEM = (
     "You are one of four analysts on a hiring panel. The panel must recommend "
     "exactly one of three candidates.\n\n"
@@ -155,7 +167,7 @@ def speak_body(sc: Scenario, agent: str, is_holder: bool,
         "model": model,
         "max_tokens": 300,
         "thinking": {"type": "disabled"},
-        "system": [{"type": "text", "text": SYSTEM}],
+        "system": [{"type": "text", "text": system_for(sc)}],
         "messages": [{"role": "user", "content": [
             {"type": "text", "text": agent_prompt(sc, agent, is_holder, transcript, round_no)}
         ]}],
@@ -177,7 +189,7 @@ def vote_body(sc: Scenario, agent: str, is_holder: bool,
             "required": ["vote", "confidence"],
             "additionalProperties": False,
         }}},
-        "system": [{"type": "text", "text": SYSTEM}],
+        "system": [{"type": "text", "text": system_for(sc)}],
         "messages": [{"role": "user", "content": [
             {"type": "text", "text": vote_prompt(sc, agent, is_holder, transcript)}
         ]}],
@@ -195,3 +207,55 @@ def speaking_order(holder_position: str) -> tuple[tuple[str, ...], str]:
     if holder_position == "last":
         return (*others, holder), holder
     raise ValueError(holder_position)
+
+
+# ─────────────────────────── TURN-2 ───────────────────────────
+# Two candidates instead of three. Every TURN-1 failure escaped to the third
+# option, so a defensible disagreement with the experimenter's weighting had
+# somewhere to land and was scored as a group error. With two, the private fact
+# disqualifies the leader and the only alternative is the intended answer.
+
+
+def make_scenario2(seed: int) -> Scenario | None:
+    """Two-candidate hidden profile.
+
+    NOTE: passing this gate is necessary and NOT sufficient. It verifies
+    consistency with a reference scorer, which is exactly what TURN-1 verified
+    before failing. Construct validity is established separately, by the
+    full-information calibration gate in PREREGISTRATION-TURN2.md §3.
+    """
+    rng = random.Random(seed)
+    cands = rng.sample(CANDIDATES, 2)
+    decoy, truth = cands[0], cands[1]
+    org = rng.choice(PRIVATE_ORGS)
+
+    tmpl = rng.sample(POSITIVES, 5)
+    things = rng.sample(THINGS, 5)
+
+    def pos(cand, i):
+        text = tmpl[i].format(thing=things[i], n=rng.choice((6, 9, 12, 20)))
+        return cand, 1, f"{cand} {text}."
+
+    shared = [pos(decoy, 0), pos(decoy, 1), pos(decoy, 2), pos(truth, 3), pos(truth, 4)]
+    private = (decoy, -4,
+               f"{decoy} was dismissed from {org} for falsifying test results, "
+               f"which is not recorded anywhere in the shared file.")
+
+    sh = _score([(c, w) for c, w, _ in shared])
+    full = _score([(c, w) for c, w, _ in shared] + [(private[0], private[1])])
+    a_sh = _argmax_unique(sh, tuple(cands))
+    a_full = _argmax_unique(full, tuple(cands))
+    if a_sh is None or a_full is None or a_sh == truth or a_full != truth:
+        return None
+
+    texts = [t for _, _, t in shared]
+    rng.shuffle(texts)
+    return Scenario(
+        scenario_id=f"turn2-s{seed}",
+        candidates=tuple(cands),
+        shared_facts=tuple(texts),
+        private_fact=private[2],
+        private_token=org,
+        truth=truth,
+        decoy=a_sh,
+    )

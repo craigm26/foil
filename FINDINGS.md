@@ -28,6 +28,7 @@ misbuilt scout scenario.
 | 4 | PID-1 — detection, new task family | **DEGENERATE** (untestable) | [RESULTS-PID.md](RESULTS-PID.md) |
 | 5 | PID-2 — detection, pre-registered | **SUPPORTED** (p = 0.00003) | [RESULTS-PID2.md](RESULTS-PID2.md) |
 | 6 | TURN — speaking order in group deliberation | **DEGENERATE** (invalid task) | [RESULTS-TURN.md](RESULTS-TURN.md) |
+| 7 | TURN-2 — same question, repaired design | **NOT RUN** — verified, ready | [PREREGISTRATION-TURN2.md](PREREGISTRATION-TURN2.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
 [PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID-1),
@@ -139,6 +140,25 @@ that scorer ranked last — the panel was reasoning defensibly and the ground
 truth was wrong. A gate can be rigorous, reproducible, and confirm the wrong
 thing. Validate the ground truth against the model before running the design
 that depends on it.
+
+## Cost
+
+Every result above was produced with metered Messages API calls; a Claude Code
+subscription cannot serve them. Total spend for the six executed studies:
+
+| study | calls | cost |
+|---|---|---|
+| Phase 0 v1 | 1,793 | $2.19 |
+| Phase 0 v2 | 6,250 | $7.67 |
+| Phase 0 v3 | 6,600 | $8.04 |
+| PID-1 | 800 | $2.53 |
+| PID-2 | 2,880 | $4.40 |
+| TURN | 1,728 | $6.47 |
+| **total** | **20,051** | **~$31.30** |
+
+TURN-2 is written, its generator verified over 200 seeds, and **unrun**. It
+would cost ~$1.50 for the calibration gate and ~$13 for the main run, and the
+gate is designed to abort the main run if the scenarios fail it.
 
 ## Reproduction
 
