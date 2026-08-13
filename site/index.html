@@ -203,14 +203,13 @@
       </div>
     </div>
     <p class="statusline">
-      <b>Status: Phase 0 not passed, under two protocols.</b> The amended
-      protocol — twelve episodes, a repaired percentile, and every route covered
-      by at least one scout — returned <b>INDETERMINATE</b>. It removed the
-      bistability driver and made the task over-determined instead: 81% of
-      single-source ablations moved the distribution by exactly zero, leaving no
-      signal for a noise floor to be measured against. Two environment failures
-      in opposite directions; the instrument itself has still never been
-      computed. The project does not advance to Phase 1.
+      <b>Status: Phase 0 not passed, under three protocols.</b> Two failures
+      were faults in the scenario — one under-determined, one over-determined.
+      The third was not: with decisiveness guaranteed analytically before any
+      model call, ablation demonstrably moved the answer and worst-case
+      reordering still beat half that signal by 6.25&times;. The residual metric
+      the project was built to test has never been computed in any run. The
+      project does not advance to Phase 1.
     </p>
   </div>
 </section>
@@ -218,46 +217,77 @@
 <!-- ─────────────────────── V2 ─────────────────────── -->
 <section class="band band-lab">
   <div class="wrap narrow">
-    <h2 class="sec">What the amended protocol found</h2>
+    <h2 class="sec">What the amended protocols found</h2>
     <p class="sub">
-      Twelve fresh episodes, every route covered. Order sensitivity did not go
-      away — it concentrated. Episodes are not slightly order-sensitive; they
-      are either immune or they invert completely.
+      The first run left a real question open: was the effect a property of the
+      model, or of a badly-built scenario? Two more protocols answered it.
     </p>
 
     <div class="killbox">
-      <div class="killrow"><span>Episodes perfectly stable across all six orderings</span><b>9 / 12</b></div>
-      <div class="killrow"><span>Episodes that invert completely</span><b>3 / 12</b></div>
-      <div class="killrow"><span>Single-source ablations that moved nothing</span><b>81%</b></div>
-      <div class="killrow killrow-v"><span>Verdict</span><b class="kill">INDETERMINATE</b></div>
+      <div class="killrow"><span>v2 — every route covered by a scout</span><b>INDETERMINATE</b></div>
+      <div class="killrow"><span>&nbsp;&nbsp;single-source ablations that moved nothing</span><b>81%</b></div>
+      <div class="killrow"><span>v3 — every source decisive, verified before any call</span><b class="kill">KILL</b></div>
+      <div class="killrow"><span>&nbsp;&nbsp;median ablation effect (0.000 in v2)</span><b>0.320</b></div>
+      <div class="killrow killrow-v"><span>&nbsp;&nbsp;worst-case reorder vs half the ablation signal</span><b class="kill">6.25&times;</b></div>
     </div>
 
-    <h3 class="subhead">An unplanned observation</h3>
     <p class="sub">
-      The three episodes that invert under reordering are exactly the three
-      where the listener&rsquo;s answer is wrong — at ~1.00 confidence in every
-      case. Nine stable episodes, nine correct.
+      v2 removed the ambiguity and made the task <em>over</em>-determined: with
+      full coverage the surviving scouts still pinned the answer, so ablation
+      moved nothing and there was no signal to compare against. v3 fixed that
+      by requiring — analytically, before any model call, verified across 200
+      seeds — that removing a source changes the conclusion. It does:
+      the median ablation now shifts the distribution by a third.
+    </p>
+    <p class="sub">
+      And worst-case reordering still beats half of that signal by six times.
+      <b>That is a result about ablation-based attribution, not about a
+      misbuilt scenario.</b> Order sensitivity also rose as the environment
+      improved — 25% of episodes bistable in v2, 50% in v3 — because when every
+      source is decisive there is more for a reordering to disturb.
+    </p>
+
+    <h3 class="subhead">The verdict depends on which statistic you pick</h3>
+    <div class="crosstab">
+      <div class="ct-h">comparison</div><div class="ct-h">noise</div><div class="ct-h">signal</div>
+      <div class="ct-r">95th pct reorder vs median ablation</div><div class="ct-v ct-hit">1.000</div><div class="ct-v">0.320</div>
+      <div class="ct-r">median vs median</div><div class="ct-v">0.000</div><div class="ct-v">0.320</div>
+    </div>
+    <p class="sub">
+      Both numbers are real. Reordering effects are bimodal, so typical noise is
+      zero and worst-case noise is total. The rule fixed in advance uses the
+      tail, and the reason holds: half the episodes invert, and nothing tells
+      you in advance which half. An instrument that is exact on some inputs and
+      backwards on others, with no way to tell them apart, is not usable. A
+      reader who prefers the median reading can have it — it is stated here
+      rather than buried.
+    </p>
+
+    <h3 class="subhead">An unplanned observation, twice</h3>
+    <p class="sub">
+      Across 24 episodes in two different environments, no stable episode was
+      ever answered wrong.
     </p>
     <div class="crosstab">
       <div class="ct-h"></div><div class="ct-h">wrong</div><div class="ct-h">right</div>
-      <div class="ct-r">inverts under reorder</div><div class="ct-v ct-hit">3</div><div class="ct-v">0</div>
-      <div class="ct-r">stable</div><div class="ct-v">0</div><div class="ct-v ct-hit">9</div>
+      <div class="ct-r">inverts under reorder</div><div class="ct-v ct-hit">7</div><div class="ct-v">2</div>
+      <div class="ct-r">stable</div><div class="ct-v ct-hit">0</div><div class="ct-v">15</div>
     </div>
     <p class="sub">
-      If it holds, that is an error signal needing no ground truth, no normative
-      baseline and no attribution: permute the inputs, and distrust an answer
-      that moves. It would sidestep every limitation that made the original
-      metric hard to defend.
+      Instability behaves as a <em>necessary but not sufficient</em> marker of
+      error: no false negatives, some false positives. If it holds, it is a
+      signal needing no ground truth, no normative baseline and no attribution
+      — permute the inputs, and distrust an answer that moves.
     </p>
     <p class="caveat">
-      <b>Treat this as a lead, not a result.</b> It was noticed after the data
-      came in, and the test was chosen after the pattern was visible, so the
-      p&nbsp;=&nbsp;0.0045 is descriptive rather than confirmatory. Twelve
-      episodes with three positives is fragile. Ambiguity plausibly causes both
-      the flipping and the error, which makes this a symptom rather than a
-      mechanism — usable as a detector, unexplained as a cause. Establishing it
-      needs a fresh pre-registration and a model and task family it was not
-      discovered on.
+      <b>A lead, not a result.</b> Both observations are post-hoc, on data
+      collected to answer a different question. The one pre-registered test run
+      so far was <b>uninformative</b> — the task chosen was too easy and the
+      model answered 40 of 40 items correctly under every permutation, leaving
+      no errors to predict. Fifteen stable episodes is a small base for a
+      no-false-negative claim; a single stable-but-wrong case would break it.
+      Establishing this needs a pre-registered test on material that reliably
+      produces errors.
     </p>
   </div>
 </section>
