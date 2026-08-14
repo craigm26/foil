@@ -91,12 +91,28 @@ being wrong is expensive.
 
 ## Where it fits
 
+The test is whether the inputs **could have been gathered in any order without
+changing what they say**. That is true when sources are collected concurrently
+and then read together. It is false in a sequential agent loop, where each call
+is chosen in light of the previous result.
+
 | surface | why order is arbitrary |
 |---|---|
-| Tool results in an agent loop | return order is incidental to the task |
 | Subagent reports to an orchestrator | arrival order is a scheduling artifact |
 | Retrieved chunks in RAG | rank order is a choice, not a fact |
+| Multi-source fusion gathered concurrently | completion order carries no meaning |
 | Peer messages in multiagent deliberation | turn order is arbitrary |
+
+**Not sequential agent loops.** An earlier version of this table led with "tool
+results in an agent loop". A scan of 1,855 real Claude Code sessions found that
+99.94% of tool-dispatching turns dispatched exactly one tool, and only **three**
+turns in the whole corpus dispatched the three-plus needed to probe at all.
+Those results are consumed one at a time, so their order is *causal*: permuting
+them does not test order sensitivity, it manufactures an incoherent context.
+The measurement is in
+[RESULTS-REALTRAFFIC.md](../RESULTS-REALTRAFFIC.md). One corpus, one user, so it
+does not show parallel dispatch is rare everywhere -- but it was enough to
+retract the claim.
 
 ## API
 

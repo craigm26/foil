@@ -29,6 +29,7 @@ misbuilt scout scenario.
 | 5 | PID-2 — detection, pre-registered | **SUPPORTED** (p = 0.00003) | [RESULTS-PID2.md](RESULTS-PID2.md) |
 | 6 | TURN — speaking order in group deliberation | **DEGENERATE** (invalid task) | [RESULTS-TURN.md](RESULTS-TURN.md) |
 | 7 | TURN-2 — same question, repaired design | **NOT SUPPORTED** | [RESULTS-TURN2.md](RESULTS-TURN2.md) |
+| 8 | Real traffic — does the phenomenon occur? | **NOT MEASURABLE** — 3 eligible points in 1,855 sessions | [RESULTS-REALTRAFFIC.md](RESULTS-REALTRAFFIC.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
 [PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID-1),
