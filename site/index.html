@@ -184,12 +184,12 @@
 <!-- ─────────────────────── TOOLS ─────────────────────── -->
 <section class="band band-lab" id="tools">
   <div class="wrap">
-    <h2 class="sec">Seven environments. Four were invalid.</h2>
+    <h2 class="sec">Eight environments. Five were invalid.</h2>
     <p class="sub">
       Every invalid one produced results that looked perfectly analyzable. That
-      is the actual finding of this project, and it is the reason the two tools
-      below exist. Here is the whole ledger, including the ones that cost money
-      and returned nothing.
+      is the actual finding of this project, and it is the reason the tools below
+      exist. Here is the whole ledger, including the ones that cost money and
+      returned nothing.
     </p>
 
     <table class="rec">
@@ -218,6 +218,10 @@
         <tr class="ok"><td>TURN-2</td><td>NOT SUPPORTED</td>
           <td>Valid, ≥90% power, and the effect ran <i>opposite</i> to the
               hypothesis. Published as a limit on our own earlier result.</td></tr>
+        <tr class="bad"><td>TURN-3</td><td>GATE 2 FAILED</td>
+          <td>Built to test that reversal properly. With full information and no
+              manipulation, the panel agreed with the scorer only 89% of the
+              time. Blocked for <b>$1.56</b> against an $18 run.</td></tr>
       </tbody>
     </table>
 
@@ -228,6 +232,17 @@
       for the option our reference scorer ranked last. The scorer was wrong, not
       the agents. We were one step from publishing that as a consensus-suppression
       finding. A gate can be rigorous, reproducible, and confirm the wrong thing.
+    </p>
+    <p class="rec-note">
+      TURN-3 is the sequel, and it is the one that changed how we price these
+      checks. TURN-2's private fact was so decisive that once spoken it settled
+      the question, putting the comparison arm at 1.000 and bounding the effect
+      we wanted to measure. So TURN-3 weakened it. That broke the other end:
+      with <em>full information and no manipulation at all</em>, four agents
+      agreed with our scorer only 89% of the time. The two failure modes sit
+      next to each other with possibly nothing workable in between. The gate
+      caught it for <b>$1.56</b> against an $18 run, and we did not nudge the
+      constant until it passed.
     </p>
 
     <h3 class="sub-h">So we built the two checks that would have caught all four</h3>
@@ -252,13 +267,18 @@ if r.unstable: escalate(r)</code></pre>
         <div class="toolname">evalgate</div>
         <div class="toolwhere">runs before you spend, in CI or a notebook</div>
         <p>
-          Three checks that prove an eval environment can measure what you claim.
-          We built seven environments for this project and <b>four were
-          invalid</b> — each producing results that looked perfectly analyzable.
+          Four checks that prove an eval environment can measure what you claim,
+          plus <b>all five invalid environments shipped as fixtures</b> so you
+          can test your own gate against environments known to deserve failure.
+          Two of the five are unreachable without model calls, and the library
+          says so rather than pretending otherwise.
         </p>
 <pre class="code code-sm"><code>structural.verify(make_case, holds, n=200)   <span class="c"># free</span>
 power.paired(effect=.20, units=32, reps=5)   <span class="c"># free</span>
-construct.verify(oracle, cases, min_rate=.9) <span class="c"># ~$1.50</span></code></pre>
+construct.verify(oracle, cases, min_rate=.9) <span class="c"># ~$1.50</span>
+variance.verify(exp_oracle, cases, truth)    <span class="c"># ~$1.50</span>
+
+fixtures.audit(my_check)  <span class="c"># test your gate on ours</span></code></pre>
       </div>
     </div>
 
@@ -553,6 +573,39 @@ construct.verify(oracle, cases, min_rate=.9) <span class="c"># ~$1.50</span></co
       robust to arrangement than single-shot reading. That is a real constraint on
       how far the order-sensitivity result travels, it was expensive to learn, and
       it argues against the tidier story this page could otherwise have told.
+    </p>
+  </div>
+</section>
+
+<!-- ─────────────────────── REAL TRAFFIC ─────────────────────── -->
+<section class="band band-lab">
+  <div class="wrap narrow">
+    <h2 class="sec">And a claim this project had to retract</h2>
+    <p class="sub">
+      Every number above is measured on synthetic environments. The obvious next
+      step was to check real agent traffic, so we scanned 1,855 Claude Code
+      sessions for decision points where several tool results arrive together.
+    </p>
+    <div class="killbox">
+      <div class="killrow"><span>tool-result messages carrying more than one result</span><b>0 of 54,402</b></div>
+      <div class="killrow"><span>turns dispatching more than one tool at once</span><b>33 of 54,354</b></div>
+      <div class="killrow killrow-v"><span>points with the three-plus a probe needs</span><b class="kill">3</b></div>
+    </div>
+    <p class="sub">
+      Three eligible decision points in the whole corpus. That is not a small
+      sample, it is the wrong phenomenon: these loops are <em>sequential</em>, so
+      each result is consumed before the next call is chosen. Their order is
+      causal, and permuting a causal sequence does not test order sensitivity,
+      it manufactures an incoherent context.
+    </p>
+    <p class="caveat">
+      <b>The tool was shipping a claim this contradicts.</b> orderprobe's
+      "where it fits" table led with <em>tool results in an agent loop</em>. On
+      the only real traffic we could check, that is false, so it was retracted
+      rather than softened. It belongs on concurrently-gathered sources instead:
+      retrieved chunks, subagent reports, multi-source fusion. One corpus and one
+      user, so it does not show parallel dispatch is rare everywhere. It was
+      enough to withdraw the claim. Cost: nothing.
     </p>
   </div>
 </section>
