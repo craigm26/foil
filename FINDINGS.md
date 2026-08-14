@@ -31,6 +31,7 @@ misbuilt scout scenario.
 | 7 | TURN-2 — same question, repaired design | **NOT SUPPORTED** | [RESULTS-TURN2.md](RESULTS-TURN2.md) |
 | 8 | Real traffic — does the phenomenon occur? | **NOT MEASURABLE** — 3 eligible points in 1,855 sessions | [RESULTS-REALTRAFFIC.md](RESULTS-REALTRAFFIC.md) |
 | 9 | TURN-3 — test the TURN-2 reversal properly | **GATE 2 FAILED** — blocked for $1.56 | [RESULTS-TURN3.md](RESULTS-TURN3.md) |
+| 10 | SWEEP — order sensitivity across model generations | **NO TREND** — all 4 models indistinguishable | [RESULTS-SWEEP.md](RESULTS-SWEEP.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
 [PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID-1),
