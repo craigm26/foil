@@ -259,3 +259,64 @@ def make_scenario2(seed: int) -> Scenario | None:
         truth=truth,
         decoy=a_sh,
     )
+
+
+# ── TURN-3 ────────────────────────────────────────────────────────────────
+#: TURN-2's private fact carried weight -4 against a shared profile favouring
+#: the decoy 3-2, so once uttered it settled the question and the last-speaker
+#: arm hit 1.000. Weight -2 leaves the truth ahead by one point instead of
+#: three. Fixed in PREREGISTRATION-TURN3.md §2 before any data existed.
+TURN3_PRIVATE_WEIGHT = -2
+
+MILD_PRIVATE = [
+    "{cand} left {org} after a dispute over how test results were reported, "
+    "which is not recorded anywhere in the shared file.",
+    "{cand}'s last two projects at {org} were quietly reassigned mid-delivery, "
+    "which is not recorded anywhere in the shared file.",
+    "{cand} was passed over for tenure at {org} following a review of data "
+    "handling, which is not recorded anywhere in the shared file.",
+]
+
+
+def make_scenario3(seed: int) -> Scenario | None:
+    """Two-candidate hidden profile with a NON-decisive private fact.
+
+    Same structure as make_scenario2; the private fact is weaker, so the truth
+    leads by one rather than three once it is on the table. The gate is
+    otherwise identical, and passing it still confers no construct validity --
+    that is Gate 2's job.
+    """
+    rng = random.Random(seed)
+    cands = rng.sample(CANDIDATES, 2)
+    decoy, truth = cands[0], cands[1]
+    org = rng.choice(PRIVATE_ORGS)
+
+    tmpl = rng.sample(POSITIVES, 5)
+    things = rng.sample(THINGS, 5)
+
+    def pos(cand, i):
+        text = tmpl[i].format(thing=things[i], n=rng.choice((6, 9, 12, 20)))
+        return cand, 1, f"{cand} {text}."
+
+    shared = [pos(decoy, 0), pos(decoy, 1), pos(decoy, 2), pos(truth, 3), pos(truth, 4)]
+    private = (decoy, TURN3_PRIVATE_WEIGHT,
+               rng.choice(MILD_PRIVATE).format(cand=decoy, org=org))
+
+    sh = _score([(c, w) for c, w, _ in shared])
+    full = _score([(c, w) for c, w, _ in shared] + [(private[0], private[1])])
+    a_sh = _argmax_unique(sh, tuple(cands))
+    a_full = _argmax_unique(full, tuple(cands))
+    if a_sh is None or a_full is None or a_sh == truth or a_full != truth:
+        return None
+
+    texts = [t for _, _, t in shared]
+    rng.shuffle(texts)
+    return Scenario(
+        scenario_id=f"turn3-s{seed}",
+        candidates=tuple(cands),
+        shared_facts=tuple(texts),
+        private_fact=private[2],
+        private_token=org,
+        truth=truth,
+        decoy=a_sh,
+    )
