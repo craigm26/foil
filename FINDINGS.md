@@ -148,7 +148,7 @@ that depends on it.
 ## Cost
 
 Every result above was produced with metered Messages API calls; a Claude Code
-subscription cannot serve them. Total spend for the six executed studies:
+subscription cannot serve them. Total spend across all executed studies:
 
 | study | calls | cost |
 |---|---|---|
@@ -159,10 +159,11 @@ subscription cannot serve them. Total spend for the six executed studies:
 | PID-2 | 2,880 | $4.40 |
 | TURN | 1,728 | $6.47 |
 | TURN-2 | 4,272 | $15.71 |
-| **total** | **24,323** | **~$47.01** |
-
-TURN-2 has since run: its calibration gate passed 36/36 and the main study
-returned NOT SUPPORTED.
+| TURN-3 (gate only) | 432 | $1.56 |
+| Real traffic scan | 0 | $0.00 |
+| SWEEP (4 models) | 5,760 | $6.57 |
+| Fixtures verification | 420 | $0.27 |
+| **total** | **30,935** | **~$55.41** |
 
 ## Reproduction
 

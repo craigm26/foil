@@ -15,9 +15,9 @@
     <div class="masthead-meta">
       <span>Counterfactual sensitivity profiling</span>
       <span class="sep">/</span>
-      <span>Phase&nbsp;0 &amp; PID</span>
+      <span>11 pre-registered studies</span>
       <span class="sep">/</span>
-      <span>sonnet-5 &middot; opus-5</span>
+      <span>haiku-4-5 &rarr; opus-5</span>
       <span class="sep">/</span>
       <a href="https://github.com/craigm26/foil">source</a>
     </div>
@@ -184,12 +184,12 @@
 <!-- ─────────────────────── TOOLS ─────────────────────── -->
 <section class="band band-lab" id="tools">
   <div class="wrap">
-    <h2 class="sec">Eight environments. Five were invalid.</h2>
+    <h2 class="sec">Eleven studies. Five environments were invalid.</h2>
     <p class="sub">
-      Every invalid one produced results that looked perfectly analyzable. That
-      is the actual finding of this project, and it is the reason the tools below
-      exist. Here is the whole ledger, including the ones that cost money and
-      returned nothing.
+      Every invalid environment produced results that looked perfectly
+      analyzable. That is the actual finding of this project, and it is the
+      reason the tools below exist. Here is the whole ledger — kills, gate
+      failures, retractions and all — for a lifetime spend of about $55.
     </p>
 
     <table class="rec">
@@ -222,6 +222,18 @@
           <td>Built to test that reversal properly. With full information and no
               manipulation, the panel agreed with the scorer only 89% of the
               time. Blocked for <b>$1.56</b> against an $18 run.</td></tr>
+        <tr class="bad"><td>Real traffic</td><td>NOT MEASURABLE</td>
+          <td>1,855 real agent sessions held <b>3</b> decision points the probe
+              could even apply to. Sequential loops order their results causally
+              — so a claim the tool was shipping got retracted.</td></tr>
+        <tr class="ok"><td>SWEEP</td><td>NO TREND</td>
+          <td>Four model generations, identical episodes. Accuracy rose 28
+              points; order sensitivity did not follow, and every pair of models
+              is statistically indistinguishable at n=12.</td></tr>
+        <tr class="ok"><td>Fixtures check</td><td>CONFIRMED ×4</td>
+          <td>The shipped fixtures run against a real model, predictions
+              committed first — including the prediction that one fixture's
+              invalidity <i>cannot</i> be enacted against a real oracle. $0.27.</td></tr>
       </tbody>
     </table>
 
@@ -242,7 +254,11 @@
       agreed with our scorer only 89% of the time. The two failure modes sit
       next to each other with possibly nothing workable in between. The gate
       caught it for <b>$1.56</b> against an $18 run, and we did not nudge the
-      constant until it passed.
+      constant until it passed. The failure also retired the rule that produced
+      it: a point threshold at n=36 is a coin flip wearing a rule's clothes, so
+      gates are now registered with an exact-binomial three-outcome rule — that
+      32/36 replays as EXTEND at p&nbsp;=&nbsp;0.49, and the planner shows the
+      question needed n&nbsp;=&nbsp;78.
     </p>
 
     <h3 class="sub-h">So we built the two checks that would have caught all four</h3>
@@ -587,6 +603,56 @@ fixtures.audit(my_check)  <span class="c"># test your gate on ours</span></code>
   </div>
 </section>
 
+<!-- ─────────────────────── SWEEP ─────────────────────── -->
+<section class="band">
+  <div class="wrap narrow">
+    <h2 class="sec">Four generations of models. The flaw did not go away.</h2>
+    <p class="sub">
+      The same environment, the same episodes, the same orderings, measured on
+      every model generation we could afford. Accuracy improves cleanly. Order
+      sensitivity does not follow it.
+    </p>
+    <table class="rec">
+      <thead>
+        <tr><th>model</th><th>bistable&nbsp;·&nbsp;95% CI</th><th>accuracy</th><th>total inversions</th></tr>
+      </thead>
+      <tbody>
+        <tr class="ok"><td>haiku-4-5</td><td>0.83&nbsp;&nbsp;[0.55, 0.95]</td><td>0.458</td><td>6 of 12</td></tr>
+        <tr class="ok"><td>sonnet-4-5</td><td>0.50&nbsp;&nbsp;[0.25, 0.75]</td><td>0.583</td><td>5 of 12</td></tr>
+        <tr class="ok"><td>sonnet-4-6</td><td>0.58&nbsp;&nbsp;[0.32, 0.81]</td><td>0.692</td><td>4 of 12</td></tr>
+        <tr class="ok"><td>sonnet-5</td><td>0.42&nbsp;&nbsp;[0.19, 0.68]</td><td>0.738</td><td>5 of 12</td></tr>
+      </tbody>
+    </table>
+    <p class="sub">
+      <b>No trend is claimed, because the pre-registered rule forbids it.</b>
+      Sonnet bistability runs 0.50 &rarr; 0.58 &rarr; 0.42 — up, then down. It
+      would have been easy to write "order sensitivity fell in the newest
+      release" by quietly starting the series at 4-6. That is the sentence the
+      rule exists to prevent. Zero of six model pairs have separated intervals;
+      at 12 episodes each, everything here is statistically indistinguishable,
+      and the planner that now ships with the tools says separating 0.42 from
+      0.58 needed <b>153 episodes per model</b>.
+    </p>
+    <p class="sub">
+      What survives is narrow: <b>every model tested produces complete
+      inversions</b> — reorderings that move the answer distribution by the
+      maximum possible amount — on a third to a half of episodes, and the most
+      accurate model in the set is not exempt. Whatever the generations bought,
+      it was not immunity to input order. An exploratory split (partly circular,
+      and labelled as such in the write-up) adds one lead: the three sonnets are
+      unstable mostly where they are wrong, while haiku flips just as much on
+      episodes it can solve — so the instability-predicts-error relationship
+      itself may be model-dependent.
+    </p>
+    <p class="caveat">
+      Five Opus models were pre-registered and <b>not run</b>, for cost, decided
+      before any Opus number existed and disclosed in the results rather than
+      reflected in a quietly shorter table. <code>./run.sh sweep_run.py
+      --models claude-opus-5</code> runs them.
+    </p>
+  </div>
+</section>
+
 <!-- ─────────────────────── REAL TRAFFIC ─────────────────────── -->
 <section class="band band-lab">
   <div class="wrap narrow">
@@ -632,19 +698,28 @@ fixtures.audit(my_check)  <span class="c"># test your gate on ours</span></code>
 <pre class="code"><code><span class="c"># everything on this page, from a clean checkout</span>
 git clone https://github.com/craigm26/foil && cd foil
 
-<span class="c"># project the cost and inspect the exact request; zero API calls</span>
+<span class="c"># the whole test suite; no API key, no calls</span>
+./run.sh test
+
+<span class="c"># project any run's cost and inspect the exact request; zero calls</span>
 python3 cli.py plan --show-prompt
 
-<span class="c"># protocol v1: the run this page reports on (~2,200 calls)</span>
-python3 cli.py --n 200 run
+<span class="c"># the original order-effect run this page opens with (~2,200 calls)</span>
+./run.sh cli.py --n 200 run
 
-<span class="c"># protocol v2: pooled across twelve episodes</span>
-python3 cli.py --n 50 run2 --episodes 12</code></pre>
+<span class="c"># the model sweep, any subset</span>
+./run.sh sweep_run.py --models claude-sonnet-5</code></pre>
     <p class="sub">
       Exit code 3 means the kill rule fired. Determinism is at the request
       layer only: the environment, payloads and fork keys reproduce exactly, but
       responses are sampled and will not. The reported effect is large enough
       that it does not depend on resampling luck.
+    </p>
+    <p class="sub">
+      Eleven studies, ~31,000 calls, about $55 all in. Every pre-registration is
+      committed before its data; the standing conventions live in one place,
+      <a href="https://github.com/craigm26/foil/blob/main/METHODS.md">METHODS.md</a>,
+      with each rule naming the study that taught it.
     </p>
   </div>
 </section>
@@ -654,7 +729,8 @@ python3 cli.py --n 50 run2 --episodes 12</code></pre>
     <div>
       <div class="wordmark small">FOIL</div>
       <p class="foot-note">
-        A harness, a metric specification, and a writeup. Not a product.
+        A harness, two libraries, eleven pre-registered studies, and the
+        failure record that produced them. Not a product.
       </p>
     </div>
     <div class="foot-meta">
