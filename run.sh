@@ -20,6 +20,7 @@ cd "$(dirname "$0")"
 if [ "${1:-}" = "test" ]; then
   python3 -m unittest discover -s orderprobe -t . -q
   python3 -m unittest discover -s evalgate -t . -q
+  python3 -m unittest discover -s foil -t . -q
   echo "all tests pass"
   exit 0
 fi

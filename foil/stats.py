@@ -70,3 +70,21 @@ def percentile(values: list[float], p: float) -> float | None:
         return None
     rank = max(1, int(np.ceil(p / 100 * len(vs))))
     return vs[min(rank, len(vs)) - 1]
+
+
+def paired_permutation(deltas: list[float], iters: int = 200_000,
+                       seed: int = 0) -> float:
+    """Paired permutation test, one-sided (mean >= observed). The canonical
+    copy -- turn2_run and turn3_run import this. Under H0 the condition labels
+    are exchangeable within a unit, so each delta may flip sign. Uses the
+    magnitudes, unlike the sign test that left TURN-1 unable to clear its own
+    margin."""
+    import random as _random
+    rng = _random.Random(seed)
+    obs = sum(deltas) / len(deltas)
+    ge = 0
+    for _ in range(iters):
+        m = sum(d if rng.random() < 0.5 else -d for d in deltas) / len(deltas)
+        if m >= obs:
+            ge += 1
+    return (ge + 1) / (iters + 1)

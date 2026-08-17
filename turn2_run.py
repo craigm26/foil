@@ -65,18 +65,9 @@ def deliberate(store: Store, sc, order, holders: set[str], run_id: str) -> dict:
 
 
 def perm_test(deltas: list[float], iters: int = PERM_ITERS, seed: int = PERM_SEED) -> float:
-    """Paired permutation test, one-sided. Under H0 the condition labels are
-    exchangeable within a scenario, so each delta may flip sign. Uses the
-    magnitudes, unlike the sign test that left TURN-1 unable to clear its own
-    margin."""
-    rng = random.Random(seed)
-    obs = sum(deltas) / len(deltas)
-    ge = 0
-    for _ in range(iters):
-        m = sum(d if rng.random() < 0.5 else -d for d in deltas) / len(deltas)
-        if m >= obs:
-            ge += 1
-    return (ge + 1) / (iters + 1)
+    """Canonical implementation lives in foil.stats.paired_permutation."""
+    from foil.stats import paired_permutation
+    return paired_permutation(deltas, iters, seed)
 
 
 def main() -> int:
