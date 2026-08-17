@@ -88,3 +88,69 @@ def paired(
     fp = sum(1 for _ in range(trials) if once(0.0) < alpha)
     return PowerReport(hits / trials, fp / trials, tie_rate(base, reps),
                        units, reps, effect)
+
+
+def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """Wilson score interval for a binomial rate. The canonical copy.
+
+    sweep_run.py imports this. Do not reimplement it elsewhere -- the price
+    table drifted twice because two copies of one fact existed.
+    """
+    if n == 0:
+        return (0.0, 1.0)
+    p = k / n
+    d = 1 + z * z / n
+    c = (p + z * z / (2 * n)) / d
+    h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d
+    return (max(0.0, c - h), min(1.0, c + h))
+
+
+def _z(q: float) -> float:
+    """Standard normal quantile (Acklam's approximation, ~1e-9 accurate)."""
+    if not 0.0 < q < 1.0:
+        raise ValueError("q must be in (0, 1)")
+    a = [-3.969683028665376e+01, 2.209460984245205e+02, -2.759285104469687e+02,
+         1.383577518672690e+02, -3.066479806614716e+01, 2.506628277459239e+00]
+    b = [-5.447609879822406e+01, 1.615858368580409e+02, -1.556989798598866e+02,
+         6.680131188771972e+01, -1.328068155288572e+01]
+    c = [-7.784894002430293e-03, -3.223964580411365e-01, -2.400758277161838e+00,
+         -2.549732539343734e+00, 4.374664141464968e+00, 2.938163982698783e+00]
+    d = [7.784695709041462e-03, 3.224671290700398e-01, 2.445134137142996e+00,
+         3.754408661907416e+00]
+    plow, phigh = 0.02425, 1 - 0.02425
+    if q < plow:
+        u = math.sqrt(-2 * math.log(q))
+        return (((((c[0]*u+c[1])*u+c[2])*u+c[3])*u+c[4])*u+c[5]) / \
+               ((((d[0]*u+d[1])*u+d[2])*u+d[3])*u+1)
+    if q > phigh:
+        u = math.sqrt(-2 * math.log(1 - q))
+        return -(((((c[0]*u+c[1])*u+c[2])*u+c[3])*u+c[4])*u+c[5]) / \
+               ((((d[0]*u+d[1])*u+d[2])*u+d[3])*u+1)
+    u = q - 0.5
+    t = u * u
+    return (((((a[0]*t+a[1])*t+a[2])*t+a[3])*t+a[4])*t+a[5])*u / \
+           (((((b[0]*t+b[1])*t+b[2])*t+b[3])*t+b[4])*t+1)
+
+
+def separate(p1: float, p2: float, alpha: float = 0.05,
+             power: float = 0.80) -> int:
+    """Units PER GROUP needed for a two-sided two-proportion test to separate
+    two rates -- the resolution planner the SWEEP should have run first.
+
+    The SWEEP measured bistability on 12 episodes per model and found every
+    pair of models indistinguishable, because at n=12 the intervals are ~0.25
+    wide. This function would have said so for free:
+
+        separate(0.42, 0.58)  ->  ~150 episodes per model
+
+    That is the study you have to be willing to buy. If you are not, the
+    honest pre-registration says the design cannot rank models, before the
+    run rather than after it.
+    """
+    if not (0 < p1 < 1 and 0 < p2 < 1) or p1 == p2:
+        raise ValueError("need distinct rates strictly inside (0, 1)")
+    za, zb = _z(1 - alpha / 2), _z(power)
+    pbar = (p1 + p2) / 2
+    num = (za * math.sqrt(2 * pbar * (1 - pbar))
+           + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2
+    return math.ceil(num / (p1 - p2) ** 2)

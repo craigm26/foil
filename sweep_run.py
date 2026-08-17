@@ -14,11 +14,12 @@ from __future__ import annotations
 import argparse
 import itertools
 import json
-import math
 import os
 import random
 import sys
 from pathlib import Path
+
+from evalgate.power import wilson
 
 from foil.env3 import make_episode_v3
 from foil.execute import Executor, load_prices, cost_usd
@@ -38,17 +39,6 @@ MODELS = [
     "claude-opus-4-5", "claude-opus-4-6", "claude-opus-4-7",
     "claude-opus-4-8", "claude-opus-5",
 ]
-
-
-def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
-    """Wilson 95% interval. Required by the pre-registration for every rate."""
-    if n == 0:
-        return (0.0, 1.0)
-    p = k / n
-    d = 1 + z * z / n
-    c = (p + z * z / (2 * n)) / d
-    h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d
-    return (max(0.0, c - h), min(1.0, c + h))
 
 
 def orderings(sources: tuple[str, ...], k: int, seed: int) -> list[tuple[str, ...]]:

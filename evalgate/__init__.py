@@ -38,6 +38,18 @@ no manipulation; it should score near 1.0. variance asks whether the model ever
 gets it wrong WITH the manipulation applied; near 1.0 there means there is
 nothing to detect. Passing one tells you nothing about the other.
 
+SIZE YOUR GATE BEFORE YOU REGISTER IT
+-------------------------------------
+A threshold compared against a point estimate at small n is a coin-flip
+dressed as a rule: TURN-3's construct gate failed 32/36 vs 0.90, one run from
+passing, with a CI straddling the threshold. `gates` replaces that with a
+three-outcome rule (PASS / FAIL / EXTEND) where FAIL requires an exact
+binomial rejection, and `gates.plan()` tells you the n a decision needs:
+
+    gates.plan(0.90, 0.80)     # -> n=78. TURN-3 ran 36.
+    gates.verdict(32, 36, 0.90)  # -> EXTEND, p = 0.49
+    power.separate(0.42, 0.58)   # -> 153 units/group. The SWEEP ran 12.
+
 TEST YOUR OWN GATE
 ------------------
 A validity check is untested code until you run it against an environment that
@@ -51,7 +63,7 @@ Zero dependencies. Python 3.10+.
 
 from __future__ import annotations
 
-from . import construct, fixtures, power, structural, variance
+from . import construct, fixtures, gates, power, structural, variance
 
-__all__ = ["structural", "construct", "variance", "power", "fixtures"]
-__version__ = "0.2.0"
+__all__ = ["structural", "construct", "variance", "power", "gates", "fixtures"]
+__version__ = "0.3.0"
