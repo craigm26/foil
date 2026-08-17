@@ -22,6 +22,7 @@ from pathlib import Path
 from evalgate.power import wilson
 
 from foil.env3 import make_episode_v3
+from foil.provenance import stamp
 from foil.execute import Executor, load_prices, cost_usd
 from foil.render import ForkKey, Operator, render, parse_action
 from foil.stats import distribution, total_variation
@@ -156,6 +157,7 @@ def main() -> int:
         return 0
 
     out = {"preregistration": "PREREGISTRATION-SWEEP.md",
+           "provenance": stamp(__file__),
            "environment": "Phase 0 v3, unchanged",
            "config": {"episodes": EPISODES, "orders": ORDERS,
                       "samples": SAMPLES, "seed_base": SEED_BASE},

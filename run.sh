@@ -16,6 +16,14 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+# `./run.sh test` runs the full suite and needs no API key.
+if [ "${1:-}" = "test" ]; then
+  python3 -m unittest discover -s orderprobe -t . -q
+  python3 -m unittest discover -s evalgate -t . -q
+  echo "all tests pass"
+  exit 0
+fi
+
 if [ -z "${ANTHROPIC_API_KEY:-}" ] && [ -n "${FOIL_OP_ITEM:-}" ]; then
   [ -f "${OP_SERVICE_ACCOUNT_ENV:-$HOME/.config/op/service-account.env}" ] && {
     set -a; . "${OP_SERVICE_ACCOUNT_ENV:-$HOME/.config/op/service-account.env}"; set +a
