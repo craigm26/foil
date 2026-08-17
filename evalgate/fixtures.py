@@ -41,7 +41,15 @@ vote for the option the scorer ranked last. The agents were right.
 If your free check flags it, your check is wrong about something else, because
 nothing in the generated text distinguishes it from a valid environment. That
 is the finding: a gate can be rigorous, reproducible, and confirm the wrong
-thing. Only `construct.verify` against a real model reaches it.
+thing. Only `construct.verify` reaches it -- and only through the SIMULATED
+oracle. Measured 2026-08-17 (RESULTS-FIXVERIFY.md): a real model agrees with
+this fixture's scorer 60/60, because the rendered text is self-consistent and
+the disagreement lives in a field only `simulated_oracle` reads. A genuine
+scorer-model disagreement cannot be synthesized analytically; TURN-1's was
+discovered by paying for it. This fixture therefore verifies your gate's
+WIRING -- that it calls the oracle, compares, and rejects on mismatch -- not
+your model's judgement. The construct gate itself must still run against your
+real scorer, your real model, your real environment, every time.
 
 Zero dependencies. No model calls. Deterministic given a seed.
 """

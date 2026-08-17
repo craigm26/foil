@@ -32,6 +32,7 @@ misbuilt scout scenario.
 | 8 | Real traffic — does the phenomenon occur? | **NOT MEASURABLE** — 3 eligible points in 1,855 sessions | [RESULTS-REALTRAFFIC.md](RESULTS-REALTRAFFIC.md) |
 | 9 | TURN-3 — test the TURN-2 reversal properly | **GATE 2 FAILED** — blocked for $1.56 | [RESULTS-TURN3.md](RESULTS-TURN3.md) |
 | 10 | SWEEP — order sensitivity across model generations | **NO TREND** — all 4 models indistinguishable | [RESULTS-SWEEP.md](RESULTS-SWEEP.md) |
+| 11 | Fixtures vs a real model — predictions P1–P4 | **ALL CONFIRMED** — incl. the limitation, for $0.27 | [RESULTS-FIXVERIFY.md](RESULTS-FIXVERIFY.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
 [PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID-1),
