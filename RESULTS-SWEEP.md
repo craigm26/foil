@@ -108,8 +108,43 @@ very little.
 - No causal attribution to training, scale, or architecture is possible or
   attempted.
 
-## 7. Data
+## 7. Exploratory addendum: bistability conditional on correctness
+
+**Not pre-registered. Added 2026-08-17, zero new calls** — a re-analysis of the
+same runs (`tools/sweep_conditional.py`), splitting each model's episodes by
+whether the canonical ordering's modal answer was correct.
+
+| model | bistable given canonical-RIGHT | bistable given canonical-WRONG |
+|---|---|---|
+| `claude-haiku-4-5` | 5/6 = 0.83 [0.44, 0.97] | 5/6 = 0.83 [0.44, 0.97] |
+| `claude-sonnet-4-5` | 1/7 = 0.14 [0.03, 0.51] | 5/5 = 1.00 [0.57, 1.00] |
+| `claude-sonnet-4-6` | 4/9 = 0.44 [0.19, 0.73] | 3/3 = 1.00 [0.44, 1.00] |
+| `claude-sonnet-5` | 2/9 = 0.22 [0.06, 0.55] | 3/3 = 1.00 [0.44, 1.00] |
+| **pooled** | **12/31 = 0.39 [0.24, 0.56]** | **16/17 = 0.94 [0.73, 0.99]** |
+
+The pooled intervals do not overlap. But read the caveat before the number:
+
+**This split is partly circular, and pretending otherwise would overstate it.**
+An episode whose canonical answer is wrong while any other ordering lands right
+is bistable *by definition*. So "wrong episodes are usually bistable" is largely
+the PID-2 association (instability predicts error) viewed from the other margin
+of the same 2×2 table — a consistency check on data from a second study, not an
+independent discovery.
+
+**The cell that is not circular is haiku's.** The three sonnets show a sharp
+split: when they are right at canonical they are usually stable, and every
+episode they get wrong is bistable. Haiku shows **no split at all** — 0.83
+bistable whether right or wrong. On this environment haiku's instability is
+unconditional: it flips on episodes it can solve just as much as on episodes it
+cannot. If that pattern held up at real sample sizes (these cells are 3–9
+episodes), it would mean the *relationship* between instability and error —
+the thing orderprobe's usefulness depends on — is itself model-dependent, and a
+brake calibrated on one model tier may not transfer down-tier. That is a
+hypothesis for a pre-registered study, not a finding.
+
+## 8. Data
 
 - `runs/sweep-result.json` — per-episode modes, TVs, ledger, per-model cost.
+- `tools/sweep_conditional.py` — the §7 split, deterministic, zero calls.
 
 Reproduce with `./run.sh sweep_run.py --models <list>`.
