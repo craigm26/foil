@@ -79,7 +79,20 @@ worthless after full payment.
 That is the case for `evalgate.construct` in one line: **11% of the cost, spent
 before the mistake instead of after it.**
 
-## 6. Data
+## 6. Addendum (2026-08-17): what this failure changed in the tooling
+
+The verdict above stands — the registered rule was a point comparison, and a
+rule is not renegotiated after the data. But the failure exposed that the rule
+itself was badly designed, and that is fixable for future studies:
+`evalgate.gates` now pre-registers gates as (n, threshold, alpha) with three
+outcomes, where FAIL requires an exact binomial rejection and a near-miss is
+EXTEND — a pre-registered extension batch, not a coin-flip cliff. Under that
+rule this gate's 32/36 replays as **EXTEND at p = 0.49**, and `gates.plan(0.90,
+0.80)` shows that resolving the question needed **n = 78**, not the 36 this
+study ran. Third appearance of the same error class (TURN-1's power,
+the SWEEP's resolution); the planner now computes it before registration.
+
+## 7. Data
 
 - `runs/turn3-result-claude-sonnet-5.json` — the 36 gate runs, ledger, verdict.
 
