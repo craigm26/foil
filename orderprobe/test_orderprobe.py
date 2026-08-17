@@ -166,3 +166,72 @@ class TestStatistic(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestEarlyStop(unittest.TestCase):
+    """stable_after must change the budget, never the verdict."""
+
+    def test_stable_case_costs_less(self):
+        calls = {"n": 0}
+        def f(xs):
+            calls["n"] += 1
+            return sum(xs)
+        r = probe_call(f, [1, 2, 3, 4], k=6, samples=3, stable_after=3)
+        self.assertEqual(r.verdict, Verdict.STABLE)
+        self.assertEqual(calls["n"], 9)          # 3 orderings, not 6
+        self.assertEqual(r.calls, 9)
+
+    def test_unstable_stops_at_first_disagreement(self):
+        calls = {"n": 0}
+        def f(xs):
+            calls["n"] += 1
+            return xs[0]
+        r = probe_call(f, [1, 2, 3, 4], k=6, samples=3, stable_after=3)
+        self.assertEqual(r.verdict, Verdict.UNSTABLE)
+        self.assertEqual(calls["n"], 6)          # canonical + 1 disagreeing
+        self.assertEqual(r.value, 1)             # value is still the given order
+
+    def test_verdict_matches_full_run(self):
+        for f in (lambda xs: sum(xs), lambda xs: xs[0], lambda xs: xs[-1]):
+            full = probe_call(f, [1, 2, 3], k=6, samples=2, seed=4)
+            fast = probe_call(f, [1, 2, 3], k=6, samples=2, seed=4,
+                              stable_after=3)
+            self.assertEqual(full.verdict, fast.verdict)
+            self.assertLessEqual(fast.calls, full.calls)
+
+    def test_not_applicable_rules_unchanged(self):
+        r = probe_call(lambda xs: xs[0], ["only"], k=6, samples=2,
+                       stable_after=3)
+        self.assertEqual(r.verdict, Verdict.NOT_APPLICABLE)
+
+    def test_all_error_orderings_do_not_count_as_agreement(self):
+        calls = {"n": 0}
+        def flaky(xs):
+            calls["n"] += 1
+            if calls["n"] <= 2:               # entire second ordering errors
+                return "ok"
+            if calls["n"] <= 4:
+                raise RuntimeError
+            return "ok"
+        r = probe_call(flaky, [1, 2, 3], k=3, samples=2, stable_after=2)
+        self.assertEqual(r.verdict, Verdict.STABLE)
+        self.assertEqual(r.errors, 2)
+        self.assertEqual(calls["n"], 6)       # needed the third ordering
+
+    def test_incompatible_options_raise(self):
+        with self.assertRaises(ValueError):
+            probe_call(lambda xs: 0, [1, 2], threshold=0.5, stable_after=3)
+        with self.assertRaises(ValueError):
+            probe_call(lambda xs: 0, [1, 2], max_workers=4, stable_after=3)
+        with self.assertRaises(ValueError):
+            probe_call(lambda xs: 0, [1, 2], stable_after=1)
+
+    def test_decorator_passes_it_through(self):
+        calls = {"n": 0}
+        @probe(k=6, samples=2, stable_after=3)
+        def decide(items):
+            calls["n"] += 1
+            return len(items)
+        r = decide([1, 2, 3, 4])
+        self.assertEqual(r.verdict, Verdict.STABLE)
+        self.assertEqual(calls["n"], 6)          # 3 orderings x 2 samples

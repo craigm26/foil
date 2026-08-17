@@ -87,7 +87,11 @@ fine for a detector — you cannot observe ambiguity at runtime but you can
 observe flipping — but nothing here explains *why*.
 
 **It costs `k × samples` calls per decision.** Reserve it for decisions where
-being wrong is expensive.
+being wrong is expensive. `stable_after` cuts the common stable case roughly in
+half: orderings run sequentially and the probe stops the moment the verdict is
+decided — at the first modal disagreement (unstable), or once `stable_after`
+orderings agree (stable). The verdict is always what the full run would have
+returned under the default rule; only `dispersion` becomes partial.
 
 ## Where it fits
 
@@ -133,6 +137,7 @@ Function form, for when you can't decorate.
 | `key` | map a return value to something hashable for comparison |
 | `threshold` | if set, `unstable` means `dispersion > threshold`. If unset, it means two orderings produced different modal answers — the definition the evidence above used |
 | `max_workers` | `>1` runs orderings concurrently; `fn` must be thread-safe |
+| `stable_after` | sequential early stop: quit at the first disagreement, or after this many agreeing orderings. Incompatible with `threshold` and `max_workers>1` |
 
 ### `ProbeResult`
 
@@ -167,7 +172,7 @@ not check"* is a different claim from *"it is fine"*.
 python3 -m unittest discover -s orderprobe -t .
 ```
 
-23 tests, covering the failure modes that would silently corrupt a result:
+30 tests, covering the failure modes that would silently corrupt a result:
 repeated orderings faking agreement, `k` exceeding `n!`, single-item inputs
 reported as stable rather than unchecked, errors being swallowed, and concurrent
 execution reordering results.

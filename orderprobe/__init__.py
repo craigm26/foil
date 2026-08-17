@@ -148,6 +148,7 @@ def probe_call(
     key: Callable[[Any], Hashable] | None = None,
     threshold: float | None = None,
     max_workers: int = 1,
+    stable_after: int | None = None,
 ) -> ProbeResult:
     """Run `fn` over `k` orderings of `items`, `samples` times each.
 
@@ -159,7 +160,25 @@ def probe_call(
                  which is the definition the published evidence used.
     max_workers -- >1 runs orderings concurrently. `fn` must then be
                  thread-safe.
+    stable_after -- sequential early stop. Orderings run one at a time and the
+                 probe stops as soon as the modal-answer verdict is decided:
+                 UNSTABLE the moment two orderings disagree, STABLE once this
+                 many orderings agree. Cuts the cost of the common stable case
+                 roughly in half at stable_after=3, k=6. The verdict is always
+                 the one the full run would have reached under the default
+                 modal rule; `dispersion` and `by_ordering` cover only the
+                 orderings actually run, so treat them as partial. Incompatible
+                 with `threshold` (its dispersion needs every pair) and with
+                 `max_workers > 1` (early stop is inherently serial).
     """
+    if stable_after is not None:
+        if threshold is not None:
+            raise ValueError("stable_after needs the modal rule; "
+                             "it cannot be combined with threshold")
+        if max_workers > 1:
+            raise ValueError("stable_after is serial; max_workers must be 1")
+        if stable_after < 2:
+            raise ValueError("stable_after must be >= 2")
     def _key(v: Any) -> Hashable:
         if key is not None:
             return key(v)
@@ -188,6 +207,18 @@ def probe_call(
         with ThreadPoolExecutor(max_workers=max_workers) as pool:
             got = list(pool.map(run, orders))
         got.sort(key=lambda t: orders.index(t[0]))     # keep canonical first
+    elif stable_after is not None and len(orders) > 1:
+        got, modals = [], set()
+        for o in orders:
+            res = run(o)
+            got.append(res)
+            if sum(res[1].values()):
+                modals.add(res[1].most_common(1)[0][0])
+            answered = sum(1 for _, c, _, _ in got if sum(c.values()))
+            if len(modals) > 1:
+                break                       # verdict decided: UNSTABLE
+            if answered >= stable_after:
+                break                       # verdict decided: STABLE
     else:
         got = [run(o) for o in orders]
 
@@ -217,7 +248,8 @@ def probe_call(
 
 def probe(k: int = 6, samples: int = 5, *, seed: int = 0,
           key: Callable[[Any], Hashable] | None = None,
-          threshold: float | None = None, max_workers: int = 1):
+          threshold: float | None = None, max_workers: int = 1,
+          stable_after: int | None = None):
     """Decorator form. The wrapped function must take one positional argument:
     the ordered sequence whose order you want to test."""
     def deco(fn: Callable[[Sequence], Any]):
@@ -225,7 +257,8 @@ def probe(k: int = 6, samples: int = 5, *, seed: int = 0,
         def wrapper(items: Sequence, *a, **kw) -> ProbeResult:
             bound = fn if not (a or kw) else (lambda xs: fn(xs, *a, **kw))
             return probe_call(bound, items, k=k, samples=samples, seed=seed,
-                              key=key, threshold=threshold, max_workers=max_workers)
+                              key=key, threshold=threshold,
+                              max_workers=max_workers, stable_after=stable_after)
         wrapper.unprobed = fn
         return wrapper
     return deco
