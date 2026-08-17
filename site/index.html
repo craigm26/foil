@@ -274,11 +274,21 @@ if r.unstable: escalate(r)</code></pre>
           says so rather than pretending otherwise.
         </p>
 <pre class="code code-sm"><code>structural.verify(make_case, holds, n=200)   <span class="c"># free</span>
-power.paired(effect=.20, units=32, reps=5)   <span class="c"># free</span>
+gates.plan(0.90, 0.80)     <span class="c"># n=78 to tell them apart. We ran 36.</span>
+power.separate(0.42, 0.58) <span class="c"># 153 units/group. We ran 12.</span>
 construct.verify(oracle, cases, min_rate=.9) <span class="c"># ~$1.50</span>
 variance.verify(exp_oracle, cases, truth)    <span class="c"># ~$1.50</span>
 
 fixtures.audit(my_check)  <span class="c"># test your gate on ours</span></code></pre>
+        <p>
+          The comments are this project's own studies: three failed on exactly
+          the arithmetic those two planners now compute for free. And the
+          fixtures were run against a real model, with the predictions
+          committed first — all four held, including the prediction that one
+          fixture's invalidity <em>cannot</em> be enacted against a real
+          oracle. It verifies your gate's wiring, not your model's judgement,
+          and its documentation says so.
+        </p>
       </div>
     </div>
 
