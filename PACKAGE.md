@@ -13,7 +13,17 @@ Two zero-dependency tools for people building or running multiagent systems.
 - **`evalgate`** — four checks that prove an eval environment can measure what
   you claim, before you pay to run it. Two are free. Ships with **five known-
   invalid environments as fixtures**, so you can test your own gate against
-  environments that deserve to fail.
+  environments that deserve to fail — and with `gates`, decision rules that
+  know their own resolution:
+
+  ```python
+  gates.plan(0.90, 0.80)        # n=78 to tell 0.90 from 0.80. We ran 36.
+  gates.verdict(32, 36, 0.90)   # EXTEND, p = 0.49 -- not a one-run cliff
+  power.separate(0.42, 0.58)    # 153 units/group. We ran 12.
+  ```
+
+  The comments are our own studies. Three of them failed on exactly the error
+  these two functions compute for free.
 
 ```bash
 pip install git+https://github.com/craigm26/foil
