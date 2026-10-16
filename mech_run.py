@@ -129,8 +129,8 @@ def cmd_gates(args) -> int:
 
     def finish(code: int) -> int:
         rec["seconds"] = round(time.time() - t0, 1)
-        if "wb" in loaded:
-            rec["forward_passes"] = loaded["wb"].passes
+        # §10: every result file reports compute, a G0 refusal's zero included
+        rec["forward_passes"] = loaded["wb"].passes if "wb" in loaded else 0
         rec["all_pass"] = code == 0
         path.write_text(json.dumps(rec, indent=2))
         print(f"\nwrote {path}")
@@ -140,12 +140,13 @@ def cmd_gates(args) -> int:
     try:
         wb = load_whitebox(args)
     except Ineligible as e:
-        rec["gates"].append({"gate": "G0 eligibility", "outcome": "FAIL", "reason": str(e)})
+        rec["gates"].append({"gate": "G0 eligibility", "outcome": "FAIL", "reason": str(e),
+                             "forward_passes": 0})
         print(f"G0 eligibility   FAIL  {e}")
         return finish(3)
     loaded["wb"] = wb
     rec["identity"] = wb.identity()
-    rec["gates"].append({"gate": "G0 eligibility", "outcome": "PASS"})
+    rec["gates"].append({"gate": "G0 eligibility", "outcome": "PASS", "forward_passes": 0})
     print("G0 eligibility   PASS")
 
     for name, fn in (("G1", lambda: structural_gate(wb.tok)),
