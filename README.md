@@ -26,6 +26,10 @@ Nothing to install. Python 3.11+ and numpy. Zero third-party dependencies by
 design: the harness has to run unchanged inside a lab against models the author
 cannot reach, and every dependency is a reason someone does not run it.
 
+The optional white-box layer (`mech/`) needs torch and transformers
+(`pip install -r requirements-mech.txt`). Nothing in the core imports it, and
+`./run.sh test` passes without it.
+
 ## Use
 
 Project cost and inspect the exact rendered request without spending anything:
@@ -90,6 +94,32 @@ to **no** price rather than a guessed one: a silently wrong cost number is worse
 than a missing one when cost gates a decision. `claude-opus-5` has no row yet
 and must be added before it can be profiled.
 
+## White-box layer (optional)
+
+The API harness can only edit text, and editing text changes what the listener
+knows *and* where everything after the edit sits. With open weights, `mech/`
+does what a Messages call cannot:
+
+- reads the action distribution **exactly** from the logits, with no sampling;
+- hides a report **in place** (attention knockout): its information is gone,
+  every token keeps its position. FOIL's own Ω_null effect then splits, along
+  a registered path and a reverse one, into an information term, an
+  arrangement term and a null-text term;
+- finds the units that carry a report into the decision — in the model's own
+  neurons or in a learned dictionary (SAE or transcoder), one interface — and
+  tests them by patching.
+
+```bash
+python3 mech_run.py plan  --model Qwen/Qwen3-1.7B   # free: tokenizer-only structural gate
+python3 mech_run.py gates --model Qwen/Qwen3-1.7B   # eligibility, leak, construct
+python3 mech_run.py run   --model Qwen/Qwen3-1.7B   # refuses unless every gate passed
+```
+
+No API key and no spend; the cost is forward passes, reported in every result
+file. The knockout only cuts every path in a pure softmax-attention decoder, so
+hybrid models (linear attention, state-space layers — Qwen3.5, for one) are
+refused, and a leak gate makes each model's weights confirm it.
+
 ## Layout
 
 ```
@@ -101,6 +131,14 @@ foil/render.py       IR + fork_key -> exact request payload, content-addressed
 foil/execute.py      idempotent sampler, cost ledger, hard token budget
 foil/stats.py        TV and bootstrap CIs (noise-floor diagnostics only)
 foil/nulls.py        N1 / N2 / REF and the kill rule
+mech/                white-box layer (optional; torch + transformers)
+  local.py           FOIL stimulus -> chat template -> token map of every report
+  whitebox.py        exact forward passes with knockouts, patches, captures
+  basis.py           neurons or dictionaries (SAE / transcoder), one interface
+  study.py           MECH-1 arms per episode; resumable study loop
+  gates.py           G0-G3, each blocking
+  analysis.py        registered statistics and decision rules (numpy only)
+mech_run.py          plan / gates / run / analyze for MECH-1
 data/                vendored price table
 runs/                sample store (append-only jsonl) and results
 ```

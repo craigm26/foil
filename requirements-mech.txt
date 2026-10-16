@@ -1,0 +1,10 @@
+# The white-box layer (mech/) only. The core harness -- foil/, orderprobe/,
+# evalgate/ -- needs nothing beyond numpy, and nothing in it imports mech/.
+#
+#   pip install -r requirements-mech.txt
+#
+# Developed and tested against torch 2.14.1 and transformers 5.20.1.
+torch>=2.4
+transformers>=4.51  # first release with Qwen3
+tokenizers>=0.21
+safetensors
