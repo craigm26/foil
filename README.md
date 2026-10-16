@@ -8,8 +8,10 @@ normatively should have. See [PREREGISTRATION.md](PREREGISTRATION.md) for the
 hypotheses, the analysis plan, and the kill rules, all fixed before data
 collection.
 
-**Status: Phase 0.** The nulls have not been run. Nothing has been measured
-against a live model yet.
+**Status:** Phase 0 was not passed under any protocol. Eleven studies, including
+every negative result, are indexed in [FINDINGS.md](FINDINGS.md). MECH-1, the
+first white-box study, is pre-registered and not yet run
+([PREREGISTRATION-MECH.md](PREREGISTRATION-MECH.md)).
 
 ## Why this exists
 
