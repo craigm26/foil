@@ -374,6 +374,30 @@ class StudyLoop(unittest.TestCase):
             self.assertNotEqual(pr.region[c["position"]], "answer")
             self.assertLess(c["position"], pr.answer_start)
 
+    def test_identity_names_device_and_hardware(self):
+        _, wb = tiny()
+        ident = wb.identity()
+        self.assertEqual(ident["device"], "cpu")
+        self.assertTrue(ident["hardware"])
+        self.assertIn("hardware", type(wb).IDENTITY_KEYS)
+
+    def test_resume_refuses_other_code_and_duplicates(self):
+        from mech.study import run_study
+        _, wb = tiny()
+        ident = wb.identity()
+        row = {"episode": "v3-s9000", "identity": ident, "consistency": {"ok": True},
+               "provenance": {"git_commit": "old", "git_dirty": False}}
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "m.jsonl"
+            path.write_text(json.dumps(row) + "\n")
+            with self.assertRaises(RuntimeError):
+                run_study(wb, [9000], path, log=lambda *_: None,
+                          provenance={"git_commit": "new", "git_dirty": False})
+            path.write_text((json.dumps(row) + "\n") * 2)
+            with self.assertRaises(RuntimeError):
+                run_study(wb, [9000], path, log=lambda *_: None,
+                          provenance={"git_commit": "old", "git_dirty": False})
+
     def test_resume_refuses_a_void_rung(self):
         from mech.study import run_study
         _, wb = tiny()

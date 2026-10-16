@@ -57,7 +57,7 @@ def out_dir(args) -> Path:
     return d
 
 
-def check_registered(args) -> None:
+def check_registered(args, need_clean: bool = True) -> None:
     if args.exploratory:
         return
     if args.model not in REGISTERED:
@@ -66,6 +66,13 @@ def check_registered(args) -> None:
         sys.exit("the registered revision is pinned; use --exploratory to run another")
     if args.dtype != REGISTERED_DTYPE:
         sys.exit(f"the registered dtype is {REGISTERED_DTYPE}; use --exploratory for {args.dtype}")
+    if not need_clean:
+        return
+    from foil.provenance import stamp
+    prov = stamp(__file__)
+    if prov["git_dirty"] or not prov["git_commit"]:
+        sys.exit("registered runs need a clean, committed tree: a result must name the code "
+                 "that produced it (git status shows uncommitted changes)")
 
 
 def revision(args) -> str | None:
@@ -82,7 +89,7 @@ def cmd_plan(args) -> int:
     from mech.gates import STUDY_SEEDS, structural_gate
     from mech.local import render_local
 
-    check_registered(args)
+    check_registered(args, need_clean=False)  # tokenizer only: no data, no provenance needed
     tok = load_tokenizer(args)
     t0 = time.time()
     g1 = structural_gate(tok)
@@ -169,6 +176,41 @@ def _gates_passed(args, ident: dict) -> bool:
     return True
 
 
+def validate_rows(rows: list[dict], gates: dict | None, *, exploratory: bool) -> str | None:
+    """Why these rows may not be analysed, or None. Checked before any
+    statistic exists, so a refusal can never depend on an outcome."""
+    from collections import Counter
+    from mech.gates import STUDY_SEEDS
+    from mech.whitebox import WhiteBox
+
+    if not rows:
+        return "no episodes"
+    dup = [e for e, n in Counter(r["episode"] for r in rows).items() if n > 1]
+    if dup:
+        return f"duplicate rows for {dup[:5]}: each registered episode must appear exactly once"
+    ident = {k: rows[0]["identity"].get(k) for k in WhiteBox.IDENTITY_KEYS}
+    if any({k: r["identity"].get(k) for k in WhiteBox.IDENTITY_KEYS} != ident for r in rows):
+        return "rows come from more than one model identity"
+    code = {(r.get("provenance") or {}).get("git_commit") for r in rows}
+    dirty = any((r.get("provenance") or {}).get("git_dirty") for r in rows)
+    if exploratory:
+        return None
+    if len(code) != 1 or None in code or dirty:
+        return "rows do not all come from one clean, committed version of the code"
+    want = {f"v3-s{s}" for s in STUDY_SEEDS}
+    have = {r["episode"] for r in rows}
+    if have != want:
+        return (f"{len(have & want)}/{len(want)} registered episodes present; no optional "
+                "stopping, so nothing is decided until all exist")
+    if gates is None:
+        return "no gates file: the gates block, so nothing is decided without them"
+    if not gates.get("all_pass"):
+        return "the gates did not all pass: the gate failure is this rung's result"
+    if {k: gates.get("identity", {}).get(k) for k in WhiteBox.IDENTITY_KEYS} != ident:
+        return "the gates passed for a different identity than the one that measured the episodes"
+    return None
+
+
 def cmd_run(args) -> int:
     from foil.provenance import stamp
     from mech.gates import STUDY_SEEDS
@@ -191,6 +233,7 @@ def cmd_analyze(args) -> int:
     from mech import analysis as A
     from mech.gates import STUDY_SEEDS
 
+    check_registered(args)
     jsonl = out_dir(args) / f"mech1-{slug(args.model)}.jsonl"
     rows = list(A.iter_jsonl(jsonl))
     out = out_dir(args) / f"mech1-{slug(args.model)}.json"
@@ -201,11 +244,11 @@ def cmd_analyze(args) -> int:
         out.write_text(json.dumps(res, indent=2))
         print(f"VOID: hooks altered the computation in {res['integrity']['void_episodes']}; wrote {out}")
         return 3
-    want = {f"v3-s{s}" for s in STUDY_SEEDS}
-    have = {r["episode"] for r in rows}
-    if not args.exploratory and have != want:
-        print(f"{len(have & want)}/{len(want)} registered episodes present; no optional stopping, "
-              "so nothing is decided until all exist")
+    gates_path = out_dir(args) / f"mech1-gates-{slug(args.model)}.json"
+    gates = json.loads(gates_path.read_text()) if gates_path.exists() else None
+    why = validate_rows(rows, gates, exploratory=args.exploratory)
+    if why:
+        print(f"not analysed: {why}")
         return 3
     rows.sort(key=lambda r: r["seed"])
     res = A.analyze(rows)
@@ -214,11 +257,9 @@ def cmd_analyze(args) -> int:
     res["role"] = ("exploratory" if args.exploratory else
                    "confirmatory" if args.model == CONFIRMATORY else "replication")
     res["identity"] = rows[0]["identity"] if rows else None
-    gates_path = out_dir(args) / f"mech1-gates-{slug(args.model)}.json"
-    if gates_path.exists():
-        g = json.loads(gates_path.read_text())
-        res["gates"] = {x["gate"]: x["outcome"] for x in g["gates"]}
-        leak = next((x for x in g["gates"] if x["gate"] == "G2 leak"), None)
+    if gates is not None:
+        res["gates"] = {x["gate"]: x["outcome"] for x in gates["gates"]}
+        leak = next((x for x in gates["gates"] if x["gate"] == "G2 leak"), None)
         if leak:
             res["integrity"]["g2_max_leak"] = leak["max_abs_logit_diff_with_knockout"]
     res["compute"] = {"forward_passes": sum(r["passes"] for r in rows),

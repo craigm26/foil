@@ -237,3 +237,49 @@ class Phase0(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RunnerValidation(unittest.TestCase):
+    """mech_run.validate_rows: checked before any statistic exists."""
+
+    def _rows(self, n=48, commit="abc", dirty=False):
+        from mech.gates import STUDY_SEEDS
+        ident = {"model": "m", "revision": "r", "dtype": "float32", "device": "cpu",
+                 "hardware": "x", "torch": "t", "transformers": "tf"}
+        return [{"episode": f"v3-s{s}", "seed": s, "identity": dict(ident),
+                 "provenance": {"git_commit": commit, "git_dirty": dirty}}
+                for s in STUDY_SEEDS[:n]]
+
+    def _gates(self, ok=True, **over):
+        ident = {"model": "m", "revision": "r", "dtype": "float32", "device": "cpu",
+                 "hardware": "x", "torch": "t", "transformers": "tf"}
+        ident.update(over)
+        return {"all_pass": ok, "identity": ident, "gates": []}
+
+    def test_clean_complete_gated_rows_pass(self):
+        import mech_run
+        self.assertIsNone(mech_run.validate_rows(self._rows(), self._gates(), exploratory=False))
+
+    def test_refusals(self):
+        import mech_run
+        rows = self._rows()
+        cases = {
+            "duplicate": rows + [dict(rows[0])],
+            "incomplete": self._rows(47),
+            "dirty": self._rows(dirty=True),
+        }
+        mixed = self._rows()
+        mixed[3] = dict(mixed[3], provenance={"git_commit": "other", "git_dirty": False})
+        cases["two commits"] = mixed
+        other_hw = self._rows()
+        other_hw[5] = dict(other_hw[5], identity=dict(other_hw[5]["identity"], hardware="y"))
+        cases["two identities"] = other_hw
+        for name, rs in cases.items():
+            with self.subTest(name):
+                self.assertIsNotNone(mech_run.validate_rows(rs, self._gates(), exploratory=False))
+        with self.subTest("no gates"):
+            self.assertIsNotNone(mech_run.validate_rows(rows, None, exploratory=False))
+        with self.subTest("failed gates"):
+            self.assertIsNotNone(mech_run.validate_rows(rows, self._gates(ok=False), exploratory=False))
+        with self.subTest("gates on other hardware"):
+            self.assertIsNotNone(mech_run.validate_rows(rows, self._gates(hardware="gpu"), exploratory=False))
