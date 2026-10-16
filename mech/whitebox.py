@@ -113,6 +113,10 @@ class WhiteBox:
         self.model_id = model_id
         self.revision = revision
         self.device = torch.device(device)
+        if self.device.type == "cuda" and self.device.index is None:
+            # "cuda" means the current GPU; name it, so gates passed on one
+            # card cannot certify a study on another.
+            self.device = torch.device("cuda", torch.cuda.current_device())
         self.dtype_name = dtype
         td = getattr(torch, dtype)
         if self.device.type == "cuda":
@@ -159,7 +163,7 @@ class WhiteBox:
         return list(layers)
 
     #: Fields that must match for two records to belong to one measurement.
-    IDENTITY_KEYS = ("model", "revision", "dtype", "device", "torch", "transformers")
+    IDENTITY_KEYS = ("model", "revision", "dtype", "device", "hardware", "torch", "transformers")
 
     def identity(self) -> dict:
         import transformers
@@ -167,7 +171,8 @@ class WhiteBox:
             "model": self.model_id,
             "revision": self.resolved_revision,
             "dtype": self.dtype_name,
-            "device": self.device.type,
+            "device": str(self.device),
+            "hardware": hardware_name(self.device),
             "n_layers": self.n_layers,
             "d_mlp": self.d_mlp,
             "torch": torch.__version__,
@@ -362,6 +367,21 @@ class WhiteBox:
         finally:
             for h in handles:
                 h.remove()
+
+
+def hardware_name(device: torch.device) -> str:
+    """The processor the arithmetic ran on: the GPU's name, or the CPU model."""
+    if device.type == "cuda":
+        return torch.cuda.get_device_name(device)
+    try:
+        with open("/proc/cpuinfo", encoding="utf-8") as fh:
+            for line in fh:
+                if line.startswith("model name"):
+                    return line.split(":", 1)[1].strip()
+    except OSError:
+        pass
+    import platform
+    return platform.processor() or platform.machine() or "unknown"
 
 
 def regime_name(code: int) -> str:

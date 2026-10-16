@@ -14,7 +14,8 @@ must run on the same device and library versions its gates passed on.
 
 The registration is enforced in code, the way TURN-2's calibration gate was:
 `run` will not start for a model, revision or dtype the gates did not pass,
-and `analyze` will not decide anything until all 48 episodes exist. Anything
+or on code other than the clean commit they passed on, and `analyze` will not
+decide anything until all 48 episodes exist. Anything
 else needs `--exploratory`, which writes under runs/exploratory/ and says so
 in every file it touches.
 """
@@ -57,7 +58,7 @@ def out_dir(args) -> Path:
     return d
 
 
-def check_registered(args) -> None:
+def check_registered(args, need_clean: bool = True) -> None:
     if args.exploratory:
         return
     if args.model not in REGISTERED:
@@ -66,6 +67,13 @@ def check_registered(args) -> None:
         sys.exit("the registered revision is pinned; use --exploratory to run another")
     if args.dtype != REGISTERED_DTYPE:
         sys.exit(f"the registered dtype is {REGISTERED_DTYPE}; use --exploratory for {args.dtype}")
+    if not need_clean:
+        return
+    from foil.provenance import stamp
+    prov = stamp(__file__)
+    if prov["git_dirty"] or not prov["git_commit"]:
+        sys.exit("registered runs need a clean, committed tree: a result must name the code "
+                 "that produced it (git status shows uncommitted changes)")
 
 
 def revision(args) -> str | None:
@@ -82,7 +90,7 @@ def cmd_plan(args) -> int:
     from mech.gates import STUDY_SEEDS, structural_gate
     from mech.local import render_local
 
-    check_registered(args)
+    check_registered(args, need_clean=False)  # tokenizer only: no data, no provenance needed
     tok = load_tokenizer(args)
     t0 = time.time()
     g1 = structural_gate(tok)
@@ -151,22 +159,73 @@ def cmd_gates(args) -> int:
     return finish(0)
 
 
+def gate_refusal(gates: dict | None, ident: dict, commit: str | None, *,
+                 exploratory: bool) -> str | None:
+    """Why these gates do not license a study with this identity on this code,
+    or None. A registered study needs gates that passed on the same identity
+    AND the same clean commit: gates run on other code tested other code."""
+    from mech.whitebox import WhiteBox
+
+    if gates is None:
+        return "no gates file: the gates block, so nothing runs or is decided without them"
+    if not gates.get("all_pass"):
+        return "the gates did not all pass: the gate failure is this rung's result"
+    want = {k: ident.get(k) for k in WhiteBox.IDENTITY_KEYS}
+    got = {k: (gates.get("identity") or {}).get(k) for k in WhiteBox.IDENTITY_KEYS}
+    if want != got:
+        return f"the gates passed for {got}, not {want}"
+    if exploratory:
+        return None
+    prov = gates.get("provenance") or {}
+    if prov.get("git_dirty") or not prov.get("git_commit") or prov["git_commit"] != commit:
+        ran = f"{prov.get('git_commit')}{' (dirty tree)' if prov.get('git_dirty') else ''}"
+        return (f"the gates ran on code {ran}, not on {commit}: "
+                "re-run `mech_run.py gates` on the code that measures the study")
+    return None
+
+
 def _gates_passed(args, ident: dict) -> bool:
+    from foil.provenance import stamp
+
     path = out_dir(args) / f"mech1-gates-{slug(args.model)}.json"
     if not path.exists():
         print(f"no gates file at {path}; run `mech_run.py gates` first")
         return False
-    rec = json.loads(path.read_text())
-    if not rec.get("all_pass"):
-        print("the gates did not all pass for this model; the study does not run")
-        return False
-    from mech.whitebox import WhiteBox
-    want = {k: ident[k] for k in WhiteBox.IDENTITY_KEYS}
-    got = {k: rec["identity"].get(k) for k in WhiteBox.IDENTITY_KEYS}
-    if want != got:
-        print(f"gates passed for {got}, not {want}")
+    why = gate_refusal(json.loads(path.read_text()), ident, stamp(__file__)["git_commit"],
+                       exploratory=args.exploratory)
+    if why:
+        print(f"the study does not run: {why}")
         return False
     return True
+
+
+def validate_rows(rows: list[dict], gates: dict | None, *, exploratory: bool) -> str | None:
+    """Why these rows may not be analysed, or None. Checked before any
+    statistic exists, so a refusal can never depend on an outcome."""
+    from collections import Counter
+    from mech.gates import STUDY_SEEDS
+    from mech.whitebox import WhiteBox
+
+    if not rows:
+        return "no episodes"
+    dup = [e for e, n in Counter(r["episode"] for r in rows).items() if n > 1]
+    if dup:
+        return f"duplicate rows for {dup[:5]}: each registered episode must appear exactly once"
+    ident = {k: rows[0]["identity"].get(k) for k in WhiteBox.IDENTITY_KEYS}
+    if any({k: r["identity"].get(k) for k in WhiteBox.IDENTITY_KEYS} != ident for r in rows):
+        return "rows come from more than one model identity"
+    code = {(r.get("provenance") or {}).get("git_commit") for r in rows}
+    dirty = any((r.get("provenance") or {}).get("git_dirty") for r in rows)
+    if exploratory:
+        return None
+    if len(code) != 1 or None in code or dirty:
+        return "rows do not all come from one clean, committed version of the code"
+    want = {f"v3-s{s}" for s in STUDY_SEEDS}
+    have = {r["episode"] for r in rows}
+    if have != want:
+        return (f"{len(have & want)}/{len(want)} registered episodes present; no optional "
+                "stopping, so nothing is decided until all exist")
+    return gate_refusal(gates, ident, next(iter(code)), exploratory=False)
 
 
 def cmd_run(args) -> int:
@@ -191,6 +250,7 @@ def cmd_analyze(args) -> int:
     from mech import analysis as A
     from mech.gates import STUDY_SEEDS
 
+    check_registered(args)
     jsonl = out_dir(args) / f"mech1-{slug(args.model)}.jsonl"
     rows = list(A.iter_jsonl(jsonl))
     out = out_dir(args) / f"mech1-{slug(args.model)}.json"
@@ -201,11 +261,11 @@ def cmd_analyze(args) -> int:
         out.write_text(json.dumps(res, indent=2))
         print(f"VOID: hooks altered the computation in {res['integrity']['void_episodes']}; wrote {out}")
         return 3
-    want = {f"v3-s{s}" for s in STUDY_SEEDS}
-    have = {r["episode"] for r in rows}
-    if not args.exploratory and have != want:
-        print(f"{len(have & want)}/{len(want)} registered episodes present; no optional stopping, "
-              "so nothing is decided until all exist")
+    gates_path = out_dir(args) / f"mech1-gates-{slug(args.model)}.json"
+    gates = json.loads(gates_path.read_text()) if gates_path.exists() else None
+    why = validate_rows(rows, gates, exploratory=args.exploratory)
+    if why:
+        print(f"not analysed: {why}")
         return 3
     rows.sort(key=lambda r: r["seed"])
     res = A.analyze(rows)
@@ -214,11 +274,9 @@ def cmd_analyze(args) -> int:
     res["role"] = ("exploratory" if args.exploratory else
                    "confirmatory" if args.model == CONFIRMATORY else "replication")
     res["identity"] = rows[0]["identity"] if rows else None
-    gates_path = out_dir(args) / f"mech1-gates-{slug(args.model)}.json"
-    if gates_path.exists():
-        g = json.loads(gates_path.read_text())
-        res["gates"] = {x["gate"]: x["outcome"] for x in g["gates"]}
-        leak = next((x for x in g["gates"] if x["gate"] == "G2 leak"), None)
+    if gates is not None:
+        res["gates"] = {x["gate"]: x["outcome"] for x in gates["gates"]}
+        leak = next((x for x in gates["gates"] if x["gate"] == "G2 leak"), None)
         if leak:
             res["integrity"]["g2_max_leak"] = leak["max_abs_logit_diff_with_knockout"]
     res["compute"] = {"forward_passes": sum(r["passes"] for r in rows),

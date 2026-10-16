@@ -349,16 +349,24 @@ def measure_episode(wb: WhiteBox, ep: Episode, seed: int, basis=None) -> dict:
     return rec
 
 
+def _code(prov: dict | None) -> tuple:
+    """Which code wrote a row: (git commit, dirty flag)."""
+    prov = prov or {}
+    return prov.get("git_commit"), prov.get("git_dirty")
+
+
 def run_study(wb: WhiteBox, seeds, out_path: str | Path, *, basis=None, log=print,
               provenance: dict | None = None) -> list[dict]:
     """Measure every registered episode, appending one JSON line each.
 
     Resumable: an episode already present with the same identity is skipped,
     the idempotence foil.execute gives sampled arms. A line from a different
-    model, revision, dtype, device or library version is an error, never
-    silently mixed in. An episode whose hooks altered the computation is
-    written to disk -- the void is part of the record -- and then the run
-    stops: every later number would share the fault.
+    model, revision, dtype, device, hardware or library version is an error,
+    never silently mixed in; so is one written by different code (another git
+    commit, or a dirty tree), and so is a second line for one episode. An
+    episode whose hooks altered the computation is written to disk -- the
+    void is part of the record -- and then the run stops: every later number
+    would share the fault.
     """
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -372,9 +380,15 @@ def run_study(wb: WhiteBox, seeds, out_path: str | Path, *, basis=None, log=prin
             row = json.loads(line)
             if {k: row["identity"].get(k) for k in key} != key:
                 raise RuntimeError(f"{out_path} holds episodes from {row['identity']}; refusing to mix")
+            if provenance is not None and _code(row.get("provenance")) != _code(provenance):
+                raise RuntimeError(f"{out_path}: {row['episode']} was measured by other code "
+                                   f"({_code(row.get('provenance'))}, now {_code(provenance)}); "
+                                   "refusing to mix")
             if not row["consistency"].get("ok", True):
                 raise RuntimeError(f"{out_path}: {row['episode']} is VOID (hooks altered the "
                                    "computation); the rung does not resume")
+            if row["episode"] in done:
+                raise RuntimeError(f"{out_path}: two rows for {row['episode']}; refusing to resume")
             done[row["episode"]] = row
     rows = []
     for i, seed in enumerate(seeds):
