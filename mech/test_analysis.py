@@ -250,11 +250,12 @@ class RunnerValidation(unittest.TestCase):
                  "provenance": {"git_commit": commit, "git_dirty": dirty}}
                 for s in STUDY_SEEDS[:n]]
 
-    def _gates(self, ok=True, **over):
+    def _gates(self, ok=True, commit="abc", dirty=False, **over):
         ident = {"model": "m", "revision": "r", "dtype": "float32", "device": "cpu",
                  "hardware": "x", "torch": "t", "transformers": "tf"}
         ident.update(over)
-        return {"all_pass": ok, "identity": ident, "gates": []}
+        return {"all_pass": ok, "identity": ident, "gates": [],
+                "provenance": {"git_commit": commit, "git_dirty": dirty}}
 
     def test_clean_complete_gated_rows_pass(self):
         import mech_run
@@ -283,3 +284,22 @@ class RunnerValidation(unittest.TestCase):
             self.assertIsNotNone(mech_run.validate_rows(rows, self._gates(ok=False), exploratory=False))
         with self.subTest("gates on other hardware"):
             self.assertIsNotNone(mech_run.validate_rows(rows, self._gates(hardware="gpu"), exploratory=False))
+        with self.subTest("gates on other code"):
+            self.assertIsNotNone(mech_run.validate_rows(rows, self._gates(commit="old"), exploratory=False))
+        with self.subTest("gates from a dirty tree"):
+            self.assertIsNotNone(mech_run.validate_rows(rows, self._gates(dirty=True), exploratory=False))
+
+    def test_gates_bind_to_the_code_that_runs_the_study(self):
+        import mech_run
+        ident = self._rows(1)[0]["identity"]
+        gates = self._gates()
+        self.assertIsNone(mech_run.gate_refusal(gates, ident, "abc", exploratory=False))
+        self.assertIsNotNone(mech_run.gate_refusal(gates, ident, "def", exploratory=False))
+        self.assertIsNotNone(mech_run.gate_refusal(self._gates(dirty=True), ident, "abc",
+                                                   exploratory=False))
+        self.assertIsNotNone(mech_run.gate_refusal({"all_pass": True, "identity": ident}, ident,
+                                                   "abc", exploratory=False))
+        # exploratory work may iterate on uncommitted code; identity still binds
+        self.assertIsNone(mech_run.gate_refusal(gates, ident, "def", exploratory=True))
+        self.assertIsNotNone(mech_run.gate_refusal(self._gates(hardware="gpu"), ident, "def",
+                                                   exploratory=True))

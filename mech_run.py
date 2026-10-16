@@ -14,7 +14,8 @@ must run on the same device and library versions its gates passed on.
 
 The registration is enforced in code, the way TURN-2's calibration gate was:
 `run` will not start for a model, revision or dtype the gates did not pass,
-and `analyze` will not decide anything until all 48 episodes exist. Anything
+or on code other than the clean commit they passed on, and `analyze` will not
+decide anything until all 48 episodes exist. Anything
 else needs `--exploratory`, which writes under runs/exploratory/ and says so
 in every file it touches.
 """
@@ -163,20 +164,42 @@ def cmd_gates(args) -> int:
     return finish(0)
 
 
+def gate_refusal(gates: dict | None, ident: dict, commit: str | None, *,
+                 exploratory: bool) -> str | None:
+    """Why these gates do not license a study with this identity on this code,
+    or None. A registered study needs gates that passed on the same identity
+    AND the same clean commit: gates run on other code tested other code."""
+    from mech.whitebox import WhiteBox
+
+    if gates is None:
+        return "no gates file: the gates block, so nothing runs or is decided without them"
+    if not gates.get("all_pass"):
+        return "the gates did not all pass: the gate failure is this rung's result"
+    want = {k: ident.get(k) for k in WhiteBox.IDENTITY_KEYS}
+    got = {k: (gates.get("identity") or {}).get(k) for k in WhiteBox.IDENTITY_KEYS}
+    if want != got:
+        return f"the gates passed for {got}, not {want}"
+    if exploratory:
+        return None
+    prov = gates.get("provenance") or {}
+    if prov.get("git_dirty") or not prov.get("git_commit") or prov["git_commit"] != commit:
+        ran = f"{prov.get('git_commit')}{' (dirty tree)' if prov.get('git_dirty') else ''}"
+        return (f"the gates ran on code {ran}, not on {commit}: "
+                "re-run `mech_run.py gates` on the code that measures the study")
+    return None
+
+
 def _gates_passed(args, ident: dict) -> bool:
+    from foil.provenance import stamp
+
     path = out_dir(args) / f"mech1-gates-{slug(args.model)}.json"
     if not path.exists():
         print(f"no gates file at {path}; run `mech_run.py gates` first")
         return False
-    rec = json.loads(path.read_text())
-    if not rec.get("all_pass"):
-        print("the gates did not all pass for this model; the study does not run")
-        return False
-    from mech.whitebox import WhiteBox
-    want = {k: ident[k] for k in WhiteBox.IDENTITY_KEYS}
-    got = {k: rec["identity"].get(k) for k in WhiteBox.IDENTITY_KEYS}
-    if want != got:
-        print(f"gates passed for {got}, not {want}")
+    why = gate_refusal(json.loads(path.read_text()), ident, stamp(__file__)["git_commit"],
+                       exploratory=args.exploratory)
+    if why:
+        print(f"the study does not run: {why}")
         return False
     return True
 
@@ -207,13 +230,7 @@ def validate_rows(rows: list[dict], gates: dict | None, *, exploratory: bool) ->
     if have != want:
         return (f"{len(have & want)}/{len(want)} registered episodes present; no optional "
                 "stopping, so nothing is decided until all exist")
-    if gates is None:
-        return "no gates file: the gates block, so nothing is decided without them"
-    if not gates.get("all_pass"):
-        return "the gates did not all pass: the gate failure is this rung's result"
-    if {k: gates.get("identity", {}).get(k) for k in WhiteBox.IDENTITY_KEYS} != ident:
-        return "the gates passed for a different identity than the one that measured the episodes"
-    return None
+    return gate_refusal(gates, ident, next(iter(code)), exploratory=False)
 
 
 def cmd_run(args) -> int:
