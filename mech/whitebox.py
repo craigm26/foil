@@ -151,6 +151,8 @@ class WhiteBox:
             if not hasattr(layer, "self_attn") or not hasattr(getattr(layer, "mlp", None), "down_proj"):
                 raise Ineligible(f"layer {i} lacks self_attn or a gated MLP with down_proj")
         self.n_layers = len(self.layers)
+        #: Completed forward passes. Every result file reports compute (§10).
+        self.passes = 0
         self.d_mlp = self.layers[0].mlp.down_proj.in_features
         self.d_model = self.layers[0].mlp.down_proj.out_features
         self.resolved_revision = getattr(self.model.config, "_commit_hash", None) or revision
@@ -345,6 +347,7 @@ class WhiteBox:
                     out = self.model(**fwd, logits_to_keep=1)
                 except TypeError:
                     out = self.model(**fwd)
+                self.passes += 1
                 logits = out.logits[0, -1].float()
                 act_ids = torch.as_tensor(prompt.action_ids, dtype=torch.long, device=logits.device)
                 a_logits = logits[act_ids]

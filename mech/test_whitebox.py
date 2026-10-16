@@ -431,9 +431,13 @@ class Gates(unittest.TestCase):
     def test_leak_gate_passes_on_a_correct_operator(self):
         from mech.gates import leak_gate
         _, wb = tiny()
+        before = wb.passes
         rep = leak_gate(wb, seeds=(9600,))
         self.assertEqual(rep["outcome"], "PASS", rep)
         self.assertEqual(rep["max_abs_logit_diff_with_knockout"], 0.0)
+        # one plain pass, then three per source (knockout, knockout + overwrite,
+        # overwrite): the compute a gates file reports (§10)
+        self.assertEqual(wb.passes - before, 1 + 3 * 4)
 
 
 if __name__ == "__main__":

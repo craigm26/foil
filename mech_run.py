@@ -125,9 +125,12 @@ def cmd_gates(args) -> int:
     rec: dict = {"study": "MECH-1", "exploratory": args.exploratory, "gates": [],
                  "provenance": stamp(__file__)}
     t0 = time.time()
+    loaded: dict = {}
 
     def finish(code: int) -> int:
         rec["seconds"] = round(time.time() - t0, 1)
+        # §10: every result file reports compute, a G0 refusal's zero included
+        rec["forward_passes"] = loaded["wb"].passes if "wb" in loaded else 0
         rec["all_pass"] = code == 0
         path.write_text(json.dumps(rec, indent=2))
         print(f"\nwrote {path}")
@@ -137,19 +140,22 @@ def cmd_gates(args) -> int:
     try:
         wb = load_whitebox(args)
     except Ineligible as e:
-        rec["gates"].append({"gate": "G0 eligibility", "outcome": "FAIL", "reason": str(e)})
+        rec["gates"].append({"gate": "G0 eligibility", "outcome": "FAIL", "reason": str(e),
+                             "forward_passes": 0})
         print(f"G0 eligibility   FAIL  {e}")
         return finish(3)
+    loaded["wb"] = wb
     rec["identity"] = wb.identity()
-    rec["gates"].append({"gate": "G0 eligibility", "outcome": "PASS"})
+    rec["gates"].append({"gate": "G0 eligibility", "outcome": "PASS", "forward_passes": 0})
     print("G0 eligibility   PASS")
 
     for name, fn in (("G1", lambda: structural_gate(wb.tok)),
                      ("G2", lambda: leak_gate(wb)),
                      ("G3", lambda: construct_gate(wb))):
-        t1 = time.time()
+        t1, p1 = time.time(), wb.passes
         g = fn()
         g["seconds"] = round(time.time() - t1, 1)
+        g["forward_passes"] = wb.passes - p1
         rec["gates"].append(g)
         detail = {k: v for k, v in g.items() if k not in ("gate", "outcome", "failures", "misses")}
         print(f"{g['gate']:<16} {g['outcome']}  {json.dumps(detail)}")

@@ -33,7 +33,7 @@ misbuilt scout scenario.
 | 9 | TURN-3 — test the TURN-2 reversal properly | **GATE 2 FAILED** — blocked for $1.56 | [RESULTS-TURN3.md](RESULTS-TURN3.md) |
 | 10 | SWEEP — order sensitivity across model generations | **NO TREND** — all 4 models indistinguishable | [RESULTS-SWEEP.md](RESULTS-SWEEP.md) |
 | 11 | Fixtures vs a real model — predictions P1–P4 | **ALL CONFIRMED** — incl. the limitation, for $0.27 | [RESULTS-FIXVERIFY.md](RESULTS-FIXVERIFY.md) |
-| 12 | MECH-1 — information vs arrangement, read from open weights | **REGISTERED**, not run | [PREREGISTRATION-MECH.md](PREREGISTRATION-MECH.md) |
+| 12 | MECH-1 — information vs arrangement, read from open weights | **B NOT RUN** (confirmatory rung). Rung A (Qwen3-0.6B, replication) failed G3: 19/48 against 0.90 | [RESULTS-MECH1-A.md](RESULTS-MECH1-A.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
 [PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID-1),
@@ -149,8 +149,9 @@ that depends on it.
 
 ## Cost
 
-Every result above was produced with metered Messages API calls; a Claude Code
-subscription cannot serve them. Total spend across all executed studies:
+Every API result above was produced with metered Messages API calls; a Claude
+Code subscription cannot serve them. MECH-1 runs open weights locally and
+makes no calls. Total spend across all executed studies:
 
 | study | calls | cost |
 |---|---|---|
@@ -165,6 +166,7 @@ subscription cannot serve them. Total spend across all executed studies:
 | Real traffic scan | 0 | $0.00 |
 | SWEEP (4 models) | 5,760 | $6.57 |
 | Fixtures verification | 420 | $0.27 |
+| MECH-1 rung A (gates; 152 local forward passes) | 0 | $0.00 |
 | **total** | **30,935** | **~$55.41** |
 
 ## Reproduction
@@ -175,8 +177,11 @@ python3 cli.py --n 200 run                # v1  (~2,200 calls, ~$2.19)
 python3 cli.py --n 50 run2 --episodes 12  # v2  (~6,250 calls, ~$7.67)
 python3 cli.py --n 50 run3 --episodes 12  # v3  (~6,600 calls, ~$8)
 python3 pid_run.py                        # PID (800 calls on opus, ~$4.50)
+python3 mech_run.py gates --model Qwen/Qwen3-0.6B   # MECH-1 rung A: local weights, no calls
 ```
 
 Python 3.11 and numpy; no other dependencies, so the harness runs unchanged
-inside a lab. Determinism is at the request layer only — environments,
+inside a lab. The MECH-1 line is the exception: the optional white-box layer
+also needs torch and transformers (`pip install -r requirements-mech.txt`).
+Determinism is at the request layer only — environments,
 payloads and fork keys reproduce exactly; sampled responses do not. MIT.
