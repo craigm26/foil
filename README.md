@@ -8,10 +8,13 @@ normatively should have. See [PREREGISTRATION.md](PREREGISTRATION.md) for the
 hypotheses, the analysis plan, and the kill rules, all fixed before data
 collection.
 
-**Status:** Phase 0 was not passed under any protocol. Eleven studies, including
-every negative result, are indexed in [FINDINGS.md](FINDINGS.md). MECH-1, the
-first white-box study, is pre-registered and not yet run
+**Status:** Phase 0 was not passed under any protocol. Eleven completed studies,
+including every negative result, are indexed in [FINDINGS.md](FINDINGS.md).
+MECH-1, the first white-box study, is in progress
 ([PREREGISTRATION-MECH.md](PREREGISTRATION-MECH.md)).
+Its replication rung, Qwen3-0.6B, stopped at the construct gate
+([RESULTS-MECH1-A.md](RESULTS-MECH1-A.md)). The confirmatory rung, Qwen3-1.7B,
+has not been run.
 
 ## Why this exists
 
@@ -141,7 +144,8 @@ mech/                white-box layer (optional; torch + transformers)
   gates.py           G0-G3, each blocking
   analysis.py        registered statistics and decision rules (numpy only)
 mech_run.py          plan / gates / run / analyze for MECH-1
-data/                vendored price table
+mech1_g3_probe.py    exploratory: the format example on G3's construct cases
+data/                vendored price table, archived result files
 runs/                sample store (append-only jsonl) and results
 ```
 
