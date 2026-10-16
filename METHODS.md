@@ -83,3 +83,36 @@ small n is a coin flip wearing a rule's clothes. *(TURN-3's 32/36, p = 0.49.)*
 - Costs are computed from `data/prices-anthropic.json` and reported per study.
 - The cheap gates run first because they are cheap: TURN-3's construct gate
   cost $1.56 and blocked an $18 run that would have measured nothing.
+
+## 6. White-box studies
+
+Everything above applies. These add to it, for studies run on open weights
+through `mech/`.
+
+- **The model is pinned by Hub commit hash, and so is the precision.** "Qwen3-
+  1.7B" is a name, not a set of weights; the registration names the revision
+  and the dtype, and the runner refuses any other. *(MECH-1.)*
+- **An operator's validity is checked on the weights, not argued from the
+  architecture.** The knockout claims to cut every path from a hidden span;
+  the leak gate overwrites the span and requires nothing downstream to move,
+  and requires the same overwrite without the knockout to move it, so the test
+  can fail. *(MECH-1.)*
+- **Eligibility is an architectural property, decided before the run.** An
+  attention mask cannot reach a recurrent state, so hybrid linear-attention or
+  state-space models are refused rather than run with a leaky operator.
+  *(MECH-1: Qwen3.5 interleaves Gated DeltaNet 3:1 with full attention.)*
+- **Exact is not the same as certain.** Distributions read from logits carry no
+  sampling error, so uncertainty comes only from which episodes were drawn;
+  intervals resample episodes, never units within one. *(MECH-1.)*
+- **Never move positions without an explicit mask.** transformers 5.x reads
+  any jump in position ids, when no attention mask is passed, as the start of
+  a new packed sequence and silently cuts attention into blocks. A shifted-
+  position arm without the mask measures a different model. *(MECH-1, found
+  while building the arrangement-only arm.)*
+- **A study design gets an independent review before its registration is
+  committed,** by an agent that did not write it, because after the commit
+  every fix is an amendment. *(MECH-1: three blocking problems found, among
+  them an outcome rule that made the registered prediction easier to reach
+  than its rivals.)*
+- **Cost is compute.** Forward passes and wall-clock are recorded per episode
+  and reported per study, as dollars are for API studies.

@@ -33,11 +33,13 @@ misbuilt scout scenario.
 | 9 | TURN-3 — test the TURN-2 reversal properly | **GATE 2 FAILED** — blocked for $1.56 | [RESULTS-TURN3.md](RESULTS-TURN3.md) |
 | 10 | SWEEP — order sensitivity across model generations | **NO TREND** — all 4 models indistinguishable | [RESULTS-SWEEP.md](RESULTS-SWEEP.md) |
 | 11 | Fixtures vs a real model — predictions P1–P4 | **ALL CONFIRMED** — incl. the limitation, for $0.27 | [RESULTS-FIXVERIFY.md](RESULTS-FIXVERIFY.md) |
+| 12 | MECH-1 — information vs arrangement, read from open weights | **REGISTERED**, not run | [PREREGISTRATION-MECH.md](PREREGISTRATION-MECH.md) |
 
 Pre-registrations: [PREREGISTRATION.md](PREREGISTRATION.md) (FOIL),
 [PREREGISTRATION-PID.md](PREREGISTRATION-PID.md) (PID-1),
 [PREREGISTRATION-PID2.md](PREREGISTRATION-PID2.md) (PID-2),
-[PREREGISTRATION-TURN.md](PREREGISTRATION-TURN.md) (TURN).
+[PREREGISTRATION-TURN.md](PREREGISTRATION-TURN.md) (TURN),
+[PREREGISTRATION-MECH.md](PREREGISTRATION-MECH.md) (MECH-1, white-box).
 Interactive site: **https://foil-9vg.pages.dev**
 
 ---
