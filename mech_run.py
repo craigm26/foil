@@ -124,9 +124,12 @@ def cmd_gates(args) -> int:
     rec: dict = {"study": "MECH-1", "exploratory": args.exploratory, "gates": [],
                  "provenance": stamp(__file__)}
     t0 = time.time()
+    loaded: dict = {}
 
     def finish(code: int) -> int:
         rec["seconds"] = round(time.time() - t0, 1)
+        if "wb" in loaded:
+            rec["forward_passes"] = loaded["wb"].passes
         rec["all_pass"] = code == 0
         path.write_text(json.dumps(rec, indent=2))
         print(f"\nwrote {path}")
@@ -139,6 +142,7 @@ def cmd_gates(args) -> int:
         rec["gates"].append({"gate": "G0 eligibility", "outcome": "FAIL", "reason": str(e)})
         print(f"G0 eligibility   FAIL  {e}")
         return finish(3)
+    loaded["wb"] = wb
     rec["identity"] = wb.identity()
     rec["gates"].append({"gate": "G0 eligibility", "outcome": "PASS"})
     print("G0 eligibility   PASS")
@@ -146,9 +150,10 @@ def cmd_gates(args) -> int:
     for name, fn in (("G1", lambda: structural_gate(wb.tok)),
                      ("G2", lambda: leak_gate(wb)),
                      ("G3", lambda: construct_gate(wb))):
-        t1 = time.time()
+        t1, p1 = time.time(), wb.passes
         g = fn()
         g["seconds"] = round(time.time() - t1, 1)
+        g["forward_passes"] = wb.passes - p1
         rec["gates"].append(g)
         detail = {k: v for k, v in g.items() if k not in ("gate", "outcome", "failures", "misses")}
         print(f"{g['gate']:<16} {g['outcome']}  {json.dumps(detail)}")
